@@ -138,16 +138,17 @@ const server = http.createServer((req, res) => {
 });
 
 let currentPort = Number(process.env.PORT || 3080);
+const HOST = "0.0.0.0";
 
 server.on("error", (err) => {
   if (err && err.code === "EADDRINUSE") {
     currentPort += 1;
-    server.listen(currentPort);
+    server.listen(currentPort, HOST);
   } else {
     throw err;
   }
 });
 
-server.listen(currentPort, () => {
-  console.log(`KMUTT MARKET Server running at http://localhost:${currentPort}`);
+server.listen(currentPort, HOST, () => {
+  console.log(`KMUTT MARKET Server running at http://${HOST}:${currentPort}`);
 });
