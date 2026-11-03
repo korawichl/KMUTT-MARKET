@@ -26,6 +26,7 @@ const state = {
     sort: "recommended",
   },
   filterPanelExpanded: false,
+  productFilterPanelExpanded: false,
   mapMode: "gps", // gps | stalls
   selectedMapZone: "ALL",
   selectedStallCode: "A-01",
@@ -479,203 +480,300 @@ function renderHomePage() {
   const heroShop = approvedShops.find((s) => s.slug === "uncle-frog-s11") || approvedShops[0];
 
   return `
-    <!-- 5.2 HERO SECTION -->
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-kicker">
-            <span>🏛️ ข้อมูลจริงจากสำนักงานจัดการทรัพย์สิน มจธ. (BPUU)</span>
-          </div>
-          <h1 class="hero-title">
-            ตลาด มจธ. <span>มีอะไรอร่อยบ้าง?</span>
-          </h1>
-          <p class="hero-subtitle">
-            ค้นพบร้านโปรด เมนูเด็ด และสินค้าน่าสนใจในรั้ว KMUTT — รวมครบทั้งโรงอาหาร S14, คาเฟ่ S2/N10/S11, และตลาดนัดสินค้าชุมชน วันอังคาร–พฤหัสบดี
-          </p>
-
-          <form class="hero-search-box" onsubmit="event.preventDefault(); window.appSubmitHeroSearch();">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:0.6rem; color:#94a3b8; flex-shrink:0;">
+    <!-- MOBILE VIEW (Clean Native Mobile Food App Experience) -->
+    <div class="mobile-only-view">
+      <div class="mobile-app-shell">
+        <!-- 1. Search Bar -->
+        <div class="mobile-search-section">
+          <form class="mobile-search-bar" onsubmit="event.preventDefault(); window.appSubmitHeroSearch('mobile-search-input');">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>
             </svg>
             <input
-              id="hero-search-input"
-              class="hero-search-input"
-              type="text"
-              placeholder="ค้นหาร้านอาหาร เมนู หรือสินค้า..."
-              value="${state.shopFilters.q}"
+              id="mobile-search-input"
+              type="search"
+              placeholder="ค้นหาร้านอาหาร เมนู หรือพิกัดตึก..."
+              value="${state.shopFilters.q || ""}"
             />
-            <button type="submit" class="btn btn-primary">ค้นหาเลย</button>
+            <button type="submit" class="mobile-search-btn">ค้นหา</button>
           </form>
 
-          <div style="margin-top:0.35rem; margin-bottom:0.35rem;">
-            <div style="font-size:0.78rem; color:var(--text-muted); font-weight:600; margin-bottom:0.35rem;">
-              🔥 คำค้นยอดฮิตชาวบางมด:
+          <!-- Horizontal Trending Chips -->
+          <div class="mobile-quick-chips">
+            <button class="mobile-chip" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่</button>
+            <button class="mobile-chip" onclick="window.appQuickSearch('ฮาลาล')">🕌 ฮาลาล S14</button>
+            <button class="mobile-chip" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ S11</button>
+            <button class="mobile-chip" onclick="window.appQuickSearch('บะหมี่')">🍜 บะหมี่เกี๊ยว</button>
+            <button class="mobile-chip" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & ชา</button>
+            <button class="mobile-chip" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
+            <button class="mobile-chip" onclick="window.appNavigate('/shops')">🏪 ดูทุกร้าน (${approvedShops.length})</button>
+          </div>
+        </div>
+
+        <!-- 2. Four Campus Food Hubs (2x2 Grid) -->
+        <div class="mobile-hubs-section">
+          <div class="mobile-section-title">
+            <span>🏛️ โซนของกิน มจธ. บางมด</span>
+            <span class="mobile-section-badge">พิกัดจริง BPUU</span>
+          </div>
+          <div class="mobile-hubs-grid">
+            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('S14')">
+              <span class="mobile-hub-icon">🏢</span>
+              <span class="mobile-hub-name">โรงอาหาร S14</span>
+              <span class="mobile-hub-sub">ข้าวมันไก่ ฮาลาล ข้าวแกง 8 ร้าน</span>
             </div>
-            <div class="quick-tags">
-              <button class="quick-tag" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่ S14</button>
-              <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล</button>
-              <button class="quick-tag" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ Uncle Frog</button>
-              <button class="quick-tag" onclick="window.appQuickSearch('บะหมี่เกี๊ยว')">🍜 บะหมี่เกี๊ยว</button>
-              <button class="quick-tag" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & คาเฟ่</button>
-              <button class="quick-tag" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
-              <button class="quick-tag" onclick="window.appNavigate('/shops')">🏪 ร้านทั้งหมด (${approvedShops.length})</button>
+            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('S2')">
+              <span class="mobile-hub-icon">🎪</span>
+              <span class="mobile-hub-name">ตลาดนัด & S2</span>
+              <span class="mobile-hub-sub">ทุก อ.-พฤหัสบดี + กาแฟ Starbucks</span>
+            </div>
+            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('S11')">
+              <span class="mobile-hub-icon">🐸</span>
+              <span class="mobile-hub-name">Uncle Frog S11</span>
+              <span class="mobile-hub-sub">ร้านลุงกบ อาหารจานเดียว เครื่องดื่ม</span>
+            </div>
+            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('CAFES')">
+              <span class="mobile-hub-icon">☕</span>
+              <span class="mobile-hub-name">คาเฟ่ & เครื่องดื่ม</span>
+              <span class="mobile-hub-sub">Amazon, Inthanin, Fresh Me 9 ร้าน</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-visual-stack">
-          <div class="hero-featured-card">
-            <img class="hero-featured-img" src="${heroShop.cover_image_url}" alt="${heroShop.name_th}" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80'" />
-            <div class="hero-featured-overlay">
-              <div>
-                <span class="badge badge-verified" style="margin-bottom:0.3rem;">⭐ พิกัดยอดฮิตชาวบางมด</span>
-                <h2 style="font-size:1.05rem; font-weight:700;">${heroShop.name_th}</h2>
-                <p style="font-size:0.8rem; color:var(--text-muted);">📍 ${heroShop.building_zone} • ${heroShop.price_range_label}</p>
+        <!-- 3. Immediate Recommended Feed -->
+        <div class="mobile-feed-section">
+          <div class="mobile-section-title">
+            <span>⭐ ร้านเด็ดแนะนำใน มจธ.</span>
+            <button class="mobile-view-all-btn" onclick="window.appNavigate('/shops')">ดูทั้งหมด (${approvedShops.length}) →</button>
+          </div>
+          <div class="mobile-shop-cards">
+            ${recommendedShops.slice(0, 5).map((shop) => renderShopCard(shop)).join("")}
+          </div>
+        </div>
+
+        <!-- 4. Quick Craving Banner -->
+        <div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:1rem; display:flex; align-items:center; justify-content:space-between; gap:0.75rem; box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+          <div>
+            <div style="font-weight:700; font-size:0.92rem; color:var(--text-main);">🎲 นึกไม่ออกว่าจะกินอะไรดี?</div>
+            <div style="font-size:0.75rem; color:#64748b;">สุ่มเมนูเด็ดตามงบและตึกเรียนของคุณ</div>
+          </div>
+          <button class="btn btn-sm btn-primary" onclick="window.appOpenCravingModal()" style="white-space:nowrap; padding:0.45rem 0.85rem; font-size:0.8rem;">สุ่มกิน</button>
+        </div>
+
+        <!-- 5. Popular Products Feed -->
+        <div class="mobile-feed-section">
+          <div class="mobile-section-title">
+            <span>🔥 เมนูยอดฮิต (ราคาชัดเจน)</span>
+            <button class="mobile-view-all-btn" onclick="window.appNavigate('/products')">ดูทั้งหมด →</button>
+          </div>
+          <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); gap:0.65rem;">
+            ${popularProducts.slice(0, 4).map((p) => renderProductCard(p)).join("")}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESKTOP VIEW (Spacious Desktop Layout with Full Hero, Schedules, and Category Grids) -->
+    <div class="desktop-only-view">
+      <!-- 5.2 HERO SECTION -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div>
+            <div class="hero-kicker">
+              <span>🏛️ ข้อมูลจริงจากสำนักงานจัดการทรัพย์สิน มจธ. (BPUU)</span>
+            </div>
+            <h1 class="hero-title">
+              ตลาด มจธ. <span>มีอะไรอร่อยบ้าง?</span>
+            </h1>
+            <p class="hero-subtitle">
+              ค้นพบร้านโปรด เมนูเด็ด และสินค้าน่าสนใจในรั้ว KMUTT — รวมครบทั้งโรงอาหาร S14, คาเฟ่ S2/N10/S11, และตลาดนัดสินค้าชุมชน วันอังคาร–พฤหัสบดี
+            </p>
+
+            <form class="hero-search-box" onsubmit="event.preventDefault(); window.appSubmitHeroSearch('hero-search-input');">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:0.6rem; color:#94a3b8; flex-shrink:0;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                id="hero-search-input"
+                class="hero-search-input"
+                type="text"
+                placeholder="ค้นหาร้านอาหาร เมนู หรือสินค้า..."
+                value="${state.shopFilters.q}"
+              />
+              <button type="submit" class="btn btn-primary">ค้นหาเลย</button>
+            </form>
+
+            <div style="margin-top:0.35rem; margin-bottom:0.35rem;">
+              <div style="font-size:0.78rem; color:var(--text-muted); font-weight:600; margin-bottom:0.35rem;">
+                🔥 คำค้นยอดฮิตชาวบางมด:
               </div>
-              <button class="btn btn-sm btn-primary" onclick="window.appNavigate('/shops/${heroShop.slug}')">ดูร้านนี้</button>
+              <div class="quick-tags">
+                <button class="quick-tag" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่ S14</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ Uncle Frog</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('บะหมี่เกี๊ยว')">🍜 บะหมี่เกี๊ยว</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & คาเฟ่</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
+                <button class="quick-tag" onclick="window.appNavigate('/shops')">🏪 ร้านทั้งหมด (${approvedShops.length})</button>
+              </div>
             </div>
           </div>
 
-          <div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+          <div class="hero-visual-stack">
+            <div class="hero-featured-card">
+              <img class="hero-featured-img" src="${heroShop.cover_image_url}" alt="${heroShop.name_th}" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80'" />
+              <div class="hero-featured-overlay">
+                <div>
+                  <span class="badge badge-verified" style="margin-bottom:0.3rem;">⭐ พิกัดยอดฮิตชาวบางมด</span>
+                  <h2 style="font-size:1.05rem; font-weight:700;">${heroShop.name_th}</h2>
+                  <p style="font-size:0.8rem; color:var(--text-muted);">📍 ${heroShop.building_zone} • ${heroShop.price_range_label}</p>
+                </div>
+                <button class="btn btn-sm btn-primary" onclick="window.appNavigate('/shops/${heroShop.slug}')">ดูร้านนี้</button>
+              </div>
+            </div>
+
+            <div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem;">
+              <div>
+                <div style="font-weight:700; font-size:0.95rem;">คิดไม่ออกว่าเที่ยงนี้กินอะไรดีใน มจธ.?</div>
+                <div style="font-size:0.8rem; color:var(--text-muted);">สุ่มเมนูเด็ดตามงบนักศึกษาและตึกเรียนของคุณ</div>
+              </div>
+              <button class="btn btn-cream" onclick="window.appOpenCravingModal()">🎲 สุ่มเมนูให้หน่อย</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5.3 MARKET INFORMATION CARDS -->
+      <section class="section-block">
+        <div class="container">
+          <div class="section-header">
             <div>
-              <div style="font-weight:700; font-size:0.95rem;">คิดไม่ออกว่าเที่ยงนี้กินอะไรดีใน มจธ.?</div>
-              <div style="font-size:0.8rem; color:var(--text-muted);">สุ่มเมนูเด็ดตามงบนักศึกษาและตึกเรียนของคุณ</div>
+              <h2 class="section-title">ตารางตลาดนัดภายใน มจธ. บางมด</h2>
+              <p class="section-desc">เวลาทำการ 07:00–17:00 น. (ผู้ค้าเริ่มตั้งร้าน 05:30 น.) ณ ลานชั้น 1 อาคารจอดรถ S2 และพื้นที่ส่วนกลาง</p>
             </div>
-            <button class="btn btn-cream" onclick="window.appOpenCravingModal()">🎲 สุ่มเมนูให้หน่อย</button>
+            <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/market/schedule')">ดูตารางและกติกาทั้งหมด →</button>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 5.3 MARKET INFORMATION CARDS -->
-    <section class="section-block">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">ตารางตลาดนัดภายใน มจธ. บางมด</h2>
-            <p class="section-desc">เวลาทำการ 07:00–17:00 น. (ผู้ค้าเริ่มตั้งร้าน 05:30 น.) ณ ลานชั้น 1 อาคารจอดรถ S2 และพื้นที่ส่วนกลาง</p>
-          </div>
-          <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/market/schedule')">ดูตารางและกติกาทั้งหมด →</button>
-        </div>
-
-        <div class="schedule-grid">
-          ${state.db.market_events
-            .map((ev) => {
-              const isToday = Number(ev.day_of_week) === bkk.dayOfWeek;
-              return `
-                <div class="schedule-card ${isToday ? "today-highlight" : ""}">
-                  <div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.65rem;">
-                      <span class="badge ${isToday ? "badge-open" : "badge-verified"}">
-                        📅 ${ev.day_name_th} ${isToday ? "(วันนี้)" : ""}
-                      </span>
-                      <span class="tabular-nums" style="font-size:0.78rem; font-weight:600; color:var(--text-muted);">
-                        ตั้งร้าน ${ev.setup_time} น.
-                      </span>
+          <div class="schedule-grid">
+            ${state.db.market_events
+              .map((ev) => {
+                const isToday = Number(ev.day_of_week) === bkk.dayOfWeek;
+                return `
+                  <div class="schedule-card ${isToday ? "today-highlight" : ""}">
+                    <div>
+                      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.65rem;">
+                        <span class="badge ${isToday ? "badge-open" : "badge-verified"}">
+                          📅 ${ev.day_name_th} ${isToday ? "(วันนี้)" : ""}
+                        </span>
+                        <span class="tabular-nums" style="font-size:0.78rem; font-weight:600; color:var(--text-muted);">
+                          ตั้งร้าน ${ev.setup_time} น.
+                        </span>
+                      </div>
+                      <h3 style="font-size:1.18rem; font-weight:700; margin-bottom:0.35rem;">${ev.title_th}</h3>
+                      <p style="font-size:0.85rem; color:var(--text-muted);">${ev.description}</p>
                     </div>
-                    <h3 style="font-size:1.18rem; font-weight:700; margin-bottom:0.35rem;">${ev.title_th}</h3>
-                    <p style="font-size:0.85rem; color:var(--text-muted);">${ev.description}</p>
+                    <div style="padding-top:0.75rem; border-top:1px solid var(--border); font-size:0.82rem; display:flex; flex-direction:column; gap:0.25rem;">
+                      <div><strong>🕒 เวลาจำหน่าย:</strong> <span class="tabular-nums">${ev.open_time}–${ev.close_time} น.</span></div>
+                      <div><strong>📍 สถานที่:</strong> ${ev.location_name}</div>
+                    </div>
                   </div>
-                  <div style="padding-top:0.75rem; border-top:1px solid var(--border); font-size:0.82rem; display:flex; flex-direction:column; gap:0.25rem;">
-                    <div><strong>🕒 เวลาจำหน่าย:</strong> <span class="tabular-nums">${ev.open_time}–${ev.close_time} น.</span></div>
-                    <div><strong>📍 สถานที่:</strong> ${ev.location_name}</div>
+                `;
+              })
+              .join("")}
+          </div>
+          <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.75rem;">
+            * หมายเหตุ: วันและเวลาเปิดตลาดนัดอาจมีการเปลี่ยนแปลงตามประกาศของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และกลุ่มงานจัดการผลประโยชน์ (BPUU)
+          </p>
+        </div>
+      </section>
+
+      <!-- 5.4 CATEGORY SECTION -->
+      <section class="section-block" style="background:#ffffff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">เลือกตามหมวดหมู่อาหารและสินค้า (${state.db.categories.length} หมวดหมู่)</h2>
+              <p class="section-desc">ครบทั้งอาหารตามสั่ง ก๋วยเตี๋ยว ฮาลาล คาเฟ่ ขนมเบเกอรี่ และสินค้าอุปโภคในรั้ว มจธ.</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/categories')">ดูหมวดหมู่ทั้งหมด →</button>
+          </div>
+
+          <div class="category-grid">
+            ${state.db.categories
+              .map((cat) => {
+                const count = approvedShops.filter((s) => s.category_id === cat.id).length;
+                return `
+                  <div class="category-card" onclick="window.appFilterByCategory('${cat.id}')">
+                    <div class="category-icon-box">${cat.name_th.slice(0, 1)}</div>
+                    <div>
+                      <div style="font-weight:700; font-size:0.88rem;">${cat.name_th}</div>
+                      <div class="tabular-nums" style="font-size:0.74rem; color:var(--text-muted);">${count} ร้านค้า</div>
+                    </div>
                   </div>
-                </div>
-              `;
-            })
-            .join("")}
-        </div>
-        <p style="font-size:0.82rem; color:var(--text-muted); margin-top:0.75rem;">
-          * หมายเหตุ: วันและเวลาเปิดตลาดนัดอาจมีการเปลี่ยนแปลงตามประกาศของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี และกลุ่มงานจัดการผลประโยชน์ (BPUU)
-        </p>
-      </div>
-    </section>
-
-    <!-- 5.4 CATEGORY SECTION -->
-    <section class="section-block" style="background:#ffffff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">เลือกตามหมวดหมู่อาหารและสินค้า (${state.db.categories.length} หมวดหมู่)</h2>
-            <p class="section-desc">ครบทั้งอาหารตามสั่ง ก๋วยเตี๋ยว ฮาลาล คาเฟ่ ขนมเบเกอรี่ และสินค้าอุปโภคในรั้ว มจธ.</p>
+                `;
+              })
+              .join("")}
           </div>
-          <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/categories')">ดูหมวดหมู่ทั้งหมด →</button>
         </div>
+      </section>
 
-        <div class="category-grid">
-          ${state.db.categories
-            .map((cat) => {
-              const count = approvedShops.filter((s) => s.category_id === cat.id).length;
-              return `
-                <div class="category-card" onclick="window.appFilterByCategory('${cat.id}')">
-                  <div class="category-icon-box">${cat.name_th.slice(0, 1)}</div>
-                  <div>
-                    <div style="font-weight:700; font-size:0.88rem;">${cat.name_th}</div>
-                    <div class="tabular-nums" style="font-size:0.74rem; color:var(--text-muted);">${count} ร้านค้า</div>
-                  </div>
-                </div>
-              `;
-            })
-            .join("")}
-        </div>
-      </div>
-    </section>
-
-    <!-- 5.5 RECOMMENDED SHOPS -->
-    <section class="section-block">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">ร้านเด็ดแนะนำในรั้ว มจธ.</h2>
-            <p class="section-desc">คัดสรรร้านอาหารประจำโรงอาหาร S14 คาเฟ่ยอดฮิต และร้านดังตลาดนัดที่นักศึกษาบางมดบอกต่อ</p>
+      <!-- 5.5 RECOMMENDED SHOPS -->
+      <section class="section-block">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">ร้านเด็ดแนะนำในรั้ว มจธ.</h2>
+              <p class="section-desc">คัดสรรร้านอาหารประจำโรงอาหาร S14 คาเฟ่ยอดฮิต และร้านดังตลาดนัดที่นักศึกษาบางมดบอกต่อ</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="window.appNavigate('/shops')">ดูร้านค้าทั้งหมด (${approvedShops.length}) →</button>
           </div>
-          <button class="btn btn-primary btn-sm" onclick="window.appNavigate('/shops')">ดูร้านค้าทั้งหมด (${approvedShops.length}) →</button>
-        </div>
 
-        <div class="shops-grid">
-          ${recommendedShops.map((shop) => renderShopCard(shop)).join("")}
-        </div>
-      </div>
-    </section>
-
-    <!-- 5.6 POPULAR PRODUCTS -->
-    <section class="section-block" style="background:var(--kmutt-cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">เมนูเด็ดและสินค้ายอดนิยม</h2>
-            <p class="section-desc">อิ่มอร่อยคุ้มค่าในงบนักศึกษา พร้อมราคาชัดเจนจากฐานข้อมูลจริง</p>
+          <div class="shops-grid">
+            ${recommendedShops.map((shop) => renderShopCard(shop)).join("")}
           </div>
-          <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/products')">ดูเมนูทั้งหมด (${state.db.products.length}) →</button>
         </div>
+      </section>
 
-        <div class="products-grid">
-          ${popularProducts.map((p) => renderProductCard(p)).join("")}
-        </div>
-      </div>
-    </section>
-
-    <!-- 5.7 TODAY'S SHOPS -->
-    <section class="section-block">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2 class="section-title">ร้านค้าที่เปิดให้บริการวันนี้ (${bkk.dayNameTh})</h2>
-            <p class="section-desc">คำนวณตามเวลาประเทศไทย (Asia/Bangkok) จากตารางเปิดร้านที่ได้รับการยืนยัน</p>
+      <!-- 5.6 POPULAR PRODUCTS -->
+      <section class="section-block" style="background:var(--kmutt-cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">เมนูเด็ดและสินค้ายอดนิยม</h2>
+              <p class="section-desc">อิ่มอร่อยคุ้มค่าในงบนักศึกษา พร้อมราคาชัดเจนจากฐานข้อมูลจริง</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/products')">ดูเมนูทั้งหมด (${state.db.products.length}) →</button>
           </div>
-          <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/market/map')">ดูพิกัดบนแผนที่ →</button>
-        </div>
 
-        ${
-          todayShops.length > 0
-            ? `<div class="shops-grid">${todayShops.slice(0, 6).map((s) => renderShopCard(s)).join("")}</div>`
-            : `<div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:2.5rem; text-align:center;">
-                <p style="font-size:1.05rem; font-weight:600; color:var(--text-muted);">ยังไม่มีข้อมูลร้านค้าที่เปิดขายในวันนี้</p>
-              </div>`
-        }
-      </div>
-    </section>
+          <div class="products-grid">
+            ${popularProducts.map((p) => renderProductCard(p)).join("")}
+          </div>
+        </div>
+      </section>
+
+      <!-- 5.7 TODAY'S SHOPS -->
+      <section class="section-block">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">ร้านค้าที่เปิดให้บริการวันนี้ (${bkk.dayNameTh})</h2>
+              <p class="section-desc">คำนวณตามเวลาประเทศไทย (Asia/Bangkok) จากตารางเปิดร้านที่ได้รับการยืนยัน</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.appNavigate('/market/map')">ดูพิกัดบนแผนที่ →</button>
+          </div>
+
+          ${
+            todayShops.length > 0
+              ? `<div class="shops-grid">${todayShops.slice(0, 6).map((s) => renderShopCard(s)).join("")}</div>`
+              : `<div style="background:#ffffff; border:1px solid var(--border); border-radius:14px; padding:2.5rem; text-align:center;">
+                  <p style="font-size:1.05rem; font-weight:600; color:var(--text-muted);">ยังไม่มีข้อมูลร้านค้าที่เปิดขายในวันนี้</p>
+                </div>`
+          }
+        </div>
+      </section>
+    </div>
   `;
 }
 
@@ -1014,11 +1112,39 @@ function renderProductsDirectoryPage() {
             <h1 class="section-title">ค้นหาเมนูอาหาร เครื่องดื่ม และสินค้า (${filtered.length} รายการ)</h1>
             <p class="section-desc">เช็กราคาอาหารจานเดียว กาแฟ ขนม และของกินตลาดนัด มจธ. ก่อนเดินไปซื้อจริง</p>
           </div>
-          <button class="btn btn-cream btn-sm" onclick="window.appOpenCravingModal()">🎲 สุ่มเมนูตามงบ</button>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <button class="btn btn-cream btn-sm" onclick="window.appOpenCravingModal()">🎲 สุ่มเมนูตามงบ</button>
+            <button class="btn btn-outline btn-sm" onclick="window.appResetProductFilters()">ล้างตัวกรอง</button>
+          </div>
         </div>
 
-        <div class="filter-panel">
-          <div class="filter-grid" style="grid-template-columns:2fr 1fr 1fr 1fr;">
+        <!-- Quick 1-Tap Filter Chips for Products -->
+        <div class="quick-tags" style="margin-bottom:0.85rem;">
+          <button class="quick-tag" onclick="window.appResetProductFilters()" style="${pf.category === "ALL" && pf.maxPrice === "ALL" && !pf.q ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            ✨ ทั้งหมด (${state.db.products.length})
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateProductFilter('category', '${pf.category === "CAT-ONE-DISH" ? "ALL" : "CAT-ONE-DISH"}')" style="${pf.category === "CAT-ONE-DISH" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🍛 อาหารจานเดียว
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateProductFilter('category', '${pf.category === "CAT-NOODLE" ? "ALL" : "CAT-NOODLE"}')" style="${pf.category === "CAT-NOODLE" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🍜 ก๋วยเตี๋ยว
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateProductFilter('category', '${pf.category === "CAT-CAFE" ? "ALL" : "CAT-CAFE"}')" style="${pf.category === "CAT-CAFE" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            ☕ คาเฟ่ & ชานม
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateProductFilter('maxPrice', '${pf.maxPrice === "45" ? "ALL" : "45"}')" style="${pf.maxPrice === "45" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            💰 ไม่เกิน ฿45
+          </button>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+          <button class="btn btn-sm btn-outline mobile-filter-toggle-btn" onclick="window.appToggleProductFilterPanel()">
+            ${state.productFilterPanelExpanded ? "▲ ซ่อนตัวกรองละเอียด" : "⚙️ ค้นหาแบบละเอียด (พิมพ์ค้นหา / งบ / เรียง) ▼"}
+          </button>
+        </div>
+
+        <div class="filter-panel ${state.productFilterPanelExpanded ? "mobile-filter-open" : "mobile-filter-collapsed"}">
+          <div class="filter-grid product-filter-grid">
             <div>
               <label class="form-label">ค้นหาชื่อเมนู / รายละเอียด</label>
               <input class="form-control" placeholder="เช่น ข้าวหมูแดง, มัทฉะ, ไก่ทอดหาดใหญ่..." value="${pf.q}" oninput="window.appUpdateProductFilter('q', this.value)" />
@@ -1753,9 +1879,22 @@ window.appSetCravingFilter = (key, val) => {
 };
 window.appPickRandomCraving = pickRandomCraving;
 
-window.appSubmitHeroSearch = () => {
-  const input = document.getElementById("hero-search-input");
-  state.shopFilters.q = input ? input.value : "";
+window.appSubmitHeroSearch = (customInputId) => {
+  const input = (customInputId && document.getElementById(customInputId)) ||
+                document.getElementById("mobile-search-input") ||
+                document.getElementById("hero-search-input");
+  state.shopFilters.q = input ? input.value.trim() : "";
+  navigate("/shops");
+};
+
+window.appQuickFilterZone = (zone) => {
+  if (zone === "CAFES") {
+    state.shopFilters.category = "CAT-CAFE";
+    state.shopFilters.zone = "ALL";
+  } else {
+    state.shopFilters.zone = zone;
+    state.shopFilters.category = "ALL";
+  }
   navigate("/shops");
 };
 
@@ -1783,6 +1922,21 @@ window.appResetShopFilters = () => {
     day: "ALL",
     status: "ALL",
     verifiedOnly: false,
+    sort: "recommended",
+  };
+  renderApp();
+};
+
+window.appToggleProductFilterPanel = () => {
+  state.productFilterPanelExpanded = !state.productFilterPanelExpanded;
+  renderApp();
+};
+
+window.appResetProductFilters = () => {
+  state.productFilters = {
+    q: "",
+    category: "ALL",
+    maxPrice: "ALL",
     sort: "recommended",
   };
   renderApp();
