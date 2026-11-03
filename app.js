@@ -25,6 +25,7 @@ const state = {
     maxPrice: "ALL",
     sort: "recommended",
   },
+  filterPanelExpanded: false,
   mapMode: "gps", // gps | stalls
   selectedMapZone: "ALL",
   selectedStallCode: "A-01",
@@ -412,11 +413,11 @@ function renderTopHeader() {
   return `
     <div class="top-pulse-bar">
       <div class="container top-pulse-inner">
-        <div style="display:flex; align-items:center; gap:0.55rem; flex-wrap:wrap;">
+        <div class="top-pulse-status" style="display:flex; align-items:center; gap:0.45rem;">
           <span class="pulse-dot"></span>
-          <span><strong>สถานะตลาด มจธ. (${bkk.dayNameTh} ${bkk.timeStr} น.):</strong> เปิดให้บริการวันนี้ <strong class="tabular-nums">${openCount}</strong> ร้าน • ตลาดนัด อังคาร–พฤหัสบดี 07:00–17:00 น.</span>
+          <span><strong>สถานะตลาด มจธ. (${bkk.dayNameTh} ${bkk.timeStr} น.):</strong> เปิดวันนี้ <strong class="tabular-nums">${openCount}</strong> ร้าน • ตลาดนัด S2 อังคาร–พฤหัสบดี</span>
         </div>
-        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap;">
+        <div class="top-pulse-links" style="display:flex; align-items:center; gap:0.85rem;">
           <a href="/market/map" onclick="event.preventDefault(); window.appNavigate('/market/map')" style="color:#ffffff; opacity:0.92;">📍 แผนที่โรงอาหาร S14 & ตลาดนัด S2</a>
           <span style="opacity:0.4;">|</span>
           <a href="/about" onclick="event.preventDefault(); window.appNavigate('/about')" style="color:#ffffff; opacity:0.92;">📞 สำนักงานจัดการทรัพย์สิน (BPUU)</a>
@@ -428,7 +429,7 @@ function renderTopHeader() {
       <div class="container nav-inner">
         <div class="brand-logo" onclick="window.appNavigate('/')">
           <div class="brand-mark" style="background:#FA4616; border-radius:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(250,70,22,0.28);">
-            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M24 6L11 14.5V33.5L24 42L37 33.5V14.5L24 6Z" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" fill="#D8380A"/>
               <circle cx="24" cy="24" r="6" fill="#FFC72C"/>
               <path d="M24 10V18M24 30V38M15 24H9M39 24H33" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
@@ -440,7 +441,7 @@ function renderTopHeader() {
           </div>
         </div>
 
-        <nav class="nav-links ${state.mobileMenuOpen ? "mobile-open" : ""}">
+        <nav class="nav-links">
           <a class="nav-link ${p === "/" ? "active" : ""}" onclick="window.appNavigate('/')">หน้าแรก</a>
           <a class="nav-link ${p.startsWith("/shops") ? "active" : ""}" onclick="window.appNavigate('/shops')">ร้านค้าทั้งหมด</a>
           <a class="nav-link ${p.startsWith("/products") ? "active" : ""}" onclick="window.appNavigate('/products')">เมนูอาหาร</a>
@@ -451,13 +452,16 @@ function renderTopHeader() {
         </nav>
 
         <div class="nav-actions">
-          <button class="btn btn-sm btn-cream" onclick="window.appOpenCravingModal()" title="สุ่มเมนูเด็ดใน มจธ.">
+          <button class="btn btn-sm btn-cream desktop-action-btn" onclick="window.appOpenCravingModal()" title="สุ่มเมนูเด็ดใน มจธ.">
             🎲 วันนี้กินอะไรดี?
           </button>
-          <button class="btn btn-sm btn-outline" onclick="window.appNavigate('/favorites')">
+          <button class="btn btn-sm btn-outline desktop-action-btn" onclick="window.appNavigate('/favorites')">
             ♥ ร้านโปรด (<span class="tabular-nums">${state.favorites.length}</span>)
           </button>
-          <button class="btn btn-sm btn-outline mobile-menu-btn" onclick="window.appToggleMobileMenu()">
+          <button class="btn btn-sm btn-cream mobile-quick-dice-btn" onclick="window.appOpenCravingModal()" title="สุ่มเมนูเด็ด">
+            🎲 สุ่มกิน
+          </button>
+          <button class="btn btn-sm btn-outline mobile-menu-btn" onclick="window.appToggleMobileMenu()" aria-label="เปิดเมนูนำทาง">
             ☰
           </button>
         </div>
@@ -490,7 +494,10 @@ function renderHomePage() {
           </p>
 
           <form class="hero-search-box" onsubmit="event.preventDefault(); window.appSubmitHeroSearch();">
-            <span style="padding-left:0.6rem; color:var(--text-muted);">🔍</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:0.6rem; color:#94a3b8; flex-shrink:0;">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </svg>
             <input
               id="hero-search-input"
               class="hero-search-input"
@@ -501,13 +508,19 @@ function renderHomePage() {
             <button type="submit" class="btn btn-primary">ค้นหาเลย</button>
           </form>
 
-          <div class="quick-tags">
-            <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">คำค้นยอดฮิต:</span>
-            <button class="quick-tag" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่ S14</button>
-            <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล</button>
-            <button class="quick-tag" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ Uncle Frog</button>
-            <button class="quick-tag" onclick="window.appQuickSearch('บะหมี่เกี๊ยว')">🍜 บะหมี่เกี๊ยว</button>
-            <button class="quick-tag" onclick="window.appNavigate('/shops')">🏪 ดูร้านค้าทั้งหมด (${approvedShops.length})</button>
+          <div style="margin-top:0.35rem; margin-bottom:0.35rem;">
+            <div style="font-size:0.78rem; color:var(--text-muted); font-weight:600; margin-bottom:0.35rem;">
+              🔥 คำค้นยอดฮิตชาวบางมด:
+            </div>
+            <div class="quick-tags">
+              <button class="quick-tag" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่ S14</button>
+              <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล</button>
+              <button class="quick-tag" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ Uncle Frog</button>
+              <button class="quick-tag" onclick="window.appQuickSearch('บะหมี่เกี๊ยว')">🍜 บะหมี่เกี๊ยว</button>
+              <button class="quick-tag" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & คาเฟ่</button>
+              <button class="quick-tag" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
+              <button class="quick-tag" onclick="window.appNavigate('/shops')">🏪 ร้านทั้งหมด (${approvedShops.length})</button>
+            </div>
           </div>
         </div>
 
@@ -711,7 +724,35 @@ function renderShopsDirectoryPage() {
           <button class="btn btn-outline btn-sm" onclick="window.appResetShopFilters()">ล้างตัวกรองทั้งหมด</button>
         </div>
 
-        <div class="filter-panel">
+        <!-- Quick 1-Tap Filter Chips for Mobile & Fast Browsing -->
+        <div class="quick-tags" style="margin-bottom:0.85rem;">
+          <button class="quick-tag" onclick="window.appResetShopFilters()" style="${f.status === "ALL" && f.zone === "ALL" && f.category === "ALL" && f.type === "ALL" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            ✨ ทั้งหมด (${approved.length})
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateShopFilter('status', '${f.status === "OPEN_TODAY" ? "ALL" : "OPEN_TODAY"}')" style="${f.status === "OPEN_TODAY" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🟢 เปิดตอนนี้
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S14" ? "ALL" : "S14"}')" style="${f.zone === "S14" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🏢 โรงอาหาร S14
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S2" ? "ALL" : "S2"}')" style="${f.zone === "S2" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🎪 ตลาดนัด S2
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S11" ? "ALL" : "S11"}')" style="${f.zone === "S11" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🐸 ลุงกบ S11
+          </button>
+          <button class="quick-tag" onclick="window.appUpdateShopFilter('type', '${f.type === "COFFEE_DRINK" ? "ALL" : "COFFEE_DRINK"}')" style="${f.type === "COFFEE_DRINK" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            ☕ คาเฟ่ & ชานม
+          </button>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+          <button class="btn btn-sm btn-outline mobile-filter-toggle-btn" onclick="window.appToggleFilterPanel()">
+            ${state.filterPanelExpanded ? "▲ ซ่อนตัวกรองละเอียด" : "⚙️ ค้นหาแบบละเอียด (พิมพ์ค้นหา / อาคาร / วัน) ▼"}
+          </button>
+        </div>
+
+        <div class="filter-panel ${state.filterPanelExpanded ? "mobile-filter-open" : "mobile-filter-collapsed"}">
           <div class="filter-grid">
             <div>
               <label class="form-label">ค้นหาชื่อร้าน / เมนูอาหาร / คำอธิบาย</label>
@@ -1515,6 +1556,156 @@ function renderMainView() {
   return renderHomePage();
 }
 
+function renderMobileBottomNav() {
+  const p =
+    (state.route || "/")
+      .replace(/\/index\.html$/, "")
+      .replace(/^\/public/, "")
+      .replace(/\/+$/, "") || "/";
+
+  const isHome = p === "/" || p === "";
+  const isShops = p.startsWith("/shops");
+  const isProducts = p.startsWith("/products");
+  const isMap = p.startsWith("/market/map");
+  const isFav = p === "/favorites";
+
+  return `
+    <nav class="mobile-bottom-nav" aria-label="เมนูหลักบนมือถือ">
+      <button class="bottom-tab-item ${isHome ? "active" : ""}" onclick="window.appNavigate('/')">
+        <span class="tab-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </span>
+        <span class="tab-label">หน้าแรก</span>
+      </button>
+      <button class="bottom-tab-item ${isShops ? "active" : ""}" onclick="window.appNavigate('/shops')">
+        <span class="tab-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path>
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+            <path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path>
+            <path d="M2 7h20"></path>
+          </svg>
+        </span>
+        <span class="tab-label">ร้านค้า</span>
+      </button>
+      <button class="bottom-tab-item ${isProducts ? "active" : ""}" onclick="window.appNavigate('/products')">
+        <span class="tab-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2v6a3 3 0 0 1-3 3 3 3 0 0 1-3-3V2"></path>
+            <path d="M15 2v18"></path>
+            <path d="M9 2v4a2 2 0 0 1-2 2H4"></path>
+            <path d="M6 2v18"></path>
+          </svg>
+        </span>
+        <span class="tab-label">เมนูเด็ด</span>
+      </button>
+      <button class="bottom-tab-item ${isMap ? "active" : ""}" onclick="window.appNavigate('/market/map')">
+        <span class="tab-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+            <line x1="9" y1="3" x2="9" y2="18"></line>
+            <line x1="15" y1="6" x2="15" y2="21"></line>
+          </svg>
+        </span>
+        <span class="tab-label">แผนที่</span>
+      </button>
+      <button class="bottom-tab-item ${isFav ? "active" : ""}" onclick="window.appNavigate('/favorites')">
+        <span class="tab-icon tab-icon-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+          </svg>
+          ${state.favorites.length ? `<span class="tab-badge">${state.favorites.length}</span>` : ""}
+        </span>
+        <span class="tab-label">ร้านโปรด</span>
+      </button>
+    </nav>
+  `;
+}
+
+function renderMobileDrawer() {
+  if (!state.mobileMenuOpen) return "";
+  const p =
+    (state.route || "/")
+      .replace(/\/index\.html$/, "")
+      .replace(/^\/public/, "")
+      .replace(/\/+$/, "") || "/";
+
+  return `
+    <div class="mobile-drawer-backdrop" onclick="window.appToggleMobileMenu()">
+      <div class="mobile-drawer-card" onclick="event.stopPropagation()">
+        <div class="mobile-drawer-header">
+          <div style="display:flex; align-items:center; gap:0.65rem;">
+            <div class="brand-mark" style="background:#FA4616; width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+              <svg width="22" height="22" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 6L11 14.5V33.5L24 42L37 33.5V14.5L24 6Z" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" fill="#D8380A"/>
+                <circle cx="24" cy="24" r="6" fill="#FFC72C"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:700; font-size:1.02rem; color:var(--text-main);">KMUTT MARKET</div>
+              <div style="font-size:0.72rem; color:var(--kmutt-dark-orange); font-weight:600;">เมนูนำทางตลาด มจธ.</div>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-outline" onclick="window.appToggleMobileMenu()" style="border-radius:999px; width:32px; height:32px; padding:0; display:flex; align-items:center; justify-content:center;">✕</button>
+        </div>
+
+        <div class="mobile-drawer-body">
+          <div class="mobile-drawer-nav">
+            <a class="drawer-nav-item ${p === "/" ? "active" : ""}" onclick="window.appNavigate('/')">
+              <span>🏠 หน้าแรก</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p.startsWith("/shops") ? "active" : ""}" onclick="window.appNavigate('/shops')">
+              <span>🍜 ร้านค้าทั้งหมด (${state.db?.shops?.length || 22} ร้าน)</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p.startsWith("/products") ? "active" : ""}" onclick="window.appNavigate('/products')">
+              <span>📋 เมนูอาหารและราคา</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p.startsWith("/categories") ? "active" : ""}" onclick="window.appNavigate('/categories')">
+              <span>🍱 หมวดหมู่สินค้า</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p.startsWith("/market/map") ? "active" : ""}" onclick="window.appNavigate('/market/map')">
+              <span>🗺️ แผนที่อาคาร S14, S2, S11, N10</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p.startsWith("/market/schedule") ? "active" : ""}" onclick="window.appNavigate('/market/schedule')">
+              <span>📅 ตารางวันจัดตลาดนัด มจธ.</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p === "/favorites" ? "active" : ""}" onclick="window.appNavigate('/favorites')">
+              <span>♥ ร้านโปรดที่บันทึกไว้ (${state.favorites.length})</span>
+              <span>→</span>
+            </a>
+            <a class="drawer-nav-item ${p === "/about" ? "active" : ""}" onclick="window.appNavigate('/about')">
+              <span>🏛️ เกี่ยวกับโครงการ & ติดต่อ BPUU</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <div style="margin-top:1.1rem; padding:0.9rem; background:var(--kmutt-light-orange); border-radius:12px; border:1px solid var(--kmutt-warm-border);">
+            <div style="font-weight:700; font-size:0.9rem; color:var(--kmutt-dark-orange); margin-bottom:0.2rem;">🎲 คิดไม่ออกว่าจะกินอะไร?</div>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:0.65rem;">ให้ระบบสุ่มเมนูเด็ดตามงบและตึกเรียนของคุณ</p>
+            <button class="btn btn-primary" style="width:100%; font-size:0.82rem;" onclick="window.appToggleMobileMenu(); window.appOpenCravingModal();">
+              🎲 สุ่มเมนูอาหารให้หน่อย!
+            </button>
+          </div>
+
+          <div style="margin-top:auto; padding-top:1rem; font-size:0.78rem; color:var(--text-muted); border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+            <span>สำนักงานจัดการทรัพย์สิน BPUU</span>
+            <a href="tel:024708065" style="color:var(--kmutt-dark-orange); font-weight:600;">📞 02-470-8065</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderApp() {
   const root = document.getElementById("app-root");
   if (!root || !state.db) return;
@@ -1525,6 +1716,8 @@ function renderApp() {
       ${renderMainView()}
     </main>
     ${renderFooter()}
+    ${renderMobileBottomNav()}
+    ${renderMobileDrawer()}
     ${renderCravingModal()}
   `;
 
@@ -1538,6 +1731,10 @@ window.appNavigate = navigate;
 window.appToggleFav = toggleFavorite;
 window.appToggleMobileMenu = () => {
   state.mobileMenuOpen = !state.mobileMenuOpen;
+  renderApp();
+};
+window.appToggleFilterPanel = () => {
+  state.filterPanelExpanded = !state.filterPanelExpanded;
   renderApp();
 };
 window.appOpenCravingModal = () => {
