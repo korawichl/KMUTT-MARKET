@@ -164,33 +164,67 @@ function normalizeDb(raw) {
 }
 
 async function fetchDatabase() {
-  const res = await fetch("/api/market-data");
-  const raw = await res.json();
-  state.db = normalizeDb(raw);
-  renderApp();
+  if (window.__INITIAL_DB__) {
+    state.db = normalizeDb(window.__INITIAL_DB__);
+    renderApp();
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/market-data");
+    if (res.ok) {
+      const raw = await res.json();
+      if (raw && raw.shops) {
+        state.db = normalizeDb(raw);
+        renderApp();
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn("API route not found, falling back to static database file...", err);
+  }
+
+  try {
+    const staticRes = await fetch("/kmutt-market-db.json");
+    if (staticRes.ok) {
+      const rawStatic = await staticRes.json();
+      if (rawStatic && rawStatic.shops) {
+        state.db = normalizeDb(rawStatic);
+        renderApp();
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn("Static json fallback failed:", err);
+  }
+
+  if (window.__INITIAL_DB__) {
+    state.db = normalizeDb(window.__INITIAL_DB__);
+    renderApp();
+  }
 }
 
 async function persistDatabase(logAction, logSummary) {
   if (logAction && state.db) {
     state.db.activity_logs.unshift({
       id: `log-${Date.now()}`,
-      actor_name:
-        state.role === "admin"
-          ? "ผู้ดูแลระบบ BPUU"
-          : state.role === "vendor"
-          ? "ผู้ประกอบการร้านค้า"
-          : "นักศึกษา มจธ.",
-      actor_role: state.role.toUpperCase(),
+      actor_name: "ผู้ใช้ทั่วไป มจธ.",
+      actor_role: "GUEST",
       action_type: logAction,
       target_summary: logSummary,
       created_at: new Date().toISOString(),
     });
   }
-  await fetch("/api/market-data", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ state: state.db }),
-  });
+  try {
+    localStorage.setItem("kmutt_market_local_db", JSON.stringify(state.db));
+    await fetch("/api/market-data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ state: state.db }),
+    });
+  } catch {
+    // Graceful fallback on static deployments
+  }
   renderApp();
 }
 
