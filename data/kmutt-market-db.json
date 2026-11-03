@@ -1,0 +1,2715 @@
+{
+  "profiles": [
+    {
+      "id": "user-admin-001",
+      "full_name": "ผู้ดูแลระบบ BPUU มจธ.",
+      "email": "admin@kmutt.ac.th",
+      "avatar_url": null,
+      "role": "admin",
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-01T09:00:00+07:00"
+    },
+    {
+      "id": "user-vendor-001",
+      "full_name": "ลุงกบ (เจ้าของร้าน Uncle Frog S11)",
+      "email": "unclefrog.s11@kmutt.ac.th",
+      "avatar_url": null,
+      "role": "vendor",
+      "created_at": "2026-01-15T08:30:00+07:00",
+      "updated_at": "2026-10-12T10:00:00+07:00"
+    },
+    {
+      "id": "user-vendor-002",
+      "full_name": "คุณสุดารัตน์ (ร้านครัวสุดารัตน์ S14)",
+      "email": "sudarat.s14@kmutt.ac.th",
+      "avatar_url": null,
+      "role": "vendor",
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-15T10:00:00+07:00"
+    },
+    {
+      "id": "user-student-001",
+      "full_name": "ธนภัทร วิศวกรรมศาสตร์ (นักศึกษา มจธ.)",
+      "email": "thanaphat.stu@mail.kmutt.ac.th",
+      "avatar_url": null,
+      "role": "student",
+      "created_at": "2026-06-01T12:00:00+07:00",
+      "updated_at": "2026-10-20T14:00:00+07:00"
+    },
+    {
+      "id": "user-student-002",
+      "full_name": "พิมพ์ชนก คณะเทคโนโลยีสารสนเทศ (SIT)",
+      "email": "pimchanok.sit@mail.kmutt.ac.th",
+      "avatar_url": null,
+      "role": "student",
+      "created_at": "2026-07-10T11:20:00+07:00",
+      "updated_at": "2026-10-25T16:15:00+07:00"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-01",
+      "name": "อาหารตามสั่ง",
+      "slug": "made-to-order",
+      "description": "ผัดกะเพรา ข้าวผัด เต้าหู้ทรงเครื่อง ทำสดจานต่อจาน",
+      "icon": "Flame",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/DSC_4440.jpg",
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "id": "cat-02",
+      "name": "อาหารจานเดียว",
+      "slug": "single-dish",
+      "description": "ข้าวราดแกง ข้าวมันไก่ ข้าวยำไก่แซ่บ อิ่มไวทันเข้าเรียน",
+      "icon": "Utensils",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "id": "cat-03",
+      "name": "ก๋วยเตี๋ยว",
+      "slug": "noodles",
+      "description": "บะหมี่เกี๊ยวหมูแดง-หมูกรอบ สุกี้ ต้มเลือดหมู และราเมนเส้นสด",
+      "icon": "Soup",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "id": "cat-04",
+      "name": "อาหารอีสาน",
+      "slug": "isaan-food",
+      "description": "ส้มตำ ลาบ น้ำตก ไก่ย่าง และยำรสจัดจ้านขวัญใจเด็กบางมด",
+      "icon": "Sparkles",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "id": "cat-05",
+      "name": "อาหารฮาลาล",
+      "slug": "halal-food",
+      "description": "ข้าวหมกไก่ ข้าวมันไก่ฮาลาล ก๋วยเตี๋ยวเนื้อ และข้าวแกงอิสลาม",
+      "icon": "ShieldCheck",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "id": "cat-06",
+      "name": "ของทอด",
+      "slug": "fried-snacks",
+      "description": "ไก่ทอดหาดใหญ่ หมูทอดน้ำปลาพริก ลูกชิ้นทอด และทาโกยากิ",
+      "icon": "Drumstick",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/พี่ป้อม.jpg",
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "id": "cat-07",
+      "name": "ขนมและเบเกอรี่",
+      "slug": "bakery-desserts",
+      "description": "เครปเย็น ขนมปังปิ้ง โมจิครีมชีส ซอฟต์คุกกี้ และขนมไทยตลาดนัด",
+      "icon": "Croissant",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4700.jpg",
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "id": "cat-08",
+      "name": "เครื่องดื่ม",
+      "slug": "beverages",
+      "description": "น้ำผลไม้ปั่น น้ำสมุนไพร นมสด และอิตาเลียนโซดาสดชื่น",
+      "icon": "CupSoda",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "id": "cat-09",
+      "name": "กาแฟ",
+      "slug": "coffee",
+      "description": "คาเฟ่และร้านกาแฟสดรอบรั้ว มจธ. นั่งทำงาน อ่านหนังสือ หรือแวะซื้อก่อนเข้าคลาส",
+      "icon": "Coffee",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "id": "cat-10",
+      "name": "ชานม",
+      "slug": "milk-tea",
+      "description": "ชานมไข่มุก ชาชีส มัทฉะลาเต้ และชาผลไม้",
+      "icon": "GlassWater",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "id": "cat-11",
+      "name": "ผลไม้",
+      "slug": "fruits",
+      "description": "ผลไม้สดพร้อมทาน ผลไม้ตามฤดูกาล และน้ำผลไม้คั้นสดในตลาดนัด",
+      "icon": "Apple",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
+      "sort_order": 11,
+      "is_active": true
+    },
+    {
+      "id": "cat-12",
+      "name": "เสื้อผ้า",
+      "slug": "clothing",
+      "description": "เสื้อยืด เสื้อเชิ้ต กางเกง และชุดนักศึกษาในตลาดนัด มจธ.",
+      "icon": "Shirt",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
+      "sort_order": 12,
+      "is_active": true
+    },
+    {
+      "id": "cat-13",
+      "name": "แฟชั่น",
+      "slug": "fashion",
+      "description": "กระเป๋าผ้า หมวก เครื่องประดับ กิ๊บติดผม และงานแฮนด์เมด",
+      "icon": "ShoppingBag",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371130.jpg",
+      "sort_order": 13,
+      "is_active": true
+    },
+    {
+      "id": "cat-14",
+      "name": "สินค้าอุปโภค",
+      "slug": "general-goods",
+      "description": "ของใช้หอพัก อุปกรณ์การเรียน และสินค้าชุมชน",
+      "icon": "Package",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "sort_order": 14,
+      "is_active": true
+    },
+    {
+      "id": "cat-15",
+      "name": "อื่น ๆ",
+      "slug": "others",
+      "description": "บริการและร้านค้าเบ็ดเตล็ดภายในมหาวิทยาลัย",
+      "icon": "Sparkle",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "sort_order": 15,
+      "is_active": true
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop-s14-01",
+      "name": "ร้านจิรพันธุ์ เครื่องดื่ม",
+      "slug": "jiraphan-beverages-s14",
+      "description": "ร้านน้ำปั่นและเครื่องดื่มประจำโรงอาหาร S14 มีทั้งน้ำผลไม้ปั่นสด ชาเย็น กาแฟโบราณ นมชมพู และน้ำสมุนไพรเย็นชื่นใจในราคานักศึกษาเริ่มต้นเพียง 15 บาท",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "category_id": "cat-08",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-01",
+      "latitude": 13.650954,
+      "longitude": 100.491752,
+      "contact_phone": "085-125-4716",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านจิรพันธุ์-เครื่องดื/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "อิ่มคุ้มงบนักศึกษา",
+        "น้ำผลไม้ปั่นสด"
+      ],
+      "price_range": "฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-02",
+      "name": "ร้านป้าอู๋ ข้าวราดแกง & สุกี้น้ำ",
+      "slug": "pa-ou-s14",
+      "description": "ร้านข้าวราดแกงและสุกี้น้ำรสกลมกล่อมในโรงอาหาร S14 เปิดตั้งแต่เช้าตรู่ 06:00 น. เมนูเด็ดคือสุกี้น้ำหมูนุ่ม ไข่ตุ๋นเนื้อเนียน และกับข้าวทำสดใหม่ทุกเช้า",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg",
+      "category_id": "cat-02",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-02",
+      "latitude": 13.650965,
+      "longitude": 100.491765,
+      "contact_phone": "081-910-2396",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านป้าอู๋/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "มื้อเช้าเปิดเช้า",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-03",
+      "name": "ร้านครัวสุดารัตน์",
+      "slug": "krua-sudarat-s14",
+      "description": "ขวัญใจสายแซ่บประจำตึก S14 ขึ้นชื่อเรื่องข้าวยำไก่แซ่บจานพูน ข้าวไก่ทอดกรอบนอกนุ่มใน ขนมจีนน้ำยาเข้มข้น และข้าวราดแกงหลากหลายเมนู",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "category_id": "cat-02",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-03",
+      "latitude": 13.650942,
+      "longitude": 100.491741,
+      "contact_phone": "089-928-4116",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านครัวสุดารัตน์/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": "user-vendor-002",
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "เมนูเด็ดต้องลอง",
+        "ข้าวยำไก่แซ่บ",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-18T11:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-04",
+      "name": "ร้านป้าสมจิตต์ ข้าวราดแกง",
+      "slug": "pa-somjit-s14",
+      "description": "ร้านข้าวราดแกงเจ้าประจำโรงอาหาร S14 มีกับข้าวให้เลือกกว่า 15–20 หม้อต่อวัน ทั้งหมูทอด ไก่ทอด แกงเผ็ด ผัดกะเพรา ไข่พะโล้ พร้อมบริการน้ำซุปฟรีทุกจาน",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4677.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4677.jpg",
+      "category_id": "cat-02",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-04",
+      "latitude": 13.650931,
+      "longitude": 100.491782,
+      "contact_phone": "081-625-9967",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านป้าสมจิตต์/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ฟรีน้ำซุป",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-05",
+      "name": "ร้านฟ้าใส (ส้มตำ ข้าวมันไก่ ต้มเลือดหมู)",
+      "slug": "fah-sai-s14",
+      "description": "ครบทั้งมื้อเช้าและมื้อเที่ยงในร้านเดียว มีทั้งต้มเลือดหมูใบตำลึงร้อนๆ ข้าวมันไก่ต้ม-ไก่ทอด และส้มตำรสแซ่บ พิเศษ! นำภาชนะมาเองลดทันที 2 บาท",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "category_id": "cat-04",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-05",
+      "latitude": 13.650975,
+      "longitude": 100.491731,
+      "contact_phone": "086-985-2180",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านฟ้าใส/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "รักษ์โลกลด 2 บาท",
+        "ต้มเลือดหมู",
+        "ส้มตำ"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-06",
+      "name": "ร้านครัว ส. วงศ์เสงี่ยม ฮาล้าล ฟู๊ดส์",
+      "slug": "krua-sor-wongsangiam-halal-s14",
+      "description": "ร้านอาหารฮาลาลยอดนิยมในโรงอาหาร S14 เมนูเด่นได้แก่ ข้าวหมกไก่หอมเครื่องเทศ ข้าวมันไก่ ข้าวหน้าไก่ย่าง และก๋วยเตี๋ยวเนื้อตุ๋น เลือกข้าวได้ 3 ชนิด พร้อมน้ำซุปและผักสดฟรี",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "category_id": "cat-05",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-06",
+      "latitude": 13.650948,
+      "longitude": 100.491718,
+      "contact_phone": "094-226-9255",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านครัว-ส-วงศ์เสงี่ยม-ฮ/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ฮาลาล",
+        "เมนูเด็ดต้องลอง",
+        "ฟรีน้ำซุปและผักสด"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-07",
+      "name": "ร้านครัวคุณอุ๊ (หาดใหญ่)",
+      "slug": "krua-khun-ou-hat-yai-s14",
+      "description": "ข้าวแกงปักษ์ใต้รสจัดจ้านถึงเครื่องพริกแกงใต้แท้ๆ มีทั้งคั่วกลิ้ง แกงส้มใต้ แกงไตปลา และไก่ทอดหาดใหญ่หอมเจียวกรอบ แถมฟรีน้ำพริกกะปิและผักสดไม่อั้น",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4695.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4695.jpg",
+      "category_id": "cat-02",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-07",
+      "latitude": 13.650961,
+      "longitude": 100.491705,
+      "contact_phone": "081-541-4852",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านครัวคุณอุ๊-หาดใหญ่/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "เมนูเด็ดต้องลอง",
+        "ฟรีน้ำพริกผักสด",
+        "คิวยาวแต่คุ้ม"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s14-08",
+      "name": "ร้านหนุ่ยบะหมี่เกี๊ยว",
+      "slug": "nui-bamee-kiew-s14",
+      "description": "ร้านบะหมี่เกี๊ยวและข้าวหมูแดง-หมูกรอบในตำนานของตึก S14 เส้นบะหมี่เหนียวนุ่ม เกี๊ยวหมูคำโต และหมูกรอบชิ้นหนาหนังฟู นำภาชนะมาเองลด 2 บาท",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "category_id": "cat-03",
+      "shop_type": "campus_food_court",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S14 (พระจอมเกล้าราชานุสรณ์ 190 ปี)",
+      "location_description": "ชั้น 2 (ชั้นลอย) โรงอาหารอาคาร S14",
+      "stall_number": "S14-08",
+      "latitude": 13.650985,
+      "longitude": 100.491748,
+      "contact_phone": "086-881-0426",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านหนุ่ยบะหมี่เกี๊ยว/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "เมนูเด็ดต้องลอง",
+        "หมูกรอบเด็ด",
+        "รักษ์โลกลด 2 บาท"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-s11-01",
+      "name": "Uncle Frog (ร้านลุงกบ S11)",
+      "slug": "uncle-frog-s11",
+      "description": "ร้านอาหารตามสั่ง ของทานเล่น และเครื่องดื่มระดับตำนานที่เด็กบางมดทุกคนคุ้นเคย ตั้งอยู่บริเวณชั้น 2 ทางเชื่อมอาคารเรียนรวม 4–5 (อาคาร S11/CB5) เมนูซิกเนเจอร์คือข้าวราดเต้าหู้ทรงเครื่องและไส้กรอกทอด",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/DSC_4440.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/DSC_4440.jpg",
+      "category_id": "cat-01",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S11 (อาคารเรียนรวม 5 / CB5)",
+      "location_description": "ชั้น 2 บริเวณทางเชื่อมอาคารเรียนรวม 4–5 (S11)",
+      "stall_number": "S11-UF",
+      "latitude": 13.64972,
+      "longitude": 100.493353,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้าน-uncle-frog-ลุงกบ/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": "user-vendor-001",
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ขวัญใจเด็กบางมด",
+        "เมนูเด็ดต้องลอง",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-20T10:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-01",
+      "name": "At Delight (ร้าน ดี-ไลท์ อาคาร S6)",
+      "slug": "at-delight-s6",
+      "description": "คาเฟ่และร้านเบเกอรี่บรรยากาศอบอุ่นหน้าหอพักนักศึกษาหญิง บ้านธรรมรักษา 1 (อาคาร S6) เสิร์ฟกาแฟสด ชาเขียว ชามะนาว โกโก้เข้มข้น และเค้กโฮมเมด นำแก้วมาเองลด 5 บาท",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S6 (หอพักบ้านธรรมรักษา 1)",
+      "location_description": "โซนหน้าทางเข้าหอพักนักศึกษาหญิง อาคาร S6",
+      "stall_number": null,
+      "latitude": 13.649418,
+      "longitude": 100.494319,
+      "contact_phone": "064-193-6553",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/at-delight/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "คาเฟ่นั่งทำงานได้",
+        "นำแก้วมาเองลด 5 บาท"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-02",
+      "name": "Café Amazon – อาคารสำนักหอสมุด (N10)",
+      "slug": "cafe-amazon-n10",
+      "description": "ร้านกาแฟ Café Amazon สาขาสำนักหอสมุด มจธ. (อาคาร N10) จุดแวะเติมคาเฟอีนยอดฮิตของสายอ่านหนังสือ มีส่วนลด 5 บาทสำหรับนักศึกษา/บุคลากรเมื่อแสดงบัตร",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร N10 (สำนักหอสมุด มจธ.)",
+      "location_description": "ชั้น 1 อาคารสำนักหอสมุด (N10)",
+      "stall_number": null,
+      "latitude": 13.65275,
+      "longitude": 100.493889,
+      "contact_phone": "098-887-0339",
+      "social_url": "https://bpuu.kmutt.ac.th/2019/ร้านกาแฟ-cafe-amazon/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "คาเฟ่นั่งทำงานได้",
+        "ส่วนลดนักศึกษา 5 บาท"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-03",
+      "name": "Overdose – อาคารสำนักงานอธิการบดี (N2)",
+      "slug": "overdose-n2",
+      "description": "คาเฟ่กาแฟสดและเบเกอรี่ใต้ตึกสำนักงานอธิการบดี (อาคาร N2) คัดเมล็ดกาแฟคุณภาพดี มัทฉะเข้มข้น ชาไทยหอมมัน นำแก้วมาเองลด 5 บาท และโปรเดือนเกิดลด 30%",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร N2 (สำนักงานอธิการบดี)",
+      "location_description": "ชั้น 1 อาคารสำนักงานอธิการบดี (N2)",
+      "stall_number": null,
+      "latitude": 13.651835,
+      "longitude": 100.495139,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2019/overdose/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "โปรเดือนเกิดลด 30%",
+        "นำแก้วมาเองลด 5 บาท"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-04",
+      "name": "Inthanin (อินทนิล) – อาคารจอดรถ S2",
+      "slug": "inthanin-s2",
+      "description": "ร้านกาแฟอินทนิล ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) โดดเด่นด้วยเมนูโกโก้อินทนิลเข้มข้นระดับตำนาน กาแฟอาราบิก้าแท้ 100% และเบเกอรี่อบสด",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/อินทนิล.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/อินทนิล.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) ติดลานตลาดนัด",
+      "stall_number": null,
+      "latitude": 13.65045,
+      "longitude": 100.495712,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2023/inthanin/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "โกโก้เข้มข้น",
+        "คาเฟ่นั่งทำงานได้"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-05",
+      "name": "KAMU KAMU – อาคารจอดรถ S2",
+      "slug": "kamu-kamu-s2",
+      "description": "ร้านชานมไข่มุกและชาสไตล์ญี่ปุ่นยอดฮิตที่ชั้น 1 อาคารจอดรถ S2 เมนูขายดีตลอดกาลคือ Original Milk Tea ไข่มุกดำนุ่มหนึบ, Raptor โกโก้ปั่นครีมชีส และ Dino Milo",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
+      "category_id": "cat-10",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
+      "stall_number": null,
+      "latitude": 13.650548,
+      "longitude": 100.495611,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2026/kamu-kamu/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ชานมไข่มุก",
+        "เมนูเด็ดต้องลอง"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-06",
+      "name": "Fresh Me – อาคารสำนักหอสมุด N10 ชั้น 1",
+      "slug": "fresh-me-n10",
+      "description": "ร้านชานม ชาผลไม้ และโกโก้สุดสดชื่นบริเวณชั้น 1 อาคารสำนักหอสมุด (N10) เมนูแนะนำได้แก่ ชานมไข่มุก Fresh Me และ Mint Night Cocoa",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/06/Fresh-Me1.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/06/Fresh-Me1.jpg",
+      "category_id": "cat-10",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร N10 (สำนักหอสมุด มจธ.)",
+      "location_description": "ชั้น 1 อาคารสำนักหอสมุด (N10)",
+      "stall_number": null,
+      "latitude": 13.65271,
+      "longitude": 100.49392,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/coffee-shop/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ชานมไข่มุก",
+        "ใต้หอสมุด"
+      ],
+      "price_range": "฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-07",
+      "name": "Starbucks – อาคารจอดรถ S2",
+      "slug": "starbucks-s2",
+      "description": "สตาร์บัคส์ สาขาอาคารจอดรถ S2 มจธ. บางมด พื้นที่นั่งทำงานและพบปะสังสรรค์บรรยากาศดีเยี่ยม พร้อมกาแฟดริป มัทฉะลาเต้ และเบเกอรี่อบใหม่ทุกวัน",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/04/สตราบัค.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/04/สตราบัค.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
+      "stall_number": null,
+      "latitude": 13.650383,
+      "longitude": 100.495632,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/coffee-shop/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "คาเฟ่นั่งทำงานได้",
+        "เปิดทุกวัน"
+      ],
+      "price_range": "฿฿฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-08",
+      "name": "Café Amazon – อาคารจอดรถ S2",
+      "slug": "cafe-amazon-s2",
+      "description": "Café Amazon สาขาอาคารจอดรถ 14 ชั้น (S2) เดินทางสะดวกใกล้ประตูหน้ามหาวิทยาลัยและลานตลาดนัด มจธ.",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/PTY03636.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/PTY03636.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
+      "stall_number": null,
+      "latitude": 13.650364,
+      "longitude": 100.49563,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/coffee-shop/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "เปิดทุกวัน",
+        "ใกล้ประตูหน้า"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": false,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-coffee-09",
+      "name": "Go Brew cafe' – หน้ามหาวิทยาลัย",
+      "slug": "go-brew-cafe-front",
+      "description": "คาเฟ่สแตนด์สุดชิคบริเวณด้านหน้ามหาวิทยาลัย (หลังป้ายรถเมล์หน้า มจธ.) เด่นด้วยเมนูอเมริกาโน่มะพร้าว กาแฟดำเลเยอร์ชาไทย มัทฉะลาเต้ และซอฟต์คุกกี้ แสดงบัตร นศ./บุคลากร ลด 5 บาท",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
+      "category_id": "cat-09",
+      "shop_type": "permanent_shop",
+      "market_type": "daily_campus",
+      "building_name": "หน้ามหาวิทยาลัย (ประตูหลัก ถ.ประชาอุทิศ)",
+      "location_description": "บริเวณด้านหน้ามหาวิทยาลัย หลังป้ายรถเมล์หน้า มจธ.",
+      "stall_number": null,
+      "latitude": 13.650705,
+      "longitude": 100.496537,
+      "contact_phone": "092-498-2756",
+      "social_url": "https://bpuu.kmutt.ac.th/coffee-shop/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ข้อมูลทางการ BPUU",
+        "ส่วนลดนักศึกษา 5 บาท",
+        "ซอฟต์คุกกี้"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-01-10T08:00:00+07:00",
+      "updated_at": "2026-10-15T09:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-01",
+      "name": "หมูทอดชาววัง & ข้าวเหนียวร้อน (ตลาดนัด มจธ.)",
+      "slug": "moo-tod-chaowang-kmutt-market",
+      "description": "ร้านหมูทอดน้ำปลาพริกและหมูสามชั้นทอดกรอบประจำตลาดนัด มจธ. ลานชั้น 1 อาคารจอดรถ S2 ตักเสิร์ฟร้อนๆ พร้อมข้าวเหนียวนุ่มและไข่ต้มยางมะตูม",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "category_id": "cat-06",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซน A (อาหารและเครื่องดื่ม) ล็อก A-01 ลานชั้น 1 อาคาร S2",
+      "stall_number": "A-01",
+      "latitude": 13.65048,
+      "longitude": 100.49565,
+      "contact_phone": "089-412-8831",
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านตลาดนัด มจธ.",
+        "เมนูเด็ดต้องลอง",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": false,
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-02",
+      "name": "บ้าบิ่นมะพร้าวอ่อน & ขนมครกใบเตย (ตลาดนัดชุมชน)",
+      "slug": "babin-pandan-kmutt-market",
+      "description": "ขนมไทยทำสดบนเตาร้อนๆ หอมกลิ่นใบเตยและมะพร้าวอ่อนแน่นเต็มคำ เปิดขายในวันตลาดนัดสินค้าชุมชน (วันอังคาร) และตลาดนัด มจธ. (วันพุธ–พฤหัสบดี)",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "category_id": "cat-07",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซน B (ขนมและของทานเล่น) ล็อก B-01 ลานชั้น 1 อาคาร S2",
+      "stall_number": "B-01",
+      "latitude": 13.650495,
+      "longitude": 100.49567,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านตลาดนัด มจธ.",
+        "ขนมทำสด",
+        "คิวยาวแต่คุ้ม"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": false,
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-03",
+      "name": "ผลไม้สดพร้อมทาน & น้ำส้มคั้นสด ชุมชนบางมด",
+      "slug": "bangmod-fresh-fruits-market",
+      "description": "ผลไม้ปอกพร้อมทานแช่เย็นชื่นใจ และน้ำส้มบางมดผสมคั้นสดแท้ 100% จากผู้ประกอบการชุมชนรอบมหาวิทยาลัย ร่วมโครงการนำแก้วมาเองรับส่วนลดพิเศษ",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
+      "category_id": "cat-11",
+      "shop_type": "market_stall",
+      "market_type": "community_tue",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซน A (อาหารและเครื่องดื่ม) ล็อก A-02 ลานชั้น 1 อาคาร S2",
+      "stall_number": "A-02",
+      "latitude": 13.650465,
+      "longitude": 100.49564,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ตลาดนัดสินค้าชุมชน",
+        "สุขภาพดี",
+        "นำแก้วมาเองลดราคา"
+      ],
+      "price_range": "฿",
+      "is_recommended": false,
+      "location_verified": false,
+      "created_at": "2026-02-05T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-04",
+      "name": "Bangmod Style เสื้อผ้าแฟชั่น & กระเป๋าผ้าแฮนด์เมด",
+      "slug": "bangmod-style-fashion-market",
+      "description": "ร้านเสื้อผ้าแฟชั่นนักศึกษา เสื้อยืดโอเวอร์ไซส์ กระเป๋าผ้าแคนวาสใส่ไอแพดและเอกสารการเรียน ออกบูธทุกวันพุธและพฤหัสบดีในตลาดนัด มจธ.",
+      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
+      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
+      "category_id": "cat-12",
+      "shop_type": "market_stall",
+      "market_type": "kmutt_wed_thu",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซน C (แฟชั่นและสินค้าทั่วไป) ล็อก C-01 ลานชั้น 1 อาคาร S2",
+      "stall_number": "C-01",
+      "latitude": 13.65051,
+      "longitude": 100.49569,
+      "contact_phone": null,
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ตลาดนัด มจธ.",
+        "แฟชั่นนักศึกษา",
+        "กระเป๋าผ้าใส่ iPad"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": false,
+      "location_verified": false,
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-uf-01",
+      "shop_id": "shop-s11-01",
+      "category_id": "cat-01",
+      "name": "ข้าวราดเต้าหู้ทรงเครื่อง (ซิกเนเจอร์ลุงกบ)",
+      "slug": "uncle-frog-tofu-gravy-rice",
+      "description": "เต้าหู้ไข่ทอดราดซอสหมูสับเห็ดหอมทรงเครื่องรสกลมกล่อม เสิร์ฟร้อนๆ บนข้าวสวย เมนูในตำนานตึก S11",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/DSC_4440.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "ซิกเนเจอร์ S11"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-20T10:00:00+07:00"
+    },
+    {
+      "id": "prod-uf-02",
+      "shop_id": "shop-s11-01",
+      "category_id": "cat-06",
+      "name": "ไส้กรอกหมูทอด & ลูกชิ้นทอดลุงกบ",
+      "slug": "uncle-frog-fried-sausage",
+      "description": "ของว่างยอดฮิตระหว่างพักเบรกคาบเรียนที่ตึกเรียนรวม 5 น้ำจิ้มรสเด็ด",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/SCM-8509-scaled.jpg",
+      "price": 25,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ของว่างระหว่างคาบ",
+        "งบประหยัด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-20T10:00:00+07:00"
+    },
+    {
+      "id": "prod-uf-03",
+      "shop_id": "shop-s11-01",
+      "category_id": "cat-01",
+      "name": "ข้าวผัดกะเพราหมูสับลุงกบ",
+      "slug": "uncle-frog-basil-pork",
+      "description": "ผัดกะเพราหมูสับรสจัดจ้าน ผัดแห้งหอมใบกะเพราแท้ รสชาติที่เด็กบางมดหลงรัก",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "อาหารตามสั่ง"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-20T10:00:00+07:00"
+    },
+    {
+      "id": "prod-uf-04",
+      "shop_id": "shop-s11-01",
+      "category_id": "cat-03",
+      "name": "มาม่าต้มยำไข่ลาวา",
+      "slug": "uncle-frog-mama-tomyum",
+      "description": "มาม่าต้มยำทรงเครื่องหมูสับ พร้อมไข่ออนเซ็นเยิ้มๆ ร้อนๆ คลายหิวยามบ่าย",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "เมนูประหยัด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-20T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-01-01",
+      "shop_id": "shop-s14-01",
+      "category_id": "cat-08",
+      "name": "น้ำแตงโมปั่นสดชื่นใจ",
+      "slug": "jiraphan-watermelon-smoothie",
+      "description": "แตงโมสดคัดหวานธรรมชาติ ปั่นเนื้อละเอียดเย็นชื่นใจ ดับร้อนยามบ่าย",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "price": 25,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "น้ำผลไม้ปั่น",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-01-02",
+      "shop_id": "shop-s14-01",
+      "category_id": "cat-08",
+      "name": "ชาเย็นโบราณสูตรเข้มข้น",
+      "slug": "jiraphan-traditional-iced-tea",
+      "description": "ชาไทยแท้ชงโบราณ หอมมันเข้มข้น หวานกำลังดี ราคาประหยัด",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "price": 20,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ชาไทย",
+        "ราคาประหยัด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-01-03",
+      "shop_id": "shop-s14-01",
+      "category_id": "cat-08",
+      "name": "นมชมพูเย็น (นมเย็น)",
+      "slug": "jiraphan-pink-milk",
+      "description": "นมสดผสมเฮลซ์บลูบอยด์สีชมพูน่ารัก หอมหวานละมุนขวัญใจเด็กหอ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/รูปภาพร้าน.jpg",
+      "price": 20,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "เครื่องดื่มหวาน"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-02-01",
+      "shop_id": "shop-s14-02",
+      "category_id": "cat-03",
+      "name": "สุกี้น้ำหมูนุ่มไข่คู่",
+      "slug": "pa-ou-suki-soup",
+      "description": "สุกี้น้ำร้อนๆ ผักกาดขาวสดกรอบ หมูหมักนุ่มละมุน พร้อมน้ำจิ้มสุกี้รสเด็ดป้าอู๋",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "สุกี้หมู"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-02-02",
+      "shop_id": "shop-s14-02",
+      "category_id": "cat-02",
+      "name": "ข้าวราดแกง 2 อย่าง (กับข้าวทำสดใหม่)",
+      "slug": "pa-ou-rice-curry-2-items",
+      "description": "เลือกกับข้าวรสกลมกล่อมได้ 2 อย่าง อิ่มคุ้มเปิดตั้งแต่ 06:00 น.",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "มื้อเช้า",
+        "งบประหยัด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-02-03",
+      "shop_id": "shop-s14-02",
+      "category_id": "cat-02",
+      "name": "ไข่ตุ๋นเนื้อเนียนทรงเครื่อง",
+      "slug": "pa-ou-steamed-egg",
+      "description": "ไข่ตุ๋นเนื้อเด้งเนียนนุ่ม ราดหมูสับต้นหอม ทานง่าย ทานคู่ข้าวสวยร้อนๆ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg",
+      "price": 15,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "กับข้าวทานง่าย"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-03-01",
+      "shop_id": "shop-s14-03",
+      "category_id": "cat-02",
+      "name": "ข้าวยำไก่แซ่บ (ครัวสุดารัตน์ S14)",
+      "slug": "krua-sudarat-spicy-chicken-rice",
+      "description": "ไก่ทอดกรอบหั่นชิ้นคลุกน้ำยำข้าวคั่วพริกป่น หอมมะนาวสดและผักชีฝรั่ง เสิร์ฟพร้อมข้าวสวยร้อนๆ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "ยอดฮิต S14"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-03-02",
+      "shop_id": "shop-s14-03",
+      "category_id": "cat-02",
+      "name": "ข้าวไก่ทอดกรอบซอสน้ำปลา",
+      "slug": "krua-sudarat-fried-chicken-rice",
+      "description": "ไก่ทอดกรอบสีทอง เนื้อฉ่ำ ราดซอสน้ำปลาเค็มหวานกลมกล่อม",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ไก่ทอดกรอบ"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-03-03",
+      "shop_id": "shop-s14-03",
+      "category_id": "cat-02",
+      "name": "ขนมจีนน้ำยาป่าลูกชิ้นปลา",
+      "slug": "krua-sudarat-kanomjeen-soup",
+      "description": "เส้นขนมจีนนุ่ม น้ำยาป่ารสจัดจ้านถึงเครื่องสมุนไพร ลูกชิ้นปลาเด้งดึ๋ง ผักสดตักเองได้",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4676.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ขนมจีน"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-04-01",
+      "shop_id": "shop-s14-04",
+      "category_id": "cat-02",
+      "name": "ข้าวราดหมูทอดกระเทียม + ไข่พะโล้",
+      "slug": "pa-somjit-garlic-pork-palo",
+      "description": "หมูทอดกระเทียมพริกไทยกรอบนอกนุ่มใน ทานคู่ไข่พะโล้เข้มข้น ฟรีน้ำซุปกระดูกหมู",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4677.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ฟรีน้ำซุป",
+        "ข้าวแกงยอดฮิต"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-04-02",
+      "shop_id": "shop-s14-04",
+      "category_id": "cat-02",
+      "name": "ข้าวราดผัดพริกแกงหมูกรอบ",
+      "slug": "pa-somjit-crispy-pork-curry",
+      "description": "พริกแกงเผ็ดเข้มข้นผัดถั่วฝักยาวและหมูกรอบชิ้นหนา เสิร์ฟร้อนๆ บนข้าวสวย",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4677.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "รสจัดจ้าน"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-05-01",
+      "shop_id": "shop-s14-05",
+      "category_id": "cat-02",
+      "name": "ข้าวมันไก่ต้มสูตรพิเศษ + น้ำซุปฟัก",
+      "slug": "fah-sai-chicken-rice",
+      "description": "ข้าวมันหุงหอมเมล็ดสวย ไก่ตอนเนื้อฉ่ำไม่แห้ง น้ำจิ้มเต้าเจี้ยวขิงพริกสูตรเด็ด",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ข้าวมันไก่",
+        "เมนูเด็ดต้องลอง"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-05-02",
+      "shop_id": "shop-s14-05",
+      "category_id": "cat-03",
+      "name": "ต้มเลือดหมูใบตำลึงสด + ข้าวสวย",
+      "slug": "fah-sai-blood-soup",
+      "description": "เลือดหมูชิ้นโต ตับหมู หมูสับก้อน น้ำซุปกระดูกเคี่ยวนาน หอมพริกไทย มื้อเช้ายอดนิยม",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ต้มเลือดหมู",
+        "มื้อเช้า"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-05-03",
+      "shop_id": "shop-s14-05",
+      "category_id": "cat-04",
+      "name": "ส้มตำไทยไข่เค็มทรงเครื่อง",
+      "slug": "fah-sai-somtum-thai",
+      "description": "มะละกอกรอบ ตำสดครกต่อครก กุ้งแห้ง ถั่วคั่วหอม ไข่เค็มมันเค็มครบรส",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4683.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ส้มตำ"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-06-01",
+      "shop_id": "shop-s14-06",
+      "category_id": "cat-05",
+      "name": "ข้าวหมกไก่ฮาลาล + น้ำซุปฟรี",
+      "slug": "sor-wongsangiam-halal-chicken-biryani",
+      "description": "ข้าวหมกสีเหลืองทองหุงด้วยเครื่องเทศหอมกรุ่น ไก่นุ่มชิ้นใหญ่ พร้อมน้ำจิ้มสะระแหน่ หอมเจียว และน้ำซุปร้อนๆ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ฮาลาล",
+        "เมนูเด็ดต้องลอง",
+        "ฟรีน้ำซุป"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-06-02",
+      "shop_id": "shop-s14-06",
+      "category_id": "cat-05",
+      "name": "ก๋วยเตี๋ยวเนื้อตุ๋นเอ็นแก้วฮาลาล",
+      "slug": "sor-wongsangiam-beef-noodle",
+      "description": "เนื้อวัวตุ๋นยาจีนเปื่อยนุ่ม เอ็นแก้วหนึบ น้ำซุปเนื้อหอมหวานเข้มข้น",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "price": 50,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ฮาลาล",
+        "เนื้อตุ๋น"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-06-03",
+      "shop_id": "shop-s14-06",
+      "category_id": "cat-05",
+      "name": "ข้าวมันไก่ย่างฮาลาล",
+      "slug": "sor-wongsangiam-grilled-chicken-rice",
+      "description": "ข้าวมันหอมคู่สะโพกไก่หมักเครื่องเทศย่างหนังเกรียม เสิร์ฟคู่น้ำจิ้มแจ่วรสเด็ด",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4685.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ฮาลาล"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-07-01",
+      "shop_id": "shop-s14-07",
+      "category_id": "cat-02",
+      "name": "ข้าวราดคั่วกลิ้งหมู + ไก่ทอดหาดใหญ่ (ฟรีน้ำพริกผักสด)",
+      "slug": "khun-ou-kua-kling-hat-yai-chicken",
+      "description": "ข้าวราดแกงใต้แท้ๆ คั่วกลิ้งเผ็ดร้อนถึงเครื่อง ทานคู่ไก่ทอดหาดใหญ่หอมเจียวกรอบ ตักน้ำพริกกะปิและผักสดฟรี",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4695.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "อาหารใต้รสจัด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-07-02",
+      "shop_id": "shop-s14-07",
+      "category_id": "cat-02",
+      "name": "ไก่ทอดหาดใหญ่หอมเจียวกรอบ (ชิ้นใหญ่)",
+      "slug": "khun-ou-hat-yai-fried-chicken",
+      "description": "สะโพกไก่ทอดหมักสูตรหาดใหญ่แท้ กรอบนอกนุ่มชุ่มฉ่ำ โรยหอมเจียวทอดกรอบพูนๆ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4695.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ไก่ทอดหาดใหญ่"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-08-01",
+      "shop_id": "shop-s14-08",
+      "category_id": "cat-03",
+      "name": "บะหมี่เกี๊ยวหมูแดง-หมูกรอบพิเศษ",
+      "slug": "nui-egg-noodle-wonton-crispy-pork",
+      "description": "บะหมี่ไข่เส้นเหนียวนุ่ม เกี๊ยวหมูเต็มคำ โปะด้วยหมูแดงย่างหอมๆ และหมูกรอบชิ้นหนาหนังกรอบ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "หมูกรอบเด็ด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-s14-08-02",
+      "shop_id": "shop-s14-08",
+      "category_id": "cat-02",
+      "name": "ข้าวหมูแดงหมูกรอบกุนเชียงไข่ต้ม",
+      "slug": "nui-crispy-pork-rice",
+      "description": "หมูกรอบหนังฟู หมูแดงย่างหอม กุนเชียงทอด ราดน้ำซอสสีแดงหวานเค็มสูตรโบราณ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_0310.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ข้าวหมูกรอบ"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf01-01",
+      "shop_id": "shop-coffee-01",
+      "category_id": "cat-09",
+      "name": "Delight Iced Espresso สดชื่น",
+      "slug": "at-delight-iced-espresso",
+      "description": "เอสเปรสโซ่เข้มข้นผสมนมสดสูตรเฉพาะของร้าน ดี-ไลท์ หน้าหอพักหญิง S6",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "กาแฟสด S6"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf01-02",
+      "shop_id": "shop-coffee-01",
+      "category_id": "cat-09",
+      "name": "ชาเขียวมัทฉะลาเต้เย็น",
+      "slug": "at-delight-matcha-latte",
+      "description": "มัทฉะแท้ชงนุ่มละมุน หวานน้อยกลิ่นหอมชาเขียว นำแก้วมาเองลด 5 บาท",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "มัทฉะ"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf02-01",
+      "shop_id": "shop-coffee-02",
+      "category_id": "cat-09",
+      "name": "Iced Amazon Signature (หอสมุด N10)",
+      "slug": "amazon-n10-signature-coffee",
+      "description": "กาแฟอเมซอนเย็น รสชาติเข้มข้นโดนใจสายอ่านหนังสือสอบ แสดงบัตร นศ. ลด 5 บาท",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
+      "price": 65,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "กาแฟอเมซอน",
+        "หอสมุด N10"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf02-02",
+      "shop_id": "shop-coffee-02",
+      "category_id": "cat-09",
+      "name": "ชาเขียวนมเย็น Amazon",
+      "slug": "amazon-n10-green-tea",
+      "description": "ชาเขียวกลิ่นหอมเอกลักษณ์ เข้มข้นหวานมัน ดื่มเพิ่มพลังอ่านหนังสือ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
+      "price": 55,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ชาเขียว"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf03-01",
+      "shop_id": "shop-coffee-03",
+      "category_id": "cat-09",
+      "name": "Overdose Dirty Coffee สไตล์โมเดิร์น",
+      "slug": "overdose-n2-dirty-coffee",
+      "description": "ช็อตเอสเปรสโซ่เข้มข้นสกัดร้อนราดลงบนนมสดเย็นจัดเลเยอร์สวยงาม ใต้ตึกอธิการบดี N2",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
+      "price": 55,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "Dirty Coffee",
+        "ตึก N2"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf04-01",
+      "shop_id": "shop-coffee-04",
+      "category_id": "cat-09",
+      "name": "โกโก้อินทนิลเย็นระดับตำนาน (อาคาร S2)",
+      "slug": "inthanin-s2-signature-cocoa",
+      "description": "โกโก้เข้มข้นระดับท็อปของไทย เข้มข้นถึงใจ หวานมันกลมกล่อม",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/อินทนิล.jpg",
+      "price": 60,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "โกโก้ในตำนาน"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf05-01",
+      "shop_id": "shop-coffee-05",
+      "category_id": "cat-10",
+      "name": "Original Milk Tea ไข่มุกดำ (KAMU S2)",
+      "slug": "kamu-original-black-pearl-milk-tea",
+      "description": "ชานมต้นตำรับหอมใบชาเข้มข้น พร้อมท็อปปิ้งไข่มุกดำต้มสดเคี้ยวหนึบ เลือกระดับความหวานได้ตามใจ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
+      "price": 60,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "ชานมไข่มุก"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf05-02",
+      "shop_id": "shop-coffee-05",
+      "category_id": "cat-10",
+      "name": "Raptor โกโก้ปั่นครีมชีส",
+      "slug": "kamu-s2-raptor-cocoa",
+      "description": "โกโก้ปั่นเข้มข้น ผสมผสานไมโลนักเก็ตกรุบกรอบ ท็อปด้วยครีมชีสหนานุ่ม",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
+      "price": 85,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "โกโก้ชีส"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf06-01",
+      "shop_id": "shop-coffee-06",
+      "category_id": "cat-10",
+      "name": "ชานม Fresh Me ไข่มุกหนึบ",
+      "slug": "fresh-me-n10-bubble-tea",
+      "description": "ชานมใต้หอสมุด N10 ชั้น 1 หอมใบชาดำ ไข่มุกเคี่ยวบราวน์ชูการ์นุ่มหนึบ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/06/Fresh-Me1.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ชานมใต้หอสมุด"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf07-01",
+      "shop_id": "shop-coffee-07",
+      "category_id": "cat-09",
+      "name": "Iced Green Tea Cream Frappuccino",
+      "slug": "starbucks-s2-green-tea-frap",
+      "description": "ชาเขียวมัทฉะปั่นผสมนมสดและวิปครีมนุ่มละมุน สาขาอาคาร S2 แอร์เย็นนั่งสบาย",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/04/สตราบัค.jpg",
+      "price": 170,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "สตาร์บัคส์ S2"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf08-01",
+      "shop_id": "shop-coffee-08",
+      "category_id": "cat-09",
+      "name": "ชามะนาวน้ำผึ้งแท้ Amazon S2",
+      "slug": "amazon-s2-honey-lemon-tea",
+      "description": "ชามะนาวผสมน้ำผึ้งแท้ รสเปรี้ยวอมหวาน ดับกระหายยามเดินตลาดนัด",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/PTY03636.jpg",
+      "price": 55,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "สดชื่น"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf09-01",
+      "shop_id": "shop-coffee-09",
+      "category_id": "cat-09",
+      "name": "อเมริกาโน่มะพร้าวสด (Go Brew หน้า มจธ.)",
+      "slug": "go-brew-coconut-americano",
+      "description": "ช็อตเอสเปรสโซ่คั่วกลางหอมเข้ม ราดบนน้ำมะพร้าวหอมหวานธรรมชาติ ดื่มสดชื่นก่อนเข้าเรียน",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
+      "price": 55,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดต้องลอง",
+        "ส่วนลดนักศึกษา 5 บาท"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-cf09-02",
+      "shop_id": "shop-coffee-09",
+      "category_id": "cat-09",
+      "name": "ซอฟต์คุกกี้ช็อกโกแลตชิปอบสด",
+      "slug": "go-brew-soft-cookie",
+      "description": "คุกกี้นิ่มเนยสดแท้ ช็อกโกแลตชิปเยิ้มๆ ทานคู่กาแฟสดเข้ากันได้ดีเยี่ยม",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "เบเกอรี่"
+      ],
+      "created_at": "2026-01-15T08:00:00+07:00",
+      "updated_at": "2026-10-18T10:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-01-01",
+      "shop_id": "shop-mkt-01",
+      "category_id": "cat-06",
+      "name": "ข้าวหมูทอดน้ำปลาพริก + ไข่ต้มยางมะตูม",
+      "slug": "market-fried-pork-sticky-rice",
+      "description": "หมูสันนอกและสามชั้นหมักทอดกรอบนอกนุ่มใน ราดน้ำจิ้มแจ่วหรือน้ำปลาพริกหอมมะนาว",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เมนูเด็ดตลาดนัด",
+        "อิ่มคุ้มงบนักศึกษา"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-01-02",
+      "shop_id": "shop-mkt-01",
+      "category_id": "cat-06",
+      "name": "หมูสามชั้นทอดน้ำปลา (ขีดละ)",
+      "slug": "market-crispy-pork-belly",
+      "description": "หมูสามชั้นทอดร้อนๆ หนังกรอบเนื้อนุ่มชุ่มฉ่ำ ซื้อทานเล่นหรือทานกับข้าวเหนียว",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ของทอดตลาดนัด"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-02-01",
+      "shop_id": "shop-mkt-02",
+      "category_id": "cat-07",
+      "name": "บ้าบิ่นมะพร้าวอ่อนแท้กล่องใหญ่ (ทำสดร้อนๆ)",
+      "slug": "market-babin-coconut",
+      "description": "ขนมบ้าบิ่นหอมกลิ่นควันเทียนและใบเตย เนื้อมะพร้าวอ่อนใส่แน่นเต็มกล่อง",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "price": 40,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ขนมไทยตลาดนัด",
+        "คิวยาว"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-02-02",
+      "shop_id": "shop-mkt-02",
+      "category_id": "cat-07",
+      "name": "ขนมครกใบเตยสิงคโปร์เนื้อหนึบ",
+      "slug": "market-pandan-kanom-krok",
+      "description": "ขนมครกใบเตยสีเขียวสดใส แป้งนุ่มเหนียวหนึบ หอมหวานกำลังพอดี",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ขนมครก"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-03-01",
+      "shop_id": "shop-mkt-03",
+      "category_id": "cat-11",
+      "name": "น้ำส้มบางมดคั้นสดแท้ 100% (ขวดเย็น)",
+      "slug": "market-bangmod-orange-juice",
+      "description": "น้ำส้มบางมดขึ้นชื่อคั้นสดธรรมชาติ ไม่ใส่น้ำตาล ไม่ใส่สารกันบูด ดื่มชื่นใจ",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "น้ำส้มบางมดแท้",
+        "สุขภาพดี"
+      ],
+      "created_at": "2026-02-05T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-03-02",
+      "shop_id": "shop-mkt-03",
+      "category_id": "cat-11",
+      "name": "มะม่วงน้ำดอกไม้ & น้ำปลาหวานทรงเครื่อง",
+      "slug": "market-mango-sweet-fish-sauce",
+      "description": "มะม่วงเนื้อแน่นหั่นพร้อมทาน ทานคู่กับน้ำปลาหวานกุ้งแห้งตัวโต พริกซอย หอมแดง",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ผลไม้พร้อมทาน"
+      ],
+      "created_at": "2026-02-05T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-04-01",
+      "shop_id": "shop-mkt-04",
+      "category_id": "cat-13",
+      "name": "กระเป๋าผ้าแคนวาสใส่ iPad & เอกสาร A4",
+      "slug": "market-canvas-tote-bag",
+      "description": "กระเป๋าผ้าแคนวาสหนาพิเศษ มีช่องซิปและช่องใส่ขวดน้ำ เหมาะสำหรับสะพายไปเรียน",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
+      "price": 150,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "แฟชั่นนักศึกษา",
+        "ใส่ iPad"
+      ],
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-04-02",
+      "shop_id": "shop-mkt-04",
+      "category_id": "cat-12",
+      "name": "เสื้อยืด Oversize ลายกราฟิกเด็กบางมด",
+      "slug": "market-bangmod-tshirt",
+      "description": "ผ้าคอตตอน 100% สกรีนลายสไตล์สตรีทมินิมอล ใส่สบายระบายอากาศดี",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
+      "price": 180,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "เสื้อยืด"
+      ],
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-10-22T09:00:00+07:00"
+    }
+  ],
+  "shop_schedules": [
+    {
+      "id": "sched-shop-s14-01-1",
+      "shop_id": "shop-s14-01",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-01-2",
+      "shop_id": "shop-s14-01",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-01-3",
+      "shop_id": "shop-s14-01",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-01-4",
+      "shop_id": "shop-s14-01",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-01-5",
+      "shop_id": "shop-s14-01",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-02-1",
+      "shop_id": "shop-s14-02",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-02-2",
+      "shop_id": "shop-s14-02",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-02-3",
+      "shop_id": "shop-s14-02",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-02-4",
+      "shop_id": "shop-s14-02",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-02-5",
+      "shop_id": "shop-s14-02",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-03-1",
+      "shop_id": "shop-s14-03",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-03-2",
+      "shop_id": "shop-s14-03",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-03-3",
+      "shop_id": "shop-s14-03",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-03-4",
+      "shop_id": "shop-s14-03",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-03-5",
+      "shop_id": "shop-s14-03",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-04-1",
+      "shop_id": "shop-s14-04",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-04-2",
+      "shop_id": "shop-s14-04",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-04-3",
+      "shop_id": "shop-s14-04",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-04-4",
+      "shop_id": "shop-s14-04",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-04-5",
+      "shop_id": "shop-s14-04",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-05-1",
+      "shop_id": "shop-s14-05",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-05-2",
+      "shop_id": "shop-s14-05",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-05-3",
+      "shop_id": "shop-s14-05",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-05-4",
+      "shop_id": "shop-s14-05",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-05-5",
+      "shop_id": "shop-s14-05",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-06-1",
+      "shop_id": "shop-s14-06",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-06-2",
+      "shop_id": "shop-s14-06",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-06-3",
+      "shop_id": "shop-s14-06",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-06-4",
+      "shop_id": "shop-s14-06",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-06-5",
+      "shop_id": "shop-s14-06",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-07-1",
+      "shop_id": "shop-s14-07",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-07-2",
+      "shop_id": "shop-s14-07",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-07-3",
+      "shop_id": "shop-s14-07",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-07-4",
+      "shop_id": "shop-s14-07",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-07-5",
+      "shop_id": "shop-s14-07",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-08-1",
+      "shop_id": "shop-s14-08",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-08-2",
+      "shop_id": "shop-s14-08",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-08-3",
+      "shop_id": "shop-s14-08",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-08-4",
+      "shop_id": "shop-s14-08",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s14-08-5",
+      "shop_id": "shop-s14-08",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s11-01-1",
+      "shop_id": "shop-s11-01",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s11-01-2",
+      "shop_id": "shop-s11-01",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s11-01-3",
+      "shop_id": "shop-s11-01",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s11-01-4",
+      "shop_id": "shop-s11-01",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-s11-01-5",
+      "shop_id": "shop-s11-01",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-01-1",
+      "shop_id": "shop-coffee-01",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-01-2",
+      "shop_id": "shop-coffee-01",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-01-3",
+      "shop_id": "shop-coffee-01",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-01-4",
+      "shop_id": "shop-coffee-01",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-01-5",
+      "shop_id": "shop-coffee-01",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-02-1",
+      "shop_id": "shop-coffee-02",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-02-2",
+      "shop_id": "shop-coffee-02",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-02-3",
+      "shop_id": "shop-coffee-02",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-02-4",
+      "shop_id": "shop-coffee-02",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-02-5",
+      "shop_id": "shop-coffee-02",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-03-1",
+      "shop_id": "shop-coffee-03",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-03-2",
+      "shop_id": "shop-coffee-03",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-03-3",
+      "shop_id": "shop-coffee-03",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-03-4",
+      "shop_id": "shop-coffee-03",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-03-5",
+      "shop_id": "shop-coffee-03",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-04-1",
+      "shop_id": "shop-coffee-04",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-04-2",
+      "shop_id": "shop-coffee-04",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-04-3",
+      "shop_id": "shop-coffee-04",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-04-4",
+      "shop_id": "shop-coffee-04",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-04-5",
+      "shop_id": "shop-coffee-04",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-05-1",
+      "shop_id": "shop-coffee-05",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-05-2",
+      "shop_id": "shop-coffee-05",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-05-3",
+      "shop_id": "shop-coffee-05",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-05-4",
+      "shop_id": "shop-coffee-05",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-05-5",
+      "shop_id": "shop-coffee-05",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-06-1",
+      "shop_id": "shop-coffee-06",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-06-2",
+      "shop_id": "shop-coffee-06",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-06-3",
+      "shop_id": "shop-coffee-06",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-06-4",
+      "shop_id": "shop-coffee-06",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-06-5",
+      "shop_id": "shop-coffee-06",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-07-1",
+      "shop_id": "shop-coffee-07",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-07-2",
+      "shop_id": "shop-coffee-07",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-07-3",
+      "shop_id": "shop-coffee-07",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-07-4",
+      "shop_id": "shop-coffee-07",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-07-5",
+      "shop_id": "shop-coffee-07",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-08-1",
+      "shop_id": "shop-coffee-08",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-08-2",
+      "shop_id": "shop-coffee-08",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-08-3",
+      "shop_id": "shop-coffee-08",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-08-4",
+      "shop_id": "shop-coffee-08",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-08-5",
+      "shop_id": "shop-coffee-08",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-09-1",
+      "shop_id": "shop-coffee-09",
+      "day_of_week": 1,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-09-2",
+      "shop_id": "shop-coffee-09",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-09-3",
+      "shop_id": "shop-coffee-09",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-09-4",
+      "shop_id": "shop-coffee-09",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-coffee-09-5",
+      "shop_id": "shop-coffee-09",
+      "day_of_week": 5,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-01-2",
+      "shop_id": "shop-mkt-01",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-01-3",
+      "shop_id": "shop-mkt-01",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-01-4",
+      "shop_id": "shop-mkt-01",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-02-2",
+      "shop_id": "shop-mkt-02",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-02-3",
+      "shop_id": "shop-mkt-02",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-02-4",
+      "shop_id": "shop-mkt-02",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-03-2",
+      "shop_id": "shop-mkt-03",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-03-3",
+      "shop_id": "shop-mkt-03",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-03-4",
+      "shop_id": "shop-mkt-03",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-04-2",
+      "shop_id": "shop-mkt-04",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-04-3",
+      "shop_id": "shop-mkt-04",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-04-4",
+      "shop_id": "shop-mkt-04",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    }
+  ],
+  "market_events": [
+    {
+      "id": "mkt-evt-tue",
+      "name": "ตลาดนัดสินค้าชุมชน (วันอังคาร)",
+      "market_type": "community_tue",
+      "day_of_week": 2,
+      "event_date": null,
+      "start_time": "07:00",
+      "end_time": "17:00",
+      "setup_time": "05:30",
+      "location": "ลานชั้น 1 อาคารจอดรถ 14 ชั้น (S2) มจธ. บางมด",
+      "description": "ตลาดนัดส่งเสริมผู้ประกอบการชุมชนรอบรั้วบางมด จำหน่ายอาหารพื้นบ้าน ผลไม้สดตามฤดูกาล ขนมไทย และสินค้าอุปโภคบริโภค",
+      "status": "active"
+    },
+    {
+      "id": "mkt-evt-wed",
+      "name": "ตลาดนัด มจธ. (วันพุธ)",
+      "market_type": "kmutt_wed_thu",
+      "day_of_week": 3,
+      "event_date": null,
+      "start_time": "07:00",
+      "end_time": "17:00",
+      "setup_time": "05:30",
+      "location": "ลานชั้น 1 อาคารจอดรถ 14 ชั้น (S2) มจธ. บางมด",
+      "description": "ตลาดนัดกลางสัปดาห์ขวัญใจนักศึกษาและบุคลากร รวมร้านอาหารปรุงสด ของทอด ขนมเบเกอรี่ เครื่องดื่ม และสินค้าแฟชั่น",
+      "status": "active"
+    },
+    {
+      "id": "mkt-evt-thu",
+      "name": "ตลาดนัด มจธ. (วันพฤหัสบดี)",
+      "market_type": "kmutt_wed_thu",
+      "day_of_week": 4,
+      "event_date": null,
+      "start_time": "07:00",
+      "end_time": "17:00",
+      "setup_time": "05:30",
+      "location": "ลานชั้น 1 อาคารจอดรถ 14 ชั้น (S2) มจธ. บางมด",
+      "description": "ตลาดนัด มจธ. วันพฤหัสบดี ครบครันด้วยร้านอาหาร ของทานเล่น เสื้อผ้าแฟชั่น เครื่องประดับ และของใช้สำหรับนักศึกษา",
+      "status": "active"
+    }
+  ],
+  "market_stalls": [
+    {
+      "id": "stall-a01",
+      "stall_number": "A-01",
+      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "x_position": 1,
+      "y_position": 1,
+      "shop_id": "shop-mkt-01",
+      "is_active": true,
+      "location_verified": false
+    },
+    {
+      "id": "stall-a02",
+      "stall_number": "A-02",
+      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "x_position": 2,
+      "y_position": 1,
+      "shop_id": "shop-mkt-03",
+      "is_active": true,
+      "location_verified": false
+    },
+    {
+      "id": "stall-a03",
+      "stall_number": "A-03",
+      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "x_position": 3,
+      "y_position": 1,
+      "shop_id": null,
+      "is_active": true,
+      "location_verified": false
+    },
+    {
+      "id": "stall-b01",
+      "stall_number": "B-01",
+      "zone": "Zone B (ขนมและของทานเล่น)",
+      "x_position": 1,
+      "y_position": 2,
+      "shop_id": "shop-mkt-02",
+      "is_active": true,
+      "location_verified": false
+    },
+    {
+      "id": "stall-b02",
+      "stall_number": "B-02",
+      "zone": "Zone B (ขนมและของทานเล่น)",
+      "x_position": 2,
+      "y_position": 2,
+      "shop_id": null,
+      "is_active": true,
+      "location_verified": false
+    },
+    {
+      "id": "stall-c01",
+      "stall_number": "C-01",
+      "zone": "Zone C (แฟชั่นและสินค้าทั่วไป)",
+      "x_position": 1,
+      "y_position": 3,
+      "shop_id": "shop-mkt-04",
+      "is_active": true,
+      "location_verified": false
+    }
+  ],
+  "favorites": [
+    {
+      "id": "fav-01",
+      "user_id": "user-student-001",
+      "shop_id": "shop-s11-01",
+      "created_at": "2026-10-01T12:00:00+07:00"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-01",
+      "user_id": "user-student-001",
+      "user_name": "ธนภัทร วิศวกรรมศาสตร์ (นักศึกษา มจธ.)",
+      "user_role_badge": "นักศึกษา มจธ. ยืนยันตัวตน",
+      "shop_id": "shop-s11-01",
+      "rating": 5,
+      "comment": "ร้านลุงกบตึก S11 คือที่พึ่งยามเปลี่ยนคาบเรียน ข้าวราดเต้าหู้ทรงเครื่องกับไส้กรอกทอดอร่อยเหมือนเดิม ราคาประหยัดมากครับ",
+      "status": "published",
+      "report_reason": null,
+      "created_at": "2026-10-12T12:40:00+07:00",
+      "updated_at": "2026-10-12T12:40:00+07:00"
+    },
+    {
+      "id": "rev-02",
+      "user_id": "user-student-002",
+      "user_name": "พิมพ์ชนก คณะเทคโนโลยีสารสนเทศ (SIT)",
+      "user_role_badge": "นักศึกษา มจธ. ยืนยันตัวตน",
+      "shop_id": "shop-s14-03",
+      "rating": 5,
+      "comment": "ข้าวยำไก่แซ่บร้านครัวสุดารัตน์ที่โรงอาหาร S14 ให้เยอะมาก ไก่กรอบยำรสเปรี้ยวเผ็ดกำลังดี อิ่มคุ้มในงบ 40 บาทค่ะ",
+      "status": "published",
+      "report_reason": null,
+      "created_at": "2026-10-15T13:10:00+07:00",
+      "updated_at": "2026-10-15T13:10:00+07:00"
+    },
+    {
+      "id": "rev-03",
+      "user_id": "user-student-001",
+      "user_name": "ธนภัทร วิศวกรรมศาสตร์ (นักศึกษา มจธ.)",
+      "user_role_badge": "นักศึกษา มจธ. ยืนยันตัวตน",
+      "shop_id": "shop-s14-06",
+      "rating": 5,
+      "comment": "ข้าวหมกไก่หอมเครื่องเทศมาก เลือกผสมข้าวไรซ์เบอร์รี่ได้ด้วย แถมน้ำซุปร้อนๆ ฟรี แนะนำเลยครับ",
+      "status": "published",
+      "report_reason": null,
+      "created_at": "2026-10-19T12:25:00+07:00",
+      "updated_at": "2026-10-19T12:25:00+07:00"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-01",
+      "title": "รณรงค์ 'นำภาชนะและแก้วส่วนตัวมาเอง' รับส่วนลดพิเศษในโรงอาหาร S14 และตลาดนัด มจธ.",
+      "content": "กลุ่มงานจัดการผลประโยชน์และทรัพย์สิน (BPUU) ร่วมกับร้านค้าภายใน มจธ. มอบส่วนลด 2–5 บาท เมื่อนำกล่องอาหารหรือแก้วน้ำส่วนตัวมาซื้ออาหารและเครื่องดื่ม เพื่อร่วมลดขยะพลาสติกในรั้วมหาวิทยาลัย",
+      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "publish_at": "2026-10-01T08:00:00+07:00",
+      "expires_at": null,
+      "is_published": true
+    }
+  ],
+  "shop_data_sources": [
+    {
+      "id": "src-bpuu-01",
+      "shop_id": "shop-s11-01",
+      "source_name": "ทำเนียบร้านอาหาร BPUU มจธ.",
+      "source_url": "https://bpuu.kmutt.ac.th/restaurant/",
+      "source_type": "official_bpuu",
+      "last_verified_at": "2026-11-01T09:00:00+07:00",
+      "verification_note": "ข้อมูลทางการจากกลุ่มงานจัดการผลประโยชน์และทรัพย์สิน มจธ."
+    }
+  ],
+  "activity_logs": [
+    {
+      "id": "log-01",
+      "user_id": "user-admin-001",
+      "user_name": "ผู้ดูแลระบบ BPUU มจธ.",
+      "action": "SEED_OFFICIAL_DATA",
+      "entity_type": "system",
+      "entity_id": "init-001",
+      "details": {
+        "message": "นำเข้าข้อมูลร้านอาหาร S14, คาเฟ่ประจำตึก และตลาดนัด มจธ. จาก BPUU"
+      },
+      "created_at": "2026-11-01T09:00:00+07:00"
+    }
+  ],
+  "market_config": {
+    "stall_dimensions": "180 × 200 ซม. (หน้ากว้าง 180 ซม. × ลึก 200 ซม.)",
+    "food_stall_fee_thb": 250,
+    "fashion_stall_fee_thb": 200,
+    "electric_point_fee_thb": 50,
+    "default_open_time": "07:00",
+    "default_close_time": "17:00",
+    "default_setup_time": "05:30",
+    "official_source_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+    "note": "ตารางเวลาและวันจัดตลาดนัดอาจมีการเปลี่ยนแปลงตามประกาศวันหยุดราชการหรือกิจกรรมพิเศษของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี"
+  }
+}
