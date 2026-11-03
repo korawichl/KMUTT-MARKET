@@ -1497,7 +1497,11 @@ function renderFooter() {
 }
 
 function renderMainView() {
-  const p = state.route;
+  const p =
+    (state.route || "/")
+      .replace(/\/index\.html$/, "")
+      .replace(/^\/public/, "")
+      .replace(/\/+$/, "") || "/";
   if (p === "/" || p === "") return renderHomePage();
   if (p === "/shops") return renderShopsDirectoryPage();
   if (p.startsWith("/shops/")) return renderShopDetailPage(decodeURIComponent(p.replace("/shops/", "")));

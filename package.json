@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "node -e \"import('./data/seed-data.mjs').then(({ INITIAL_DATABASE_STATE }) => { const fs = require('fs'); fs.writeFileSync('public/kmutt-market-db.json', JSON.stringify(INITIAL_DATABASE_STATE, null, 2), 'utf-8'); fs.writeFileSync('public/initial-db.js', 'window.__INITIAL_DB__ = ' + JSON.stringify(INITIAL_DATABASE_STATE) + ';', 'utf-8'); console.log('Static database built successfully'); })\"",
+    "build": "node build-static.mjs",
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "next:dev": "next dev",
