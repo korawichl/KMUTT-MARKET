@@ -163,14 +163,14 @@ export async function generatePunproPoster({
   product = null,
   customHeadline = "",
 }) {
-  const shopName = safeXmlText(shop?.name || "ร้านอาหาร มจธ.", 32);
-  const buildingName = safeXmlText(shop?.building_name || "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (บางมด)", 45);
+  const shopName = safeXmlText(shop?.name || "ร้านอาหาร มจธ.", 48);
+  const buildingName = safeXmlText(shop?.building_name || "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (บางมด)", 50);
   const locationDesc = shop?.location_description || "โรงอาหาร S14";
   const stallNumber = safeXmlText(shop?.stall_number ? `ล็อก ${shop.stall_number}` : "", 15);
   
   const rawDishName = product?.name || shop?.name || "เมนูแนะนำประจำร้าน";
-  const dishNameShort = safeXmlText(rawDishName, 26);
-  const dishNameCard = safeXmlText(rawDishName, 22);
+  const dishNameShort = safeXmlText(rawDishName, 36);
+  const dishNameCard = safeXmlText(rawDishName, 34);
 
   const rawPrice = product?.price || (shop?.price_range ? shop.price_range.replace(/[^0-9]/g, "") : "40");
   const rawDishPrice = rawPrice ? (rawPrice.includes(".-") ? rawPrice : `${rawPrice}.-`) : "40.-";
@@ -179,10 +179,19 @@ export async function generatePunproPoster({
   const tagList = Array.isArray(shop?.tags) && shop.tags.length > 0 
     ? shop.tags.slice(0, 3) 
     : ["เครื่องแน่นให้เยอะ", "อิ่มคุ้มราคานักศึกษา", "ของกิน มจธ."];
-  const highlightTag = safeXmlText(tagList[0] || "เครื่องแน่น ให้เยอะ อิ่มจุกๆ", 28);
+  const highlightTag = safeXmlText(tagList[0] || "เครื่องแน่น ให้เยอะ อิ่มจุกๆ", 32);
+
+  const dishBadgeWidth = Math.min(640, Math.max(380, dishNameShort.length * 15 + 70));
+  const tagBadgeWidth = Math.min(520, Math.max(280, highlightTag.length * 14 + 60));
+
+  const openHours = locationDesc.includes("S2")
+    ? "⏰ ตลาดนัดเปิด: อังคาร - พฤหัสบดี (09:00 - 17:00 น.) • อาหารปรุงสดใหม่"
+    : (locationDesc.includes("S14") || locationDesc.includes("S11"))
+    ? "⏰ เปิด: 06:00 - 15:30 น. (มื้อเช้า-เที่ยง) • น้ำซุปฟรีบริการตัวเอง"
+    : "⏰ เปิดบริการทุกวัน • ชวนเพื่อนมาลิ้มลองความอร่อย";
 
   let imageUrl = product?.image_url || shop?.cover_image_url || shop?.logo_url;
-  if (!imageUrl || !imageUrl.startsWith("http")) {
+  if (!imageUrl) {
     imageUrl = "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/DSC_4671.jpg";
   }
 
@@ -269,14 +278,14 @@ export async function generatePunproPoster({
   <!-- Floating Callout Stickers -->
   <g filter="url(#softShadow)">
     <g transform="translate(60, 220)">
-      <rect x="0" y="0" width="500" height="74" rx="20" fill="#FFFFFF" stroke="#FA4616" stroke-width="2.5"/>
-      <text x="25" y="46" font-family="'Leelawadee UI', sans-serif" font-size="25" font-weight="800" fill="#0F172A">
+      <rect x="0" y="0" width="${dishBadgeWidth}" height="74" rx="20" fill="#FFFFFF" stroke="#FA4616" stroke-width="2.5"/>
+      <text x="25" y="46" font-family="'Leelawadee UI', sans-serif" font-size="24" font-weight="800" fill="#0F172A">
         🍽️ ${dishNameShort}
       </text>
     </g>
 
     <g transform="translate(60, 310)">
-      <rect x="0" y="0" width="440" height="58" rx="29" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+      <rect x="0" y="0" width="${tagBadgeWidth}" height="58" rx="29" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
       <text x="25" y="37" font-family="'Leelawadee UI', sans-serif" font-size="21" font-weight="800" fill="#92400E">
         ✨ ${highlightTag}
       </text>
@@ -298,13 +307,13 @@ export async function generatePunproPoster({
     <rect x="50" y="990" width="980" height="310" rx="36" fill="#FFFFFF"/>
 
     <g transform="translate(90, 1055)">
-      <text x="0" y="0" font-family="'Leelawadee UI', sans-serif" font-size="38" font-weight="900" fill="#0F172A">
+      <text x="0" y="0" font-family="'Leelawadee UI', sans-serif" font-size="34" font-weight="900" fill="#0F172A">
         ${shopName}
       </text>
       
       ${stallNumber ? `
-        <rect x="580" y="-32" width="160" height="42" rx="10" fill="#FFF1EB" stroke="#FA4616" stroke-width="1.5"/>
-        <text x="660" y="-5" font-family="'Leelawadee UI', sans-serif" font-size="20" font-weight="800" fill="#FA4616" text-anchor="middle">
+        <rect x="620" y="-32" width="160" height="42" rx="10" fill="#FFF1EB" stroke="#FA4616" stroke-width="1.5"/>
+        <text x="700" y="-5" font-family="'Leelawadee UI', sans-serif" font-size="20" font-weight="800" fill="#FA4616" text-anchor="middle">
           ${stallNumber}
         </text>
       ` : ""}
@@ -315,10 +324,10 @@ export async function generatePunproPoster({
         📍 พิกัด: ${buildingName}
       </text>
       <text x="0" y="34" font-family="'Leelawadee UI', sans-serif" font-size="20" font-weight="500" fill="#64748B">
-        ⏰ เปิด: 06:00 - 15:30 น. (มื้อเช้า-เที่ยง) • น้ำซุปฟรีบริการตัวเอง
+        ${openHours}
       </text>
       <text x="0" y="68" font-family="'Leelawadee UI', sans-serif" font-size="19" font-weight="600" fill="#0369A1">
-        💡 แนะนำ: ${dishNameCard} รสชาติกลมกล่อม ปรุงสดใหม่ทุกวัน!
+        💡 แนะนำ: ${dishNameCard} • รสชาติกลมกล่อม ต้องลอง!
       </text>
     </g>
 
@@ -386,13 +395,13 @@ export async function generateShopPoster({
   
   const dishName = escapeXml(product?.name || "เมนูแนะนำประจำร้าน");
   const dishPrice = product?.price ? `฿${product.price}` : (shop?.price_range || "฿");
-  const dishDesc = escapeXml(truncateText(product?.description || shop?.description || "อิ่มคุ้มราคานักศึกษา วัตถุดิบสดใหม่ ปรุงจานต่อจาน", 110));
+  const dishDesc = safeXmlText(product?.description || shop?.description || "อิ่มคุ้มราคานักศึกษา วัตถุดิบสดใหม่ ปรุงจานต่อจาน", 110);
 
   const phone = escapeXml(shop?.contact_phone || "ติดต่อสอบถาม ณ หน้าร้าน");
   const tagList = Array.isArray(shop?.tags) && shop.tags.length > 0 ? shop.tags.slice(0, 3) : ["อิ่มคุ้มงบนักศึกษา", "รสชาติกลมกล่อม", "พิกัด มจธ."];
 
   let imageUrl = product?.image_url || shop?.cover_image_url || shop?.logo_url;
-  if (!imageUrl || !imageUrl.startsWith("http")) {
+  if (!imageUrl) {
     imageUrl = DEFAULT_FOOD_PHOTOS[0];
   }
 
