@@ -22,6 +22,9 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+data/*.png
+data/ig-session.json
+data/campaign-state.json
 
 # vercel
 .vercel

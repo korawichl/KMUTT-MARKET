@@ -492,7 +492,7 @@
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8918.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
       "building_name": "อาคาร S6 (หอพักบ้านธรรมรักษา 1)",
       "location_description": "โซนหน้าทางเข้าหอพักนักศึกษาหญิง อาคาร S6",
@@ -507,7 +507,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "คาเฟ่นั่งทำงานได้",
-        "นำแก้วมาเองลด 5 บาท"
+        "นำแก้วมาเองลด 5 บาท",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿",
       "is_recommended": true,
@@ -523,7 +524,7 @@
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/IMG_8944.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
       "building_name": "อาคาร N10 (สำนักหอสมุด มจธ.)",
       "location_description": "ชั้น 1 อาคารสำนักหอสมุด (N10)",
@@ -538,7 +539,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "คาเฟ่นั่งทำงานได้",
-        "ส่วนลดนักศึกษา 5 บาท"
+        "ส่วนลดนักศึกษา 5 บาท",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿฿",
       "is_recommended": true,
@@ -554,7 +556,7 @@
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/Overdose.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
       "building_name": "อาคาร N2 (สำนักงานอธิการบดี)",
       "location_description": "ชั้น 1 อาคารสำนักงานอธิการบดี (N2)",
@@ -569,7 +571,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "โปรเดือนเกิดลด 30%",
-        "นำแก้วมาเองลด 5 บาท"
+        "นำแก้วมาเองลด 5 บาท",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿",
       "is_recommended": true,
@@ -579,16 +582,16 @@
     },
     {
       "id": "shop-coffee-04",
-      "name": "Inthanin (อินทนิล) – อาคารจอดรถ S2",
+      "name": "Inthanin (อินทนิล) – อาคาร S2",
       "slug": "inthanin-s2",
-      "description": "ร้านกาแฟอินทนิล ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) โดดเด่นด้วยเมนูโกโก้อินทนิลเข้มข้นระดับตำนาน กาแฟอาราบิก้าแท้ 100% และเบเกอรี่อบสด",
+      "description": "ร้านกาแฟอินทนิล โซนคาเฟ่อาคาร S2 โดดเด่นด้วยเมนูโกโก้อินทนิลเข้มข้นระดับตำนาน กาแฟอาราบิก้าแท้ 100% และเบเกอรี่อบสด บรรยากาศแอร์เย็นนั่งคุยงานสะดวก",
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/อินทนิล.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/อินทนิล.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
-      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
-      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) ติดลานตลาดนัด",
+      "building_name": "โซนคาเฟ่ อาคาร S2",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) โซนร้านค้าด้านหน้า",
       "stall_number": null,
       "latitude": 13.65045,
       "longitude": 100.495712,
@@ -600,7 +603,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "โกโก้เข้มข้น",
-        "คาเฟ่นั่งทำงานได้"
+        "คาเฟ่นั่งทำงานได้",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿฿",
       "is_recommended": false,
@@ -610,15 +614,15 @@
     },
     {
       "id": "shop-coffee-05",
-      "name": "KAMU KAMU – อาคารจอดรถ S2",
+      "name": "KAMU KAMU – อาคาร S2",
       "slug": "kamu-kamu-s2",
-      "description": "ร้านชานมไข่มุกและชาสไตล์ญี่ปุ่นยอดฮิตที่ชั้น 1 อาคารจอดรถ S2 เมนูขายดีตลอดกาลคือ Original Milk Tea ไข่มุกดำนุ่มหนึบ, Raptor โกโก้ปั่นครีมชีส และ Dino Milo",
+      "description": "ร้านชานมไข่มุกและชาสไตล์ญี่ปุ่นยอดฮิต โซนคาเฟ่อาคาร S2 เมนูขายดีตลอดกาลคือ Original Milk Tea ไข่มุกดำนุ่มหนึบ, Raptor โกโก้ปั่นครีมชีส และ Dino Milo",
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2023/09/KAMU-scaled.jpg",
       "category_id": "cat-10",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
-      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
+      "building_name": "โซนคาเฟ่ อาคาร S2",
       "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
       "stall_number": null,
       "latitude": 13.650548,
@@ -631,7 +635,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "ชานมไข่มุก",
-        "เมนูเด็ดต้องลอง"
+        "เมนูเด็ดต้องลอง",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿฿",
       "is_recommended": true,
@@ -647,7 +652,7 @@
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/06/Fresh-Me1.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/06/Fresh-Me1.jpg",
       "category_id": "cat-10",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
       "building_name": "อาคาร N10 (สำนักหอสมุด มจธ.)",
       "location_description": "ชั้น 1 อาคารสำนักหอสมุด (N10)",
@@ -662,7 +667,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "ชานมไข่มุก",
-        "ใต้หอสมุด"
+        "ใต้หอสมุด",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿",
       "is_recommended": false,
@@ -672,16 +678,16 @@
     },
     {
       "id": "shop-coffee-07",
-      "name": "Starbucks – อาคารจอดรถ S2",
+      "name": "Starbucks – อาคาร S2",
       "slug": "starbucks-s2",
-      "description": "สตาร์บัคส์ สาขาอาคารจอดรถ S2 มจธ. บางมด พื้นที่นั่งทำงานและพบปะสังสรรค์บรรยากาศดีเยี่ยม พร้อมกาแฟดริป มัทฉะลาเต้ และเบเกอรี่อบใหม่ทุกวัน",
+      "description": "สตาร์บัคส์ สาขาโซนคาเฟ่อาคาร S2 มจธ. บางมด พื้นที่นั่งทำงานและพบปะสังสรรค์บรรยากาศดีเยี่ยม พร้อมกาแฟดริป มัทฉะลาเต้ แฟรปปูชิโน่ และเบเกอรี่อบใหม่ทุกวัน",
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/04/สตราบัค.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/04/สตราบัค.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
-      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
-      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
+      "building_name": "โซนคาเฟ่ อาคาร S2",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) โซนคาเฟ่ห้องแอร์",
       "stall_number": null,
       "latitude": 13.650383,
       "longitude": 100.495632,
@@ -693,7 +699,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "คาเฟ่นั่งทำงานได้",
-        "เปิดทุกวัน"
+        "เปิดทุกวัน",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿฿฿",
       "is_recommended": false,
@@ -703,16 +710,16 @@
     },
     {
       "id": "shop-coffee-08",
-      "name": "Café Amazon – อาคารจอดรถ S2",
+      "name": "Café Amazon – อาคาร S2",
       "slug": "cafe-amazon-s2",
-      "description": "Café Amazon สาขาอาคารจอดรถ 14 ชั้น (S2) เดินทางสะดวกใกล้ประตูหน้ามหาวิทยาลัยและลานตลาดนัด มจธ.",
+      "description": "Café Amazon สาขาโซนคาเฟ่อาคาร S2 เดินทางสะดวกใกล้ประตูหน้ามหาวิทยาลัย มีเครื่องดื่มกาแฟสด ชาเขียว และเบเกอรี่ครบครัน",
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/PTY03636.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/PTY03636.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
-      "building_name": "อาคาร S2 (อาคารจอดรถ 14 ชั้น)",
-      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2)",
+      "building_name": "โซนคาเฟ่ อาคาร S2",
+      "location_description": "ชั้น 1 อาคารจอดรถ 14 ชั้น (S2) โซนร้านค้าด้านหน้า",
       "stall_number": null,
       "latitude": 13.650364,
       "longitude": 100.49563,
@@ -724,7 +731,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "เปิดทุกวัน",
-        "ใกล้ประตูหน้า"
+        "ใกล้ประตูหน้า",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿฿",
       "is_recommended": false,
@@ -740,7 +748,7 @@
       "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
       "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2026/06/Cofee.jpg",
       "category_id": "cat-09",
-      "shop_type": "permanent_shop",
+      "shop_type": "cafe",
       "market_type": "daily_campus",
       "building_name": "หน้ามหาวิทยาลัย (ประตูหลัก ถ.ประชาอุทิศ)",
       "location_description": "บริเวณด้านหน้ามหาวิทยาลัย หลังป้ายรถเมล์หน้า มจธ.",
@@ -755,7 +763,8 @@
       "tags": [
         "ข้อมูลทางการ BPUU",
         "ส่วนลดนักศึกษา 5 บาท",
-        "ซอฟต์คุกกี้"
+        "ซอฟต์คุกกี้",
+        "คาเฟ่ มจธ."
       ],
       "price_range": "฿",
       "is_recommended": true,
@@ -765,110 +774,113 @@
     },
     {
       "id": "shop-mkt-01",
-      "name": "หมูทอดชาววัง & ข้าวเหนียวร้อน (ตลาดนัด มจธ.)",
-      "slug": "moo-tod-chaowang-kmutt-market",
-      "description": "ร้านหมูทอดน้ำปลาพริกและหมูสามชั้นทอดกรอบประจำตลาดนัด มจธ. ลานชั้น 1 อาคารจอดรถ S2 ตักเสิร์ฟร้อนๆ พร้อมข้าวเหนียวนุ่มและไข่ต้มยางมะตูม",
-      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
-      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
+      "name": "เนื้อโคขุนย่าง (ลุงกับป้า ตลาดนัด S2)",
+      "slug": "beef-kobe-grilled-s2",
+      "description": "เนื้อโคขุนแท้เสียบไม้ย่างเตาถ่านสดใหม่ นุ่ม อร่อย ชุ่มฉ่ำ หอมกลิ่นเนยและเครื่องเทศย่างร้อนๆ ไม้ละ 10 บาทเท่านั้น ขายดีประจำตลาดนัด มจธ. ลานใต้ตึก S2 มีทั้งปลีกและส่ง (Line: wun168, โทร 061-719-8752)",
+      "logo_url": "/images/market-s2/beef-kobe-02.jpg",
+      "cover_image_url": "/images/market-s2/beef-kobe-01.jpg",
+      "category_id": "cat-02",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซนเต็นท์ตลาดนัด ลานชั้น 1 อาคาร S2 หน้าศูนย์หนังสือ มจธ.",
+      "stall_number": "S2-M01",
+      "latitude": 13.65048,
+      "longitude": 100.49565,
+      "contact_phone": "061-719-8752",
+      "social_url": "https://line.me/ti/p/~wun168",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านจริงตลาดนัด S2",
+        "ไม้ละ 10 บาท",
+        "เนื้อโคขุนแท้",
+        "ย่างเตาถ่าน"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-02",
+      "name": "หมูสะเต๊ะ ครอบครัวตัวโชว์ (วิเชียร) สูตรเด็ด แม่วาสนา",
+      "slug": "satay-wichian-s2",
+      "description": "หมูสะเต๊ะสูตรเด็ดแม่วาสนา ชื่อดังจากโซน 5 ตลาดน้ำคลองลัดมะยม เนื้อหมูนุ่มหมักเครื่องแกงหอมกรุ่น ปิ้งเตาถ่านสุกกำลังดี มาพร้อมน้ำจิ้มถั่วสูตรเข้มข้น อาจาดแตงกวา และฟรีขนมปังปิ้งทุกชุด! (โทร 082-917-5732, 095-951-4881)",
+      "logo_url": "/images/market-s2/satay-wichian-02.jpg",
+      "cover_image_url": "/images/market-s2/satay-wichian-01.jpg",
       "category_id": "cat-06",
       "shop_type": "market_stall",
       "market_type": "all_market_days",
       "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
-      "location_description": "โซน A (อาหารและเครื่องดื่ม) ล็อก A-01 ลานชั้น 1 อาคาร S2",
-      "stall_number": "A-01",
-      "latitude": 13.65048,
-      "longitude": 100.49565,
-      "contact_phone": "089-412-8831",
+      "location_description": "โซนเต็นท์ชมพู ลานชั้น 1 อาคารจอดรถ S2 ใกล้ป้ายอาคาร",
+      "stall_number": "S2-M02",
+      "latitude": 13.650495,
+      "longitude": 100.49567,
+      "contact_phone": "082-917-5732",
       "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
       "status": "active",
       "verification_status": "verified",
       "owner_id": null,
       "tags": [
-        "ร้านตลาดนัด มจธ.",
-        "เมนูเด็ดต้องลอง",
-        "อิ่มคุ้มงบนักศึกษา"
+        "ร้านจริงตลาดนัด S2",
+        "สูตรเด็ดแม่วาสนา",
+        "ฟรีขนมปัง",
+        "คลองลัดมะยม"
       ],
-      "price_range": "฿",
+      "price_range": "฿฿",
       "is_recommended": true,
-      "location_verified": false,
+      "location_verified": true,
       "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
-      "id": "shop-mkt-02",
-      "name": "บ้าบิ่นมะพร้าวอ่อน & ขนมครกใบเตย (ตลาดนัดชุมชน)",
-      "slug": "babin-pandan-kmutt-market",
-      "description": "ขนมไทยทำสดบนเตาร้อนๆ หอมกลิ่นใบเตยและมะพร้าวอ่อนแน่นเต็มคำ เปิดขายในวันตลาดนัดสินค้าชุมชน (วันอังคาร) และตลาดนัด มจธ. (วันพุธ–พฤหัสบดี)",
-      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
-      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
+      "id": "shop-mkt-03",
+      "name": "ริน หอยย่างเนย (ตลาดน้ำคลองลัดมะยม โซน 5)",
+      "slug": "rin-hoi-yang-noey-s2",
+      "description": "ซีฟู้ดย่างเนยชีสเยิ้มๆ สุดพรีเมียมจากตลาดน้ำคลองลัดมะยม โซน 5 ทั้งหอยเชลล์ย่างเนยชีส, หอยแมลงภู่นิวซีแลนด์ย่างชีส, และกุ้งย่างเนยชีส ท็อปปิ้งสาหร่ายไข่กุ้ง มายองเนสไข่กุ้ง และหอมเจียวทอดกรอบ (โทร 081-195-8536)",
+      "logo_url": "/images/market-s2/rin-scallop-02.jpg",
+      "cover_image_url": "/images/market-s2/rin-scallop-01.jpg",
+      "category_id": "cat-06",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "โซนเต็นท์หน้าศูนย์หนังสือ ลานชั้น 1 อาคาร S2",
+      "stall_number": "S2-M03",
+      "latitude": 13.650465,
+      "longitude": 100.49564,
+      "contact_phone": "081-195-8536",
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านจริงตลาดนัด S2",
+        "ชีสเยิ้ม",
+        "หอยเชลล์ย่าง",
+        "ซีฟู้ดใต้ตึก S2"
+      ],
+      "price_range": "฿฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-02-05T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-04",
+      "name": "ปังปิ้งเตาถ่าน PANGFU (ปังฟู ขนมปังไส้ทะลัก)",
+      "slug": "pangfu-toast-s2",
+      "description": "ขนมปังปิ้งเตาถ่านโบราณ กรอบนอก นุ่มใน ไส้แน่นทะลักเต็มคำ ปิ้งสดใหม่ร้อนๆ บนเตาถ่านหอมๆ มีไส้ให้เลือกกว่า 10 รสชาติ ทั้งเนยนม, สังขยาใบเตย, สังขยาชาไทย, ชาไทยลาวา, นมสดฮอกไกโด และนูเทลล่า",
+      "logo_url": "/images/market-s2/pangfu-toast-02.jpg",
+      "cover_image_url": "/images/market-s2/pangfu-toast-01.jpg",
       "category_id": "cat-07",
       "shop_type": "market_stall",
       "market_type": "all_market_days",
       "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
-      "location_description": "โซน B (ขนมและของทานเล่น) ล็อก B-01 ลานชั้น 1 อาคาร S2",
-      "stall_number": "B-01",
-      "latitude": 13.650495,
-      "longitude": 100.49567,
-      "contact_phone": null,
-      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
-      "status": "active",
-      "verification_status": "verified",
-      "owner_id": null,
-      "tags": [
-        "ร้านตลาดนัด มจธ.",
-        "ขนมทำสด",
-        "คิวยาวแต่คุ้ม"
-      ],
-      "price_range": "฿",
-      "is_recommended": true,
-      "location_verified": false,
-      "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
-    },
-    {
-      "id": "shop-mkt-03",
-      "name": "ผลไม้สดพร้อมทาน & น้ำส้มคั้นสด ชุมชนบางมด",
-      "slug": "bangmod-fresh-fruits-market",
-      "description": "ผลไม้ปอกพร้อมทานแช่เย็นชื่นใจ และน้ำส้มบางมดผสมคั้นสดแท้ 100% จากผู้ประกอบการชุมชนรอบมหาวิทยาลัย ร่วมโครงการนำแก้วมาเองรับส่วนลดพิเศษ",
-      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
-      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
-      "category_id": "cat-11",
-      "shop_type": "market_stall",
-      "market_type": "community_tue",
-      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
-      "location_description": "โซน A (อาหารและเครื่องดื่ม) ล็อก A-02 ลานชั้น 1 อาคาร S2",
-      "stall_number": "A-02",
-      "latitude": 13.650465,
-      "longitude": 100.49564,
-      "contact_phone": null,
-      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
-      "status": "active",
-      "verification_status": "verified",
-      "owner_id": null,
-      "tags": [
-        "ตลาดนัดสินค้าชุมชน",
-        "สุขภาพดี",
-        "นำแก้วมาเองลดราคา"
-      ],
-      "price_range": "฿",
-      "is_recommended": false,
-      "location_verified": false,
-      "created_at": "2026-02-05T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
-    },
-    {
-      "id": "shop-mkt-04",
-      "name": "Bangmod Style เสื้อผ้าแฟชั่น & กระเป๋าผ้าแฮนด์เมด",
-      "slug": "bangmod-style-fashion-market",
-      "description": "ร้านเสื้อผ้าแฟชั่นนักศึกษา เสื้อยืดโอเวอร์ไซส์ กระเป๋าผ้าแคนวาสใส่ไอแพดและเอกสารการเรียน ออกบูธทุกวันพุธและพฤหัสบดีในตลาดนัด มจธ.",
-      "logo_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
-      "cover_image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
-      "category_id": "cat-12",
-      "shop_type": "market_stall",
-      "market_type": "kmutt_wed_thu",
-      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
-      "location_description": "โซน C (แฟชั่นและสินค้าทั่วไป) ล็อก C-01 ลานชั้น 1 อาคาร S2",
-      "stall_number": "C-01",
+      "location_description": "เต็นท์ผ้าปูโต๊ะลายสก็อตเหลือง ลานชั้น 1 อาคาร S2",
+      "stall_number": "S2-M04",
       "latitude": 13.65051,
       "longitude": 100.49569,
       "contact_phone": null,
@@ -877,15 +889,80 @@
       "verification_status": "verified",
       "owner_id": null,
       "tags": [
-        "ตลาดนัด มจธ.",
-        "แฟชั่นนักศึกษา",
-        "กระเป๋าผ้าใส่ iPad"
+        "ร้านจริงตลาดนัด S2",
+        "ขนมปังไส้ทะลัก",
+        "ปิ้งเตาถ่าน",
+        "ของหวานบางมด"
       ],
-      "price_range": "฿฿",
-      "is_recommended": false,
-      "location_verified": false,
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
       "created_at": "2026-02-10T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-05",
+      "name": "ผัดไทย หอยทอด (ก้อยจ้ะ ตลาดนัด S2)",
+      "slug": "padthai-hoytod-koijah-s2",
+      "description": "ผัดไทยเส้นจันท์เหนียวนุ่มรสเข้มข้น ผัดสดใหม่กระทะใหญ่ร้อนๆ และหอยทอดกรอบนอกนุ่มใน น้ำจิ้มรสเด็ด พร้อมเสิร์ฟใส่ชามพร้อมทานทันที มีทั้งผัดไทยธรรมดา, ผัดไทยกุ้งสด, และวุ้นเส้นผัดไทยกุ้งสด (โทร 085-519-6663 ก้อยจ้ะ)",
+      "logo_url": "/images/market-s2/padthai-hoytod-02.jpg",
+      "cover_image_url": "/images/market-s2/padthai-hoytod-01.jpg",
+      "category_id": "cat-03",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "เต็นท์สีชมพู ป้ายผัดไทยหอยทอด ลานชั้น 1 อาคาร S2",
+      "stall_number": "S2-M05",
+      "latitude": 13.65047,
+      "longitude": 100.49566,
+      "contact_phone": "085-519-6663",
+      "social_url": "https://bpuu.kmutt.ac.th/2024/ตลาดนัดสินค้าชุมชน/",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านจริงตลาดนัด S2",
+        "ผัดไทยกุ้งสด",
+        "หอยทอดกรอบ",
+        "โครงการคนละครึ่ง"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-02-12T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "shop-mkt-06",
+      "name": "ยากิโซบะ 美味しい (Oishii Yakisoba ตลาดนัด S2)",
+      "slug": "yakisoba-oishii-s2",
+      "description": "ยากิโซบะกระทะร้อนสไตล์ญี่ปุ่นรสชาติเข้มข้น ผัดคลุกเคล้าซอสสูตรพิเศษพร้อมกะหล่ำปลีและแครอทกรอบๆ เสิร์ฟพร้อมเครื่องท็อปปิ้งแน่นๆ ทั้งไข่ดาว ไส้กรอก ปูอัด และกุ้งทอด อิ่มคุ้มในงบนักศึกษา (Line: mameawz89, โทร 085-369-2315)",
+      "logo_url": "/images/market-s2/yakisoba-oishii-02.jpg",
+      "cover_image_url": "/images/market-s2/yakisoba-oishii-01.jpg",
+      "category_id": "cat-03",
+      "shop_type": "market_stall",
+      "market_type": "all_market_days",
+      "building_name": "ลานตลาดนัด มจธ. (ชั้น 1 อาคารจอดรถ S2)",
+      "location_description": "เต็นท์สีเหลือง ป้ายภูเขาไฟฟูจิ ลานชั้น 1 อาคาร S2",
+      "stall_number": "S2-M06",
+      "latitude": 13.65049,
+      "longitude": 100.49568,
+      "contact_phone": "085-369-2315",
+      "social_url": "https://line.me/ti/p/~mameawz89",
+      "status": "active",
+      "verification_status": "verified",
+      "owner_id": null,
+      "tags": [
+        "ร้านจริงตลาดนัด S2",
+        "ยากิโซบะญี่ปุ่น",
+        "เริ่มต้น 35 บาท",
+        "ขวัญใจนักศึกษา"
+      ],
+      "price_range": "฿",
+      "is_recommended": true,
+      "location_verified": true,
+      "created_at": "2026-02-14T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
     }
   ],
   "products": [
@@ -1557,142 +1634,374 @@
     {
       "id": "prod-mkt-01-01",
       "shop_id": "shop-mkt-01",
-      "category_id": "cat-06",
-      "name": "ข้าวหมูทอดน้ำปลาพริก + ไข่ต้มยางมะตูม",
-      "slug": "market-fried-pork-sticky-rice",
-      "description": "หมูสันนอกและสามชั้นหมักทอดกรอบนอกนุ่มใน ราดน้ำจิ้มแจ่วหรือน้ำปลาพริกหอมมะนาว",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
-      "price": 45,
+      "category_id": "cat-02",
+      "name": "เนื้อโคขุนย่างแท้ (ไม้ละ 10.-)",
+      "slug": "beef-kobe-grilled-skewer",
+      "description": "เนื้อโคขุนแท้หมักเครื่องเทศเสียบไม้ย่างเตาถ่านสดๆ หอมเนย เนื้อนุ่มชุ่มฉ่ำ ไม่เหนียว ไม้ละ 10 บาทเท่านั้น",
+      "image_url": "/images/market-s2/beef-kobe-01.jpg",
+      "price": 10,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "เมนูเด็ดตลาดนัด",
-        "อิ่มคุ้มงบนักศึกษา"
+        "ไม้ละ 10 บาท",
+        "เมนูเด็ดต้องลอง",
+        "เนื้อโคขุนแท้"
       ],
       "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-01-02",
       "shop_id": "shop-mkt-01",
-      "category_id": "cat-06",
-      "name": "หมูสามชั้นทอดน้ำปลา (ขีดละ)",
-      "slug": "market-crispy-pork-belly",
-      "description": "หมูสามชั้นทอดร้อนๆ หนังกรอบเนื้อนุ่มชุ่มฉ่ำ ซื้อทานเล่นหรือทานกับข้าวเหนียว",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371126.jpg",
-      "price": 40,
+      "category_id": "cat-02",
+      "name": "ชุดเนื้อโคขุนย่าง 5 ไม้ + ข้าวเหนียวร้อน",
+      "slug": "beef-kobe-set-5-sticky-rice",
+      "description": "ชุดอิ่มคุ้มสำหรับนักศึกษา เนื้อโคขุนย่างเตาถ่านร้อนๆ 5 ไม้ พร้อมข้าวเหนียวนุ่มร้อนๆ",
+      "image_url": "/images/market-s2/beef-kobe-02.jpg",
+      "price": 55,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "ของทอดตลาดนัด"
+        "ชุดอิ่มคุ้ม",
+        "งบประหยัด"
       ],
       "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-01-03",
+      "shop_id": "shop-mkt-01",
+      "category_id": "cat-02",
+      "name": "ชุดครอบครัวเนื้อโคขุนย่าง 10 ไม้",
+      "slug": "beef-kobe-set-10",
+      "description": "เนื้อโคขุนย่างชุดจุใจ 10 ไม้ หอมนุ่มชวนหิว ซื้อแชร์กับเพื่อนตอนพักเที่ยง",
+      "image_url": "/images/market-s2/beef-kobe-01.jpg",
+      "price": 100,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ชุดแชร์เพื่อน"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-02-01",
       "shop_id": "shop-mkt-02",
-      "category_id": "cat-07",
-      "name": "บ้าบิ่นมะพร้าวอ่อนแท้กล่องใหญ่ (ทำสดร้อนๆ)",
-      "slug": "market-babin-coconut",
-      "description": "ขนมบ้าบิ่นหอมกลิ่นควันเทียนและใบเตย เนื้อมะพร้าวอ่อนใส่แน่นเต็มกล่อง",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
-      "price": 40,
+      "category_id": "cat-06",
+      "name": "หมูสะเต๊ะชุดเล็ก 10 ไม้ (ฟรีขนมปัง + น้ำจิ้มอาจาด)",
+      "slug": "satay-wichian-set-10",
+      "description": "หมูสะเต๊ะสูตรเด็ดแม่วาสนา คลองลัดมะยม หมูหมักนุ่มหอมเครื่องเทศ ย่างเตาถ่าน ฟรีขนมปังปิ้ง 1 แผ่น + น้ำจิ้มถั่วเข้มข้นและอาจาด",
+      "image_url": "/images/market-s2/satay-wichian-01.jpg",
+      "price": 80,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "ขนมไทยตลาดนัด",
-        "คิวยาว"
+        "ฟรีขนมปัง",
+        "สูตรเด็ดแม่วาสนา",
+        "เมนูเด็ดต้องลอง"
       ],
       "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-02-02",
       "shop_id": "shop-mkt-02",
-      "category_id": "cat-07",
-      "name": "ขนมครกใบเตยสิงคโปร์เนื้อหนึบ",
-      "slug": "market-pandan-kanom-krok",
-      "description": "ขนมครกใบเตยสีเขียวสดใส แป้งนุ่มเหนียวหนึบ หอมหวานกำลังพอดี",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371127.jpg",
-      "price": 35,
+      "category_id": "cat-06",
+      "name": "หมูสะเต๊ะชุดกลาง 15 ไม้ (ฟรีขนมปัง + น้ำจิ้มอาจาด)",
+      "slug": "satay-wichian-set-15",
+      "description": "หมูสะเต๊ะ 15 ไม้จุใจ พร้อมน้ำจิ้มถั่วสูตรโบราณรสกลมกล่อม อาจาดแตงกวา และฟรีขนมปังปิ้งเตาถ่าน",
+      "image_url": "/images/market-s2/satay-wichian-02.jpg",
+      "price": 120,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ฟรีขนมปัง"
+      ],
+      "created_at": "2026-02-01T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-02-03",
+      "shop_id": "shop-mkt-02",
+      "category_id": "cat-06",
+      "name": "หมูสะเต๊ะชุดใหญ่ 20 ไม้ (ฟรีขนมปัง 2 ชุด)",
+      "slug": "satay-wichian-set-20",
+      "description": "ชุดใหญ่ปาร์ตี้ 20 ไม้ ทานได้ 2-3 คน หมูนุ่มฉ่ำไม่แห้ง ฟรีขนมปังปิ้ง 2 ชุดเต็มๆ",
+      "image_url": "/images/market-s2/satay-wichian-01.jpg",
+      "price": 160,
       "is_available": true,
       "is_recommended": false,
       "tags": [
-        "ขนมครก"
+        "ชุดใหญ่สุดคุ้ม"
       ],
       "created_at": "2026-02-01T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-03-01",
       "shop_id": "shop-mkt-03",
-      "category_id": "cat-11",
-      "name": "น้ำส้มบางมดคั้นสดแท้ 100% (ขวดเย็น)",
-      "slug": "market-bangmod-orange-juice",
-      "description": "น้ำส้มบางมดขึ้นชื่อคั้นสดธรรมชาติ ไม่ใส่น้ำตาล ไม่ใส่สารกันบูด ดื่มชื่นใจ",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
-      "price": 35,
+      "category_id": "cat-06",
+      "name": "หอยเชลล์ย่างเนยชีส (ท็อปไข่กุ้ง + หอมเจียว)",
+      "slug": "rin-grilled-scallop-cheese",
+      "description": "หอยเชลล์สดหวาน ย่างเนยกระเทียมและชีสเยิ้มๆ ท็อปปิ้งสาหร่ายไข่กุ้ง มายองเนส และหอมเจียวกรอบ หอมมันกลมกล่อม",
+      "image_url": "/images/market-s2/rin-scallop-01.jpg",
+      "price": 70,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "น้ำส้มบางมดแท้",
-        "สุขภาพดี"
+        "ชีสเยิ้ม",
+        "หอยเชลล์ย่าง",
+        "เมนูเด็ดต้องลอง"
       ],
       "created_at": "2026-02-05T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-03-02",
       "shop_id": "shop-mkt-03",
-      "category_id": "cat-11",
-      "name": "มะม่วงน้ำดอกไม้ & น้ำปลาหวานทรงเครื่อง",
-      "slug": "market-mango-sweet-fish-sauce",
-      "description": "มะม่วงเนื้อแน่นหั่นพร้อมทาน ทานคู่กับน้ำปลาหวานกุ้งแห้งตัวโต พริกซอย หอมแดง",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371128.jpg",
-      "price": 35,
+      "category_id": "cat-06",
+      "name": "หอยแมลงภู่นิวซีแลนด์ย่างชีสเยิ้ม",
+      "slug": "rin-grilled-mussel-cheese",
+      "description": "หอยแมลงภู่ตัวโต ย่างชีสมอสซาเรลล่าเยิ้มๆ ปรุงรสด้วยเนยพริกไทย หอมอร่อยเต็มฝา",
+      "image_url": "/images/market-s2/rin-scallop-02.jpg",
+      "price": 60,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "ผลไม้พร้อมทาน"
+        "หอยแมลงภู่ชีส"
       ],
       "created_at": "2026-02-05T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-03-03",
+      "shop_id": "shop-mkt-03",
+      "category_id": "cat-06",
+      "name": "กุ้งย่างเนยชีส ราดมายองเนสไข่กุ้ง",
+      "slug": "rin-grilled-shrimp-cheese",
+      "description": "กุ้งสดแกะเปลือกย่างเนยหอมๆ โปะชีสยืดและราดซอสมายองเนสไข่กุ้งกรุบกรอบ",
+      "image_url": "/images/market-s2/rin-scallop-01.jpg",
+      "price": 80,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "กุ้งชีส"
+      ],
+      "created_at": "2026-02-05T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-04-01",
       "shop_id": "shop-mkt-04",
-      "category_id": "cat-13",
-      "name": "กระเป๋าผ้าแคนวาสใส่ iPad & เอกสาร A4",
-      "slug": "market-canvas-tote-bag",
-      "description": "กระเป๋าผ้าแคนวาสหนาพิเศษ มีช่องซิปและช่องใส่ขวดน้ำ เหมาะสำหรับสะพายไปเรียน",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
-      "price": 150,
+      "category_id": "cat-07",
+      "name": "ขนมปังปิ้งเนยนมสดเตาถ่าน (PANGFU)",
+      "slug": "pangfu-toast-butter-milk",
+      "description": "ขนมปังปิ้งเตาถ่านหอมกรอบนอก นุ่มใน ราดเนยสดแท้และนมข้นหวานเยิ้ม ไส้แน่นเต็มคำ",
+      "image_url": "/images/market-s2/pangfu-toast-01.jpg",
+      "price": 30,
       "is_available": true,
       "is_recommended": true,
       "tags": [
-        "แฟชั่นนักศึกษา",
-        "ใส่ iPad"
+        "ปังปิ้งเตาถ่าน",
+        "เริ่มต้น 30 บาท",
+        "เมนูเด็ดต้องลอง"
       ],
       "created_at": "2026-02-10T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
     },
     {
       "id": "prod-mkt-04-02",
       "shop_id": "shop-mkt-04",
-      "category_id": "cat-12",
-      "name": "เสื้อยืด Oversize ลายกราฟิกเด็กบางมด",
-      "slug": "market-bangmod-tshirt",
-      "description": "ผ้าคอตตอน 100% สกรีนลายสไตล์สตรีทมินิมอล ใส่สบายระบายอากาศดี",
-      "image_url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2024/03/371129.jpg",
-      "price": 180,
+      "category_id": "cat-07",
+      "name": "ขนมปังปิ้งสังขยาใบเตยโบราณ (ไส้ทะลัก)",
+      "slug": "pangfu-toast-pandan-custard",
+      "description": "สังขยาใบเตยทำสดใหม่ กลิ่นหอมใบเตยธรรมชาติ หวานมันกำลังดี กัดแล้วไส้ทะลักเต็มปาก",
+      "image_url": "/images/market-s2/pangfu-toast-02.jpg",
+      "price": 30,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "สังขยาใบเตย",
+        "ไส้ทะลัก"
+      ],
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-04-03",
+      "shop_id": "shop-mkt-04",
+      "category_id": "cat-07",
+      "name": "ขนมปังปิ้งสังขยาชาไทยการันตีรสชาติ",
+      "slug": "pangfu-toast-thai-tea",
+      "description": "สังขยาชาไทยสีส้มทอง หอมกลิ่นชาไทยเข้มข้น รสชาติต้นตำรับที่นักศึกษาโปรดปราน",
+      "image_url": "/images/market-s2/pangfu-toast-01.jpg",
+      "price": 30,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ชาไทย"
+      ],
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-04-04",
+      "shop_id": "shop-mkt-04",
+      "category_id": "cat-07",
+      "name": "ขนมปังปิ้งชาไทยลาวาเยิ้ม (ไส้พิเศษ)",
+      "slug": "pangfu-toast-thai-tea-lava",
+      "description": "ไส้ชาไทยลาวาไหลเยิ้ม เข้มข้นหวานมันสะใจ สไตล์ของหวานคาเฟ่ในราคาตลาดนัด",
+      "image_url": "/images/market-s2/pangfu-toast-02.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ลาวาเยิ้ม"
+      ],
+      "created_at": "2026-02-10T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-04-05",
+      "shop_id": "shop-mkt-04",
+      "category_id": "cat-07",
+      "name": "ขนมปังปิ้งนูเทลล่าช็อกโกแลตเฮเซลนัต",
+      "slug": "pangfu-toast-nutella",
+      "description": "ปาดช็อกโกแลตนูเทลล่าแท้แบบจัดเต็ม ปิ้งเตาถ่านกรอบนอก ไส้ช็อกโกแลตอุ่นๆ เยิ้มละมุน",
+      "image_url": "/images/market-s2/pangfu-toast-01.jpg",
+      "price": 45,
       "is_available": true,
       "is_recommended": false,
       "tags": [
-        "เสื้อยืด"
+        "นูเทลล่าแท้"
       ],
       "created_at": "2026-02-10T08:00:00+07:00",
-      "updated_at": "2026-10-22T09:00:00+07:00"
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-05-01",
+      "shop_id": "shop-mkt-05",
+      "category_id": "cat-03",
+      "name": "ผัดไทยเส้นจันท์โบราณ (ก้อยจ้ะ)",
+      "slug": "padthai-koijah-classic",
+      "description": "ผัดไทยเส้นจันท์เหนียวนุ่ม ผัดซอสมะขามเปียกสูตรโบราณ รสชาติกลมกล่อมเปรี้ยวหวานลงตัว เสิร์ฟใส่ชามพร้อมทานทันที",
+      "image_url": "/images/market-s2/padthai-hoytod-01.jpg",
+      "price": 50,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "ผัดไทยโบราณ",
+        "เมนูเด็ดต้องลอง",
+        "ก้อยจ้ะ"
+      ],
+      "created_at": "2026-02-12T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-05-02",
+      "shop_id": "shop-mkt-05",
+      "category_id": "cat-03",
+      "name": "หอยทอดกระทะร้อน แป้งกรอบไม่อมน้ำมัน",
+      "slug": "hoytod-koijah-crispy",
+      "description": "หอยแมลงภู่สดทอดแป้งกรอบฟู ไม่อมน้ำมัน ทานคู่ถั่วงอกผัดกรุบกรอบและน้ำจิ้มหอยทอดรสเด็ด",
+      "image_url": "/images/market-s2/padthai-hoytod-02.jpg",
+      "price": 60,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "หอยทอดกรอบ"
+      ],
+      "created_at": "2026-02-12T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-05-03",
+      "shop_id": "shop-mkt-05",
+      "category_id": "cat-03",
+      "name": "ผัดไทยกุ้งสดตัวโต",
+      "slug": "padthai-koijah-fresh-shrimp",
+      "description": "ผัดไทยเส้นจันท์เหนียวนุ่ม ท็อปปิ้งกุ้งสดแกะเปลือกตัวโตเนื้อเด้ง ผัดไฟแรงหอมกลิ่นกระทะ",
+      "image_url": "/images/market-s2/padthai-hoytod-01.jpg",
+      "price": 70,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "กุ้งสดตัวโต"
+      ],
+      "created_at": "2026-02-12T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-05-04",
+      "shop_id": "shop-mkt-05",
+      "category_id": "cat-03",
+      "name": "วุ้นเส้นผัดไทยกุ้งสดพิเศษ",
+      "slug": "padthai-koijah-glass-noodle-shrimp",
+      "description": "วุ้นเส้นเหนียวนุ่มไม่อืด ผัดซอสผัดไทยเข้มข้นเข้าเนื้อ พร้อมกุ้งสดและเครื่องเคียงครบครัน",
+      "image_url": "/images/market-s2/padthai-hoytod-03.jpg",
+      "price": 70,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "วุ้นเส้นผัดไทย"
+      ],
+      "created_at": "2026-02-12T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-06-01",
+      "shop_id": "shop-mkt-06",
+      "category_id": "cat-03",
+      "name": "ยากิโซบะผัดซอสญี่ปุ่น (แบบธรรมดา)",
+      "slug": "yakisoba-oishii-regular",
+      "description": "เส้นยากิโซบะเหนียวนุ่มผัดกระทะร้อน คลุกเคล้าซอสยากิโซบะรสกลมกล่อม กะหล่ำปลี และแครอทสดกรอบ อิ่มอร่อยเริ่มต้นเพียง 35 บาท",
+      "image_url": "/images/market-s2/yakisoba-oishii-01.jpg",
+      "price": 35,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "เริ่มต้น 35 บาท",
+        "ยากิโซบะญี่ปุ่น",
+        "เมนูเด็ดต้องลอง"
+      ],
+      "created_at": "2026-02-14T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-06-02",
+      "shop_id": "shop-mkt-06",
+      "category_id": "cat-03",
+      "name": "ยากิโซบะพิเศษรวมเครื่อง (ไส้กรอก + ปูอัด + กุ้งทอด)",
+      "slug": "yakisoba-oishii-special",
+      "description": "ยากิโซบะจานเด็ดอัปเกรดเครื่องแน่น จัดเต็มทั้งไส้กรอกไก่ ปูอัด และกุ้งชุบแป้งทอดกรอบ อิ่มจุกๆ เพียง 45 บาท",
+      "image_url": "/images/market-s2/yakisoba-oishii-02.jpg",
+      "price": 45,
+      "is_available": true,
+      "is_recommended": true,
+      "tags": [
+        "รวมเครื่องจัดเต็ม",
+        "คุ้มค่า"
+      ],
+      "created_at": "2026-02-14T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
+    },
+    {
+      "id": "prod-mkt-06-03",
+      "shop_id": "shop-mkt-06",
+      "category_id": "cat-03",
+      "name": "ท็อปปิ้งไข่ดาวทอดสุกเยิ้ม (เพิ่มในยากิโซบะ)",
+      "slug": "yakisoba-topping-fried-egg",
+      "description": "ไข่ดาวทอดกรอบขอบ ไข่แดงเยิ้มๆ โปะบนเส้นยากิโซบะร้อนๆ เพิ่มความนัวและโปรตีนเต็มคำ",
+      "image_url": "/images/market-s2/yakisoba-oishii-01.jpg",
+      "price": 10,
+      "is_available": true,
+      "is_recommended": false,
+      "tags": [
+        "ท็อปปิ้งไข่ดาว"
+      ],
+      "created_at": "2026-02-14T08:00:00+07:00",
+      "updated_at": "2026-11-04T16:00:00+07:00"
     }
   ],
   "shop_schedules": [
@@ -2511,6 +2820,54 @@
       "open_time": "07:00",
       "close_time": "17:00",
       "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-05-2",
+      "shop_id": "shop-mkt-05",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-05-3",
+      "shop_id": "shop-mkt-05",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-05-4",
+      "shop_id": "shop-mkt-05",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-06-2",
+      "shop_id": "shop-mkt-06",
+      "day_of_week": 2,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-06-3",
+      "shop_id": "shop-mkt-06",
+      "day_of_week": 3,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
+    },
+    {
+      "id": "sched-shop-mkt-06-4",
+      "shop_id": "shop-mkt-06",
+      "day_of_week": 4,
+      "open_time": "07:00",
+      "close_time": "17:00",
+      "is_open": true
     }
   ],
   "market_events": [
@@ -2558,62 +2915,62 @@
     {
       "id": "stall-a01",
       "stall_number": "A-01",
-      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "zone": "Zone A (อาหารและของคาวปรุงสด)",
       "x_position": 1,
       "y_position": 1,
       "shop_id": "shop-mkt-01",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     },
     {
       "id": "stall-a02",
       "stall_number": "A-02",
-      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "zone": "Zone A (อาหารและของคาวปรุงสด)",
       "x_position": 2,
       "y_position": 1,
-      "shop_id": "shop-mkt-03",
+      "shop_id": "shop-mkt-02",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     },
     {
       "id": "stall-a03",
       "stall_number": "A-03",
-      "zone": "Zone A (อาหารและเครื่องดื่ม)",
+      "zone": "Zone A (อาหารและของคาวปรุงสด)",
       "x_position": 3,
       "y_position": 1,
-      "shop_id": null,
+      "shop_id": "shop-mkt-03",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     },
     {
       "id": "stall-b01",
       "stall_number": "B-01",
-      "zone": "Zone B (ขนมและของทานเล่น)",
+      "zone": "Zone B (ขนม ของหวาน และเบเกอรี่)",
       "x_position": 1,
       "y_position": 2,
-      "shop_id": "shop-mkt-02",
+      "shop_id": "shop-mkt-04",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     },
     {
       "id": "stall-b02",
       "stall_number": "B-02",
-      "zone": "Zone B (ขนมและของทานเล่น)",
+      "zone": "Zone B (อาหารจานเดียวและเส้นปรุงสด)",
       "x_position": 2,
       "y_position": 2,
-      "shop_id": null,
+      "shop_id": "shop-mkt-05",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     },
     {
-      "id": "stall-c01",
-      "stall_number": "C-01",
-      "zone": "Zone C (แฟชั่นและสินค้าทั่วไป)",
-      "x_position": 1,
-      "y_position": 3,
-      "shop_id": "shop-mkt-04",
+      "id": "stall-b03",
+      "stall_number": "B-03",
+      "zone": "Zone B (อาหารจานเดียวและเส้นปรุงสด)",
+      "x_position": 3,
+      "y_position": 2,
+      "shop_id": "shop-mkt-06",
       "is_active": true,
-      "location_verified": false
+      "location_verified": true
     }
   ],
   "favorites": [

@@ -42,6 +42,8 @@ const staticRoutes = [
   "reviews",
   "about",
   "contact",
+  "instagram",
+  "admin/instagram",
   ...(INITIAL_DATABASE_STATE.shops || []).map((s) => `shops/${s.slug}`),
   ...(INITIAL_DATABASE_STATE.products || []).map((p) => `products/${p.slug}`),
 ];

@@ -1,0 +1,15 @@
+{
+  "accountId": "",
+  "accessToken": "",
+  "publicBaseUrl": "",
+  "geminiApiKey": "",
+  "autoPilotEnabled": false,
+  "scheduleTime": "10:30",
+  "marketAlertEnabled": true,
+  "marketAlertTime": "07:30",
+  "defaultTone": "student",
+  "defaultTheme": "kmutt-orange",
+  "lastRunDate": "2026-11-04",
+  "igUsername": "gen111_kmutt_market",
+  "igPassword": "Wichking_10"
+}

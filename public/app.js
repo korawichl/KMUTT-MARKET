@@ -31,6 +31,33 @@ const state = {
   selectedMapZone: "ALL",
   selectedStallCode: "A-01",
   leafletMap: null,
+  igStudio: {
+    targetType: "shop",
+    selectedShopId: "shop-s14-01",
+    selectedProductId: "",
+    selectedEventId: "mkt-evt-wed",
+    themeKey: "punpro",
+    tone: "punpro",
+    customHeadline: "ชี้เป้าของอร่อย มจธ. บางมด!",
+    posterUrl: null,
+    caption: "",
+    isGenerating: false,
+    isPublishing: false,
+    activeTab: "campaign",
+    history: [],
+    config: null,
+    statusMessage: "",
+    previewLikes: 1428,
+    isLiked: false,
+    isCaptionExpanded: false,
+    initialized: false,
+    campaign: null,
+    campaignSpots: [],
+    isCampaignLoading: false,
+    campaignIntervalMinutes: 2,
+    campaignFilterZone: "ALL",
+    campaignFilterStatus: "ALL",
+  },
 };
 
 const DAY_NAMES_TH = {
@@ -450,6 +477,7 @@ function renderTopHeader() {
           <a class="nav-link ${p === "/market/map" ? "active" : ""}" onclick="window.appNavigate('/market/map')">แผนที่ตลาด</a>
           <a class="nav-link ${p === "/market/schedule" || p === "/market" ? "active" : ""}" onclick="window.appNavigate('/market/schedule')">ตารางตลาด</a>
           <a class="nav-link ${p === "/about" ? "active" : ""}" onclick="window.appNavigate('/about')">เกี่ยวกับเรา</a>
+          <a class="nav-link ${p.startsWith("/instagram") ? "active" : ""}" style="color:var(--kmutt-orange); font-weight:700;" onclick="window.appNavigate('/instagram')">📸 IG Auto</a>
         </nav>
 
         <div class="nav-actions">
@@ -503,10 +531,10 @@ function renderHomePage() {
           <div class="mobile-quick-chips">
             <button class="mobile-chip" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่</button>
             <button class="mobile-chip" onclick="window.appQuickSearch('ฮาลาล')">🕌 ฮาลาล S14</button>
-            <button class="mobile-chip" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ S11</button>
+            <button class="mobile-chip" onclick="window.appQuickFilterZone('S2')">🎪 ตลาดนัดใต้ตึก S2</button>
+            <button class="mobile-chip" onclick="window.appQuickFilterZone('CAFES')">☕ คาเฟ่ & ชานม (9 ร้าน)</button>
+            <button class="mobile-chip" onclick="window.appQuickFilterZone('S11')">🐸 ลุงกบ S11</button>
             <button class="mobile-chip" onclick="window.appQuickSearch('บะหมี่')">🍜 บะหมี่เกี๊ยว</button>
-            <button class="mobile-chip" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & ชา</button>
-            <button class="mobile-chip" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
             <button class="mobile-chip" onclick="window.appNavigate('/shops')">🏪 ดูทุกร้าน (${approvedShops.length})</button>
           </div>
         </div>
@@ -525,18 +553,18 @@ function renderHomePage() {
             </div>
             <div class="mobile-hub-card" onclick="window.appQuickFilterZone('S2')">
               <span class="mobile-hub-icon">🎪</span>
-              <span class="mobile-hub-name">ตลาดนัด & S2</span>
-              <span class="mobile-hub-sub">ทุก อ.-พฤหัสบดี + กาแฟ Starbucks</span>
+              <span class="mobile-hub-name">ตลาดนัดใต้ตึก S2</span>
+              <span class="mobile-hub-sub">6 ร้านจริง อ.-พฤหัสฯ รูป+เมนูครบ</span>
+            </div>
+            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('CAFES')">
+              <span class="mobile-hub-icon">☕</span>
+              <span class="mobile-hub-name">คาเฟ่ & ชานม</span>
+              <span class="mobile-hub-sub">Starbucks, Amazon, KAMU 9 ร้าน</span>
             </div>
             <div class="mobile-hub-card" onclick="window.appQuickFilterZone('S11')">
               <span class="mobile-hub-icon">🐸</span>
               <span class="mobile-hub-name">Uncle Frog S11</span>
               <span class="mobile-hub-sub">ร้านลุงกบ อาหารจานเดียว เครื่องดื่ม</span>
-            </div>
-            <div class="mobile-hub-card" onclick="window.appQuickFilterZone('CAFES')">
-              <span class="mobile-hub-icon">☕</span>
-              <span class="mobile-hub-name">คาเฟ่ & เครื่องดื่ม</span>
-              <span class="mobile-hub-sub">Amazon, Inthanin, Fresh Me 9 ร้าน</span>
             </div>
           </div>
         </div>
@@ -611,11 +639,11 @@ function renderHomePage() {
               </div>
               <div class="quick-tags">
                 <button class="quick-tag" onclick="window.appQuickSearch('ข้าวมันไก่')">🍗 ข้าวมันไก่ S14</button>
-                <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล</button>
-                <button class="quick-tag" onclick="window.appQuickSearch('ลุงกบ')">☕ ลุงกบ Uncle Frog</button>
-                <button class="quick-tag" onclick="window.appQuickSearch('บะหมี่เกี๊ยว')">🍜 บะหมี่เกี๊ยว</button>
-                <button class="quick-tag" onclick="window.appQuickSearch('กาแฟ')">🥤 กาแฟ & คาเฟ่</button>
-                <button class="quick-tag" onclick="window.appQuickSearch('ตลาดนัด')">🍢 ตลาดนัด S2</button>
+                <button class="quick-tag" onclick="window.appQuickSearch('ฮาลาล')">🕌 อาหารฮาลาล S14</button>
+                <button class="quick-tag" onclick="window.appQuickFilterZone('S11')">🐸 ลุงกบ Uncle Frog</button>
+                <button class="quick-tag" onclick="window.appQuickFilterZone('S2')">🎪 ตลาดนัดใต้ตึก S2 (6 ร้านจริง)</button>
+                <button class="quick-tag" onclick="window.appQuickFilterZone('CAFES')">☕ คาเฟ่ & ชานม (9 ร้าน)</button>
+                <button class="quick-tag" onclick="window.appQuickFilterZone('S14')">🏢 โรงอาหาร S14</button>
                 <button class="quick-tag" onclick="window.appNavigate('/shops')">🏪 ร้านทั้งหมด (${approvedShops.length})</button>
               </div>
             </div>
@@ -791,9 +819,28 @@ function renderShopsDirectoryPage() {
       const matchMenu = shopProducts.some((p) => p.name_th.toLowerCase().includes(q) || p.description.toLowerCase().includes(q));
       if (!matchName && !matchDesc && !matchCat && !matchMenu) return false;
     }
-    if (f.category !== "ALL" && shop.category_id !== f.category) return false;
-    if (f.zone !== "ALL" && !shop.building_zone.includes(f.zone)) return false;
-    if (f.type !== "ALL" && shop.shop_type !== f.type) return false;
+    if (f.category !== "ALL") {
+      if (f.category === "CAT-CAFE") {
+        if (shop.shop_type !== "cafe" && shop.category_id !== "cat-09" && shop.category_id !== "cat-10") return false;
+      } else if (shop.category_id !== f.category) {
+        return false;
+      }
+    }
+    if (f.zone !== "ALL") {
+      if (f.zone === "S2") {
+        const isS2 = shop.building_zone.includes("S2") || shop.building_zone.includes("ตลาดนัด");
+        if (!isS2) return false;
+      } else if (!shop.building_zone.includes(f.zone)) {
+        return false;
+      }
+    }
+    if (f.type !== "ALL") {
+      if (f.type === "cafe" || f.type === "COFFEE_DRINK") {
+        if (shop.shop_type !== "cafe" && shop.category_id !== "cat-09" && shop.category_id !== "cat-10") return false;
+      } else if (shop.shop_type !== f.type) {
+        return false;
+      }
+    }
     if (f.status === "OPEN_TODAY" && !isShopOpenToday(shop.id)) return false;
     if (f.day !== "ALL") {
       const scheds = getShopSchedules(shop.id);
@@ -830,17 +877,17 @@ function renderShopsDirectoryPage() {
           <button class="quick-tag" onclick="window.appUpdateShopFilter('status', '${f.status === "OPEN_TODAY" ? "ALL" : "OPEN_TODAY"}')" style="${f.status === "OPEN_TODAY" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
             🟢 เปิดตอนนี้
           </button>
-          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S14" ? "ALL" : "S14"}')" style="${f.zone === "S14" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+          <button class="quick-tag" onclick="window.appQuickFilterZone('S14')" style="${f.zone === "S14" && f.type === "ALL" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
             🏢 โรงอาหาร S14
           </button>
-          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S2" ? "ALL" : "S2"}')" style="${f.zone === "S2" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
-            🎪 ตลาดนัด S2
+          <button class="quick-tag" onclick="window.appFilterS2Market()" style="${f.type === "market_stall" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            🎪 ตลาดนัดใต้ตึก S2 (6 ร้านจริง)
           </button>
-          <button class="quick-tag" onclick="window.appUpdateShopFilter('zone', '${f.zone === "S11" ? "ALL" : "S11"}')" style="${f.zone === "S11" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+          <button class="quick-tag" onclick="window.appQuickFilterZone('CAFES')" style="${f.type === "cafe" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
+            ☕ คาเฟ่ & ชานม (9 ร้าน)
+          </button>
+          <button class="quick-tag" onclick="window.appQuickFilterZone('S11')" style="${f.zone === "S11" && f.type === "ALL" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
             🐸 ลุงกบ S11
-          </button>
-          <button class="quick-tag" onclick="window.appUpdateShopFilter('type', '${f.type === "COFFEE_DRINK" ? "ALL" : "COFFEE_DRINK"}')" style="${f.type === "COFFEE_DRINK" ? "background:var(--kmutt-dark-orange); color:#fff; font-weight:700;" : ""}">
-            ☕ คาเฟ่ & ชานม
           </button>
         </div>
 
@@ -861,6 +908,16 @@ function renderShopsDirectoryPage() {
                 value="${f.q}"
                 oninput="window.appUpdateShopFilter('q', this.value)"
               />
+            </div>
+            <div>
+              <label class="form-label">ประเภทสถานที่</label>
+              <select class="form-control" onchange="window.appUpdateShopFilter('type', this.value)">
+                <option value="ALL" ${f.type === "ALL" ? "selected" : ""}>ทุกประเภท</option>
+                <option value="market_stall" ${f.type === "market_stall" ? "selected" : ""}>🎪 ตลาดนัดใต้ตึก S2 (6 ร้านจริง)</option>
+                <option value="campus_food_court" ${f.type === "campus_food_court" ? "selected" : ""}>🏢 โรงอาหาร มจธ. (S14)</option>
+                <option value="cafe" ${f.type === "cafe" ? "selected" : ""}>☕ คาเฟ่ & ชานม (9 ร้าน)</option>
+                <option value="permanent_shop" ${f.type === "permanent_shop" ? "selected" : ""}>🐸 ร้านประจำ / ลุงกบ (S11)</option>
+              </select>
             </div>
             <div>
               <label class="form-label">หมวดหมู่</label>
@@ -1599,6 +1656,1432 @@ function renderCravingModal() {
   `;
 }
 
+
+// ============================================================================
+// INSTAGRAM AUTOMATION STUDIO & MOBILE PREVIEW PAGE
+// ============================================================================
+
+function formatIgCaption(captionText = "", isExpanded = false) {
+  if (!captionText) return "";
+  const clean = String(captionText)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  
+  // Highlight hashtags in blue
+  const withTags = clean.replace(
+    /(#w+|#[\u0E00-\u0E7F\w]+)/g,
+    '<span style="color:#00376B; font-weight:600;">$1</span>'
+  );
+
+  if (!isExpanded && withTags.length > 220) {
+    const truncated = withTags.slice(0, 220);
+    return truncated + '… <span style="color:#64748B; cursor:pointer; font-weight:600;" onclick="window.igToggleCaptionExpand()">เพิ่มเติม</span>';
+  }
+  return withTags + (withTags.length > 220 ? ' <span style="color:#64748B; cursor:pointer; font-weight:600;" onclick="window.igToggleCaptionExpand()">ย่อลง</span>' : '');
+}
+
+async function initIgStudio() {
+  const ig = state.igStudio;
+  try {
+    const [cfgRes, histRes, campRes] = await Promise.all([
+      fetch("/api/instagram/config").catch(() => null),
+      fetch("/api/instagram/posts").catch(() => null),
+      fetch("/api/instagram/campaign").catch(() => null),
+    ]);
+    if (cfgRes && cfgRes.ok) {
+      const cfgData = await cfgRes.json();
+      ig.config = cfgData.config;
+    }
+    if (histRes && histRes.ok) {
+      const histData = await histRes.json();
+      ig.history = histData.posts || [];
+    }
+    if (campRes && campRes.ok) {
+      const campData = await campRes.json();
+      ig.campaign = campData.campaign || null;
+      ig.campaignSpots = campData.spots || [];
+      if (campData.campaign?.intervalMinutes) {
+        ig.campaignIntervalMinutes = campData.campaign.intervalMinutes;
+      }
+    }
+    if (!ig.posterUrl) {
+      await window.igRegenerateAll();
+    }
+  } catch (err) {
+    console.warn("Could not init IG studio:", err);
+  }
+}
+
+function renderInstagramAutomationPage() {
+  const ig = state.igStudio;
+
+  if (!ig.initialized) {
+    ig.initialized = true;
+    setTimeout(() => {
+      initIgStudio();
+    }, 10);
+  }
+
+  const shops = state.db?.shops || [];
+  const events = state.db?.market_events || [];
+  const selectedShop = shops.find((s) => s.id === ig.selectedShopId) || shops[0];
+  const shopProducts = (state.db?.products || []).filter((p) => p.shop_id === selectedShop?.id);
+  const selectedEvent = events.find((e) => e.id === ig.selectedEventId) || events[0];
+
+  return `
+    <div class="ig-studio-container">
+      <div class="container">
+        <!-- Studio Header -->
+        <div class="ig-studio-header">
+          <div>
+            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.35rem;">
+              <span style="background:linear-gradient(135deg, #FA4616, #FF6B3D); color:#ffffff; font-size:0.78rem; font-weight:700; padding:0.25rem 0.65rem; border-radius:999px;">
+                BPUU MARKETING AUTOMATION
+              </span>
+              <span style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">
+                📸 Instagram Content Engine v1.0
+              </span>
+            </div>
+            <h1 style="font-size:1.85rem; font-weight:800; color:var(--text-main); font-family:var(--font-display);">
+              ระบบสร้างและโพสต์โปรโมท IG อัตโนมัติ (มจธ. บางมด)
+            </h1>
+            <p style="color:var(--text-muted); font-size:0.95rem; margin-top:0.25rem;">
+              สร้างภาพโปสเตอร์ (1080x1350) สวยงามสะดุดตา พร้อมแคปชั่นโปรโมทร้านค้าและตลาดนัด มจธ. ลง Instagram Feed ได้ในคลิกเดียว
+            </p>
+          </div>
+
+          <!-- Studio Navigation Tabs -->
+          <div class="ig-studio-tabs">
+            <button class="ig-studio-tab-btn ${ig.activeTab === "campaign" ? "active" : ""}" onclick="window.igSetTab('campaign')">
+              🚀 แคมเปญ 100 ร้าน (${ig.campaign?.completedCount || 0}/100)
+            </button>
+            <button class="ig-studio-tab-btn ${ig.activeTab === "studio" ? "active" : ""}" onclick="window.igSetTab('studio')">
+              🎨 สตูดิโอสร้างโพสต์
+            </button>
+            <button class="ig-studio-tab-btn ${ig.activeTab === "scheduler" ? "active" : ""}" onclick="window.igSetTab('scheduler')">
+              ⏰ ตั้งเวลา & บัญชี IG
+            </button>
+            <button class="ig-studio-tab-btn ${ig.activeTab === "history" ? "active" : ""}" onclick="window.igSetTab('history')">
+              📋 ประวัติโพสต์ (<span class="tabular-nums">${ig.history?.length || 0}</span>)
+            </button>
+          </div>
+        </div>
+
+        ${ig.statusMessage ? `
+          <div style="background:#ECFDF5; border:1.5px solid #10B981; border-radius:14px; padding:1rem 1.25rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; color:#065F46;">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <span style="font-size:1.25rem;">🎉</span>
+              <div>${ig.statusMessage}</div>
+            </div>
+            <button onclick="window.igDismissStatus()" style="background:transparent; border:none; color:#065F46; font-weight:700; cursor:pointer;">✕</button>
+          </div>
+        ` : ""}
+
+        <!-- Tab 0: 100-Post Autonomous Campaign -->
+        ${ig.activeTab === "campaign" ? renderIgCampaignTab() : ""}
+
+        <!-- Tab 1: Studio -->
+        ${ig.activeTab === "studio" ? renderIgStudioTab(selectedShop, shopProducts, selectedEvent) : ""}
+
+        <!-- Tab 2: Scheduler & Settings -->
+        ${ig.activeTab === "scheduler" ? renderIgSchedulerTab() : ""}
+
+        <!-- Tab 3: History -->
+        ${ig.activeTab === "history" ? renderIgHistoryTab() : ""}
+      </div>
+    </div>
+  `;
+}
+
+function renderIgStudioTab(selectedShop, shopProducts, selectedEvent) {
+  const ig = state.igStudio;
+  const shops = state.db?.shops || [];
+  const events = state.db?.market_events || [];
+
+  return `
+    <div class="ig-studio-layout">
+      <!-- Left Column: Controls & Form -->
+      <div>
+        <!-- 1. Target Selector Card -->
+        <div class="ig-card">
+          <div class="ig-card-title">
+            <span>🎯 1. เลือกเป้าหมายการโปรโมท</span>
+          </div>
+
+          <div style="display:flex; gap:0.75rem; margin-bottom:1.25rem;">
+            <button
+              class="btn btn-sm ${ig.targetType === "shop" ? "btn-primary" : "btn-outline"}"
+              style="flex:1; border-radius:12px; font-weight:700;"
+              onclick="window.igSetTargetType('shop')"
+            >
+              🍽️ ร้านอาหารใน มจธ. (${shops.length} ร้าน)
+            </button>
+            <button
+              class="btn btn-sm ${ig.targetType === "event" ? "btn-primary" : "btn-outline"}"
+              style="flex:1; border-radius:12px; font-weight:700;"
+              onclick="window.igSetTargetType('event')"
+            >
+              🎪 ตลาดนัด S2 ประจำวัน
+            </button>
+          </div>
+
+          ${ig.targetType === "shop" ? `
+            <div class="ig-form-group">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.45rem;">
+                <label class="ig-form-label" style="margin-bottom:0;">เลือกร้านค้าที่ต้องการโปรโมท:</label>
+                <button
+                  class="btn btn-sm btn-cream"
+                  style="padding:0.25rem 0.65rem; font-size:0.8rem; border-radius:8px;"
+                  onclick="window.igRandomShop()"
+                >
+                  🎲 สุ่มร้านเด็ดวันนี้
+                </button>
+              </div>
+              <select class="ig-form-select" onchange="window.igSelectShop(this.value)">
+                ${shops.map((s) => `
+                  <option value="${s.id}" ${s.id === ig.selectedShopId ? "selected" : ""}>
+                    ${s.name} • ${s.building_name || "มจธ."} ${s.stall_number ? " (" + s.stall_number + ")" : ""}
+                  </option>
+                `).join("")}
+              </select>
+            </div>
+
+            ${shopProducts.length > 0 ? `
+              <div class="ig-form-group">
+                <label class="ig-form-label">เลือกเมนูเด็ดไฮไลท์บนโปสเตอร์:</label>
+                <select class="ig-form-select" onchange="window.igSelectProduct(this.value)">
+                  <option value="">-- แนะนำร้านค้าโดยรวม (หรือเลือกเมนูเด็ด) --</option>
+                  ${shopProducts.map((p) => `
+                    <option value="${p.id}" ${p.id === ig.selectedProductId ? "selected" : ""}>
+                      ${p.name} (${p.price ? "฿" + p.price : "ราคานักศึกษา"}) ${p.is_recommended ? "⭐️ แนะนำ" : ""}
+                    </option>
+                  `).join("")}
+                </select>
+              </div>
+            ` : ""}
+          ` : `
+            <div class="ig-form-group">
+              <label class="ig-form-label">เลือกวันจัดตลาดนัด S2:</label>
+              <select class="ig-form-select" onchange="window.igSelectEvent(this.value)">
+                ${events.map((e) => `
+                  <option value="${e.id}" ${e.id === ig.selectedEventId ? "selected" : ""}>
+                    ${e.name} (${e.start_time} - ${e.end_time} น.)
+                  </option>
+                `).join("")}
+              </select>
+            </div>
+          `}
+        </div>
+
+        <!-- 2. Poster Theme & Headline Card -->
+        <div class="ig-card">
+          <div class="ig-card-title">
+            <span>🎨 2. รูปแบบธีมโปสเตอร์ (1080x1350)</span>
+          </div>
+
+          <div class="ig-theme-grid" style="margin-bottom:1.25rem;">
+            <!-- Recommended Punpromotion Style -->
+            <div class="ig-theme-option ${ig.themeKey === "punpro" ? "active" : ""}" style="grid-column: 1 / -1; border: 2.5px solid #FFDE00; background: #FFFDE7;" onclick="window.igSelectTheme('punpro')">
+              <span style="width:24px; height:24px; border-radius:50%; background:#FFDE00; border:2.5px solid #18181B; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;">📢</span>
+              <div style="flex:1;">
+                <div style="font-weight:800; font-size:0.95rem; color:#0F172A; display:flex; align-items:center; gap:0.4rem;">
+                  <span>ปันโปรชวนชิม (Punpro Lifestyle)</span>
+                  <span style="font-size:0.7rem; background:#E11D48; color:#FFFFFF; padding:1px 6px; border-radius:4px; font-weight:700;">สไตล์คนทำจริง</span>
+                </div>
+                <div style="font-size:0.78rem; color:#713F12;">ภาพอาหารจริงเต็มจอ + สติกเกอร์ชี้เป้าสีเหลือง + ป้ายราคาเอียง เหมือนโพสต์เพจปันโปร</div>
+              </div>
+            </div>
+
+            <div class="ig-theme-option ${ig.themeKey === "kmutt-orange" ? "active" : ""}" onclick="window.igSelectTheme('kmutt-orange')">
+              <span style="width:20px; height:20px; border-radius:50%; background:#FA4616; display:inline-block; flex-shrink:0;"></span>
+              <div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">KMUTT Bold Orange</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">ส้ม-ขาว ทางการ มจธ.</div>
+              </div>
+            </div>
+
+            <div class="ig-theme-option ${ig.themeKey === "street-neon" ? "active" : ""}" onclick="window.igSelectTheme('street-neon')">
+              <span style="width:20px; height:20px; border-radius:50%; background:#0F172A; border:2px solid #F59E0B; display:inline-block; flex-shrink:0;"></span>
+              <div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Midnight Street Food</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">ดาร์กโหมดนีออน ชวนหิว</div>
+              </div>
+            </div>
+
+            <div class="ig-theme-option ${ig.themeKey === "cafe-pastel" ? "active" : ""}" onclick="window.igSelectTheme('cafe-pastel')">
+              <span style="width:20px; height:20px; border-radius:50%; background:#EA580C; border:2px solid #FDE047; display:inline-block; flex-shrink:0;"></span>
+              <div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Warm Cafe & Bakery</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">โทนครีม-คาราเมล อบอุ่น</div>
+              </div>
+            </div>
+
+            <div class="ig-theme-option ${ig.themeKey === "market-fest" ? "active" : ""}" onclick="window.igSelectTheme('market-fest')">
+              <span style="width:20px; height:20px; border-radius:50%; background:#047857; border:2px solid #10B981; display:inline-block; flex-shrink:0;"></span>
+              <div>
+                <div style="font-weight:700; font-size:0.88rem; color:var(--text-main);">Market Day Festival</div>
+                <div style="font-size:0.75rem; color:var(--text-muted);">เทศกาลตลาดนัด S2</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ig-form-group">
+            <label class="ig-form-label">ข้อความพาดหัวโปสเตอร์ (Headline / Eyebrow):</label>
+            <input
+              type="text"
+              class="ig-form-input"
+              value="${ig.customHeadline || ""}"
+              placeholder="เช่น ร้านเด็ด มจธ. แนะนำวันนี้"
+              oninput="window.igUpdateCustomHeadline(this.value)"
+            />
+          </div>
+
+          <button
+            class="btn btn-outline btn-sm"
+            style="width:100%; border-radius:12px; font-weight:700;"
+            onclick="window.igRegeneratePoster()"
+            ${ig.isGenerating ? "disabled" : ""}
+          >
+            ${ig.isGenerating ? "⏳ กำลังสร้างภาพโปสเตอร์..." : "🔄 อัปเดตภาพโปสเตอร์ใหม่ (Regenerate)"}
+          </button>
+        </div>
+
+        <!-- 3. Caption Copywriting Card -->
+        <div class="ig-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+            <div class="ig-card-title" style="margin-bottom:0;">
+              <span>📝 3. แคปชั่นใต้โพสต์ Instagram</span>
+            </div>
+            <button
+              class="btn btn-sm btn-cream"
+              style="padding:0.35rem 0.85rem; font-size:0.82rem; border-radius:10px; font-weight:700;"
+              onclick="window.igRegenerateCaption()"
+              ${ig.isGenerating ? "disabled" : ""}
+            >
+              ✨ สร้างแคปชั่นใหม่
+            </button>
+          </div>
+
+          <div class="ig-form-group">
+            <label class="ig-form-label">เลือกโทนเสียง / อารมณ์ของโพสต์:</label>
+            <div class="ig-tone-chips">
+              <div class="ig-tone-chip ${ig.tone === "punpro" ? "active" : ""}" style="background:${ig.tone === "punpro" ? "#FFE500" : "#FFFDE7"}; color:#18181B; border-color:#FFDE00; font-weight:800;" onclick="window.igSelectTone('punpro')">
+                📣 สไตล์ปันโปร (ชี้เป้าโปรโมชั่น)
+              </div>
+              <div class="ig-tone-chip ${ig.tone === "student" ? "active" : ""}" onclick="window.igSelectTone('student')">
+                🎒 เด็กบางมด (เป็นกันเอง)
+              </div>
+              <div class="ig-tone-chip ${ig.tone === "foodie" ? "active" : ""}" onclick="window.igSelectTone('foodie')">
+                🤤 สายกินชวนหิว (เน้นความอร่อย)
+              </div>
+              <div class="ig-tone-chip ${ig.tone === "official" ? "active" : ""}" onclick="window.igSelectTone('official')">
+                📢 ประชาสัมพันธ์ BPUU (ทางการ)
+              </div>
+            </div>
+          </div>
+
+          <div class="ig-form-group" style="margin-bottom:0;">
+            <textarea
+              id="ig-caption-input"
+              class="ig-form-textarea"
+              rows="9"
+              placeholder="แคปชั่นจะถูกสร้างขึ้นอัตโนมัติ..."
+              oninput="window.igUpdateCaption(this.value)"
+            >${ig.caption || ""}</textarea>
+          </div>
+        </div>
+
+        <!-- 4. Publishing & Download Actions -->
+        <div class="ig-card" style="background:#FFF7ED; border:2px solid #FED7AA;">
+          <div class="ig-card-title" style="color:var(--kmutt-dark-orange); display:flex; justify-content:space-between; align-items:center;">
+            <span>🚀 4. ดำเนินการโพสต์และดาวน์โหลด</span>
+            <span style="font-size:0.75rem; background:#FA4616; color:#FFFFFF; padding:0.2rem 0.55rem; border-radius:999px; font-weight:700;">ไม่ต้องใช้ Token</span>
+          </div>
+
+          <!-- Main Action: Browser Bot Auto-Post -->
+          <div style="margin-bottom:0.85rem;">
+            <button
+              class="btn btn-primary"
+              style="width:100%; padding:0.95rem; border-radius:14px; font-weight:700; font-size:1.05rem; box-shadow:0 6px 18px rgba(250,70,22,0.35); display:flex; align-items:center; justify-content:center; gap:0.5rem;"
+              onclick="window.igPublishWithBrowserBot()"
+              ${ig.isPublishing ? "disabled" : ""}
+            >
+              ${ig.isPublishing ? "⏳ กำลังเปิดบอทโพสต์ลง Instagram..." : "🤖 โพสต์อัตโนมัติด้วย User/Pass (Browser Bot)"}
+            </button>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:0.75rem;">
+            <button
+              class="btn btn-outline"
+              style="padding:0.75rem; border-radius:12px; font-weight:700; background:#FFFFFF;"
+              onclick="window.igDownloadPoster()"
+            >
+              📥 ดาวน์โหลดรูป 1080x1350
+            </button>
+
+            <button
+              class="btn btn-cream"
+              style="padding:0.75rem; border-radius:12px; font-weight:700;"
+              onclick="window.igCopyCaption()"
+            >
+              📋 คัดลอกแคปชั่น
+            </button>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+            <button
+              class="btn btn-outline"
+              style="border-radius:10px; font-weight:600; font-size:0.82rem; background:#FFFFFF;"
+              onclick="window.igPublishNow(true)"
+            >
+              🧪 ทดสอบโพสต์จำลอง (Dry Run)
+            </button>
+
+            <button
+              class="btn btn-outline"
+              style="border-radius:10px; font-weight:600; font-size:0.82rem; background:#FFFFFF;"
+              onclick="window.igPublishNow(false)"
+              title="สำหรับผู้ที่มี Meta Graph API Token"
+            >
+              🌐 โพสต์ผ่าน Meta Graph API
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Authentic Instagram Phone Preview -->
+      <div class="ig-preview-sticky">
+        <div style="text-align:center; font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:0.75rem;">
+          📱 แสดงตัวอย่างโพสต์จริงบน Instagram Feed (Preview)
+        </div>
+
+        <div class="ig-phone-frame">
+          <!-- Phone Notch -->
+          <div class="ig-phone-notch"></div>
+
+          <!-- App Bar -->
+          <div class="ig-app-bar">
+            <span style="font-size:1.15rem; font-weight:800; font-family:sans-serif; letter-spacing:-0.5px;">Instagram</span>
+            <div style="display:flex; gap:0.75rem; align-items:center;">
+              <span style="font-size:1.1rem; cursor:pointer;" onclick="window.igToggleLike()">${ig.isLiked ? "❤️" : "🤍"}</span>
+              <span style="font-size:1.1rem;">✈️</span>
+            </div>
+          </div>
+
+          <!-- Feed Header -->
+          <div class="ig-feed-header">
+            <div style="display:flex; align-items:center; gap:0.6rem;">
+              <div style="width:34px; height:34px; border-radius:50%; background:linear-gradient(45deg, #F59E0B, #FA4616); padding:2px; display:flex; align-items:center; justify-content:center;">
+                <div style="width:100%; height:100%; border-radius:50%; background:#FA4616; display:flex; align-items:center; justify-content:center; color:#FFFFFF; font-size:0.75rem; font-weight:800;">
+                  KM
+                </div>
+              </div>
+              <div>
+                <div style="font-size:0.84rem; font-weight:700; color:#0F172A; display:flex; align-items:center; gap:0.25rem;">
+                  <span>kmutt.market</span>
+                  <span style="color:#0284C7; font-size:0.75rem;">✓</span>
+                </div>
+                <div style="font-size:0.68rem; color:#64748B;">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี (บางมด)</div>
+              </div>
+            </div>
+            <span style="color:#64748B; font-weight:700; cursor:pointer;">•••</span>
+          </div>
+
+          <!-- Poster Image Viewport (4:5 vertical) -->
+          <div class="ig-poster-viewport">
+            ${ig.posterUrl ? `
+              <img src="${ig.posterUrl}" alt="Instagram Poster" />
+            ` : `
+              <div style="color:#FFFFFF; text-align:center; padding:2rem;">
+                <div style="font-size:2rem; margin-bottom:0.5rem;">🎨</div>
+                <div style="font-weight:600;">กำลังสร้างภาพโปสเตอร์...</div>
+              </div>
+            `}
+
+            ${ig.isGenerating ? `
+              <div style="position:absolute; inset:0; background:rgba(0,0,0,0.65); display:flex; flex-direction:column; align-items:center; justify-content:center; color:#FFFFFF; gap:0.75rem;">
+                <span class="pulse-dot" style="width:14px; height:14px;"></span>
+                <span style="font-weight:700; font-size:0.9rem;">กำลังประมวลผลโปสเตอร์...</span>
+              </div>
+            ` : ""}
+          </div>
+
+          <!-- Action Icons Bar -->
+          <div class="ig-feed-actions">
+            <div style="display:flex; gap:0.85rem; align-items:center;">
+              <span style="font-size:1.35rem; cursor:pointer;" onclick="window.igToggleLike()">${ig.isLiked ? "❤️" : "🤍"}</span>
+              <span style="font-size:1.3rem; cursor:pointer;">💬</span>
+              <span style="font-size:1.3rem; cursor:pointer;" onclick="window.igCopyCaption()">✈️</span>
+            </div>
+            <span style="font-size:1.35rem; cursor:pointer;" onclick="window.igDownloadPoster()">🏷️</span>
+          </div>
+
+          <!-- Likes Count -->
+          <div class="ig-feed-likes">
+            ถูกใจ <span class="tabular-nums">${(ig.isLiked ? ig.previewLikes + 1 : ig.previewLikes).toLocaleString()}</span> คน
+          </div>
+
+          <!-- Caption Box -->
+          <div class="ig-feed-caption-box">
+            <span style="font-weight:700; margin-right:0.35rem;">kmutt.market</span>
+            <span>${formatIgCaption(ig.caption, ig.isCaptionExpanded)}</span>
+          </div>
+
+          <!-- Time & Meta -->
+          <div style="padding:0 0.9rem 0.9rem; font-size:0.7rem; color:#94A3B8; text-transform:uppercase;">
+            15 นาทีที่แล้ว • กรุงเทพมหานคร
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderIgSchedulerTab() {
+  const ig = state.igStudio;
+  const cfg = ig.config || {
+    autoPilotEnabled: false,
+    scheduleTime: "10:30",
+    marketAlertEnabled: true,
+    marketAlertTime: "07:30",
+    defaultTone: "student",
+    defaultTheme: "kmutt-orange",
+    accountId: "",
+    accessToken: "",
+    publicBaseUrl: "",
+    geminiApiKey: "",
+    igUsername: "",
+    igPassword: "",
+  };
+
+  return `
+    <div style="max-width:860px; margin:0 auto;">
+      <!-- Card 1: Easy Instagram Login with Username & Password (NO TOKEN!) -->
+      <div class="ig-card" style="border:2.5px solid var(--kmutt-orange); background:#FFF7ED; box-shadow:0 8px 24px rgba(250,70,22,0.12);">
+        <div class="ig-card-title" style="color:var(--kmutt-dark-orange); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+          <span>🤖 1. ล็อกอินด้วย IG Username & Password (วิธีที่ง่ายที่สุด ไม่ต้องใช้ Token!)</span>
+          <span style="font-size:0.75rem; background:#16A34A; color:#FFFFFF; padding:0.25rem 0.65rem; border-radius:999px; font-weight:700;">
+            ${cfg.igUsername ? "🟢 บันทึกบัญชี @" + cfg.igUsername + " แล้ว" : "⚪ ยังไม่ได้ระบุบัญชี"}
+          </span>
+        </div>
+        <p style="color:#475569; font-size:0.9rem; margin-bottom:1.25rem; line-height:1.5;">
+          ใส่อีเมลหรือชื่อผู้ใช้และรหัสผ่านของ Instagram ระบบจะเปิดเบราว์เซอร์ล็อกอินและบันทึก Session ไว้ในเครื่องให้อัตโนมัติ (ครั้งต่อไปไม่ต้องใส่รหัสผ่านอีก บอทจะเปิดและโพสต์รูป+แคปชั่นให้เองทันที)
+        </p>
+
+        <form onsubmit="event.preventDefault(); window.igBrowserLogin(this);">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+            <div class="ig-form-group" style="margin-bottom:0;">
+              <label class="ig-form-label">Instagram Username / อีเมล:</label>
+              <input
+                type="text"
+                name="username"
+                class="ig-form-input"
+                value="${cfg.igUsername || ""}"
+                placeholder="เช่น kmutt.market หรือ your_account"
+                required
+              />
+            </div>
+            <div class="ig-form-group" style="margin-bottom:0;">
+              <label class="ig-form-label">Instagram Password:</label>
+              <input
+                type="password"
+                name="password"
+                class="ig-form-input"
+                value="${cfg.igPassword || ""}"
+                placeholder="รหัสผ่าน Instagram"
+                required
+              />
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem;">
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <input type="checkbox" id="show-browser-check" name="headful" checked style="cursor:pointer; width:16px; height:16px;" />
+              <label for="show-browser-check" style="font-size:0.85rem; font-weight:600; color:var(--text-main); cursor:pointer;">
+                เปิดหน้าต่าง Chrome ให้เห็นตอนบอทล็อกอินและโพสต์ (Headful Mode)
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="padding:0.75rem 1.75rem; border-radius:12px; font-weight:700; box-shadow:0 4px 12px rgba(250,70,22,0.3);">
+              🔑 บันทึก & ล็อกอินทันที
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Auto-Pilot Card -->
+      <div class="ig-card">
+        <div class="ig-card-title">
+          <span>⏰ 1. ตั้งเวลาโพสต์อัตโนมัติ (Auto-Pilot Scheduler)</span>
+        </div>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.25rem;">
+          ระบบจะเลือกสุ่มร้านค้าที่ผ่านการรับรองและยังไม่เคยถูกโพสต์ เพื่อสร้างภาพโปสเตอร์และแคปชั่นลง IG อัตโนมัติทุกวันตามเวลาที่กำหนด
+        </p>
+
+        <form onsubmit="event.preventDefault(); window.igSaveSchedulerSettings(this);">
+          <div style="display:flex; align-items:center; justify-content:space-between; background:#F8FAFC; border:1.5px solid var(--border); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem;">
+            <div>
+              <div style="font-weight:700; font-size:1rem; color:var(--text-main);">เปิดการทำงาน Auto-Pilot อัตโนมัติ</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">ระบบจะตรวจสอบเวลาและยิงโพสต์เมื่อถึงเวลาที่กำหนด</div>
+            </div>
+            <label style="position:relative; display:inline-block; width:52px; height:28px;">
+              <input type="checkbox" name="autoPilotEnabled" ${cfg.autoPilotEnabled ? "checked" : ""} style="opacity:0; width:0; height:0;" onchange="this.nextElementSibling.style.background = this.checked ? '#FA4616' : '#CBD5E1';"/>
+              <span style="position:absolute; cursor:pointer; inset:0; background:${cfg.autoPilotEnabled ? "#FA4616" : "#CBD5E1"}; border-radius:34px; transition:0.3s;">
+                <span style="position:absolute; height:20px; width:20px; left:4px; bottom:4px; background:white; border-radius:50%; transition:0.3s; transform:${cfg.autoPilotEnabled ? "translateX(24px)" : "translateX(0)"};"></span>
+              </span>
+            </label>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.25rem;">
+            <div class="ig-form-group" style="margin-bottom:0;">
+              <label class="ig-form-label">เวลาโพสต์ร้านเด็ดประจำวัน (ก่อนมื้อเที่ยง):</label>
+              <input type="time" name="scheduleTime" class="ig-form-input" value="${cfg.scheduleTime || "10:30"}" />
+            </div>
+
+            <div class="ig-form-group" style="margin-bottom:0;">
+              <label class="ig-form-label">เวลาแจ้งเตือนตลาดนัด S2 (อังคาร-พฤหัสฯ):</label>
+              <input type="time" name="marketAlertTime" class="ig-form-input" value="${cfg.marketAlertTime || "07:30"}" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="padding:0.75rem 1.5rem; border-radius:12px; font-weight:700;">
+            💾 บันทึกการตั้งค่าตารางเวลา
+          </button>
+        </form>
+      </div>
+
+      <!-- Meta API Configuration Card -->
+      <div class="ig-card">
+        <div class="ig-card-title">
+          <span>🔑 2. ตั้งค่าการเชื่อมต่อ Meta Instagram Graph API</span>
+        </div>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.25rem;">
+          สำหรับการโพสต์จริงไปยังบัญชี Instagram ของ มจธ. (หากยังไม่ได้ตั้งค่า สามารถใช้งานในโหมด Sandbox / จำลองได้ทันที)
+        </p>
+
+        <form onsubmit="event.preventDefault(); window.igSaveApiSettings(this);">
+          <div class="ig-form-group">
+            <label class="ig-form-label">Instagram Business / Creator Account ID:</label>
+            <input
+              type="text"
+              name="accountId"
+              class="ig-form-input"
+              value="${cfg.accountId || ""}"
+              placeholder="เช่น 17841400000000000 (ดูได้จาก Graph API Explorer / Meta Business Suite)"
+            />
+          </div>
+
+          <div class="ig-form-group">
+            <label class="ig-form-label">Meta Long-lived Page Access Token:</label>
+            <input
+              type="password"
+              name="accessToken"
+              class="ig-form-input"
+              value="${cfg.accessToken || ""}"
+              placeholder="EAA..."
+            />
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">
+              ต้องการสิทธิ์: <code style="background:#F1F5F9; padding:2px 6px; border-radius:4px;">instagram_basic</code>, <code style="background:#F1F5F9; padding:2px 6px; border-radius:4px;">instagram_content_publish</code>, <code style="background:#F1F5F9; padding:2px 6px; border-radius:4px;">pages_show_list</code>
+            </div>
+          </div>
+
+          <div class="ig-form-group">
+            <label class="ig-form-label">Public Base URL (URL สาธารณะสำหรับให้ Meta ดึงภาพโปสเตอร์):</label>
+            <input
+              type="text"
+              name="publicBaseUrl"
+              class="ig-form-input"
+              value="${cfg.publicBaseUrl || ""}"
+              placeholder="เช่น https://your-domain.com หรือ https://xxxx.ngrok-free.app"
+            />
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">
+              💡 Meta API จำเป็นต้องเข้าถึง URL รูปภาพผ่านอินเทอร์เน็ตสาธารณะ (HTTPS) เมื่อรันในเครื่องสามารถใช้ ngrok ชี้มาที่พอร์ต 3080
+            </div>
+          </div>
+
+          <div class="ig-form-group">
+            <label class="ig-form-label">Gemini API Key (ตัวเลือกเสริมสำหรับให้ AI ช่วยเขียนแคปชั่นสดใหม่):</label>
+            <input
+              type="password"
+              name="geminiApiKey"
+              class="ig-form-input"
+              value="${cfg.geminiApiKey || ""}"
+              placeholder="AIzaSy..."
+            />
+          </div>
+
+          <div style="display:flex; gap:0.75rem;">
+            <button type="submit" class="btn btn-primary" style="border-radius:12px; font-weight:700;">
+              💾 บันทึก API Credentials
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline"
+              style="border-radius:12px; font-weight:700;"
+              onclick="window.igTestConnection()"
+            >
+              🔍 ทดสอบการเชื่อมต่อ Meta API
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step-by-Step Guide Accordion -->
+      <div class="ig-card" style="background:#F8FAFC;">
+        <div style="font-weight:700; font-size:1rem; color:var(--text-main); margin-bottom:0.75rem;">
+          📖 คู่มือเริ่มต้นใช้งาน Instagram Graph API ใน 4 ขั้นตอน:
+        </div>
+        <ol style="padding-left:1.25rem; font-size:0.88rem; color:#334155; line-height:1.7;">
+          <li><strong>เปลี่ยนเป็นบัญชีธุรกิจ:</strong> เข้าแอป Instagram ไปที่การตั้งค่าบัญชี &gt; สลับเป็นบัญชีมืออาชีพ (Professional Account - Business หรือ Creator)</li>
+          <li><strong>เชื่อมต่อกับ Facebook Page:</strong> นำบัญชี IG ดังกล่าวไปผูกเข้ากับ Facebook Page ของทางตลาด/มหาวิทยาลัย</li>
+          <li><strong>สร้าง App ใน Meta for Developers:</strong> ไปที่ <a href="https://developers.facebook.com" target="_blank" style="color:var(--kmutt-orange); font-weight:700;">developers.facebook.com</a> สร้างแอปประเภท "Business" และเพิ่มผลิตภัณฑ์ Instagram Graph API</li>
+          <li><strong>ขอ Access Token:</strong> ใช้ Graph API Explorer สร้าง Token ที่มีสิทธิ์ <code style="background:#E2E8F0; padding:2px 4px; border-radius:4px;">instagram_content_publish</code> แล้วคัดลอกมาใส่ในแบบฟอร์มด้านบน</li>
+        </ol>
+      </div>
+    </div>
+  `;
+}
+
+function renderIgCampaignTab() {
+  const ig = state.igStudio;
+  const camp = ig.campaign || {
+    completedCount: 0,
+    targetCount: 100,
+    currentIndex: 0,
+    status: "idle",
+    intervalMinutes: 20,
+    posts: [],
+    lastPostAt: null,
+    nextPostAt: null,
+  };
+  const spots = ig.campaignSpots || [];
+  const completedCount = camp.completedCount || 0;
+  const targetCount = camp.targetCount || 100;
+  const pct = Math.min(100, Math.round((completedCount / targetCount) * 100));
+  const isRunning = camp.status === "running";
+  const isCompleted = camp.status === "completed" || completedCount >= targetCount;
+  const isPaused = camp.status === "paused";
+  const intervalMin = ig.campaignIntervalMinutes || camp.intervalMinutes || 20;
+
+  const nextSpot = spots[camp.currentIndex] || spots[0];
+
+  // Filtering
+  const selectedZone = ig.campaignFilterZone || "ALL";
+  const selectedStatus = ig.campaignFilterStatus || "ALL";
+
+  const filteredSpots = spots.filter((s) => {
+    if (selectedZone !== "ALL" && !s.zone.includes(selectedZone)) return false;
+    if (selectedStatus === "posted" && !s.posted) return false;
+    if (selectedStatus === "queued" && s.posted) return false;
+    return true;
+  });
+
+  const zoneFilters = [
+    { id: "ALL", label: "ทั้งหมด (100)" },
+    { id: "S14", label: "โรงอาหาร S14" },
+    { id: "S11", label: "โรงอาหาร S11" },
+    { id: "ตลาดนัด S2", label: "ตลาดนัด S2" },
+    { id: "หน้ามอ", label: "หน้ามอ มจธ." },
+    { id: "สวนหมาก", label: "สวนหมาก & ตลาด 61" },
+    { id: "พุทธบูชา", label: "พุทธบูชา" },
+    { id: "ประชาอุทิศ", label: "ประชาอุทิศ 33/45/47" },
+  ];
+
+  return `
+    <div style="display:flex; flex-direction:column; gap:1.5rem;">
+      <!-- Hero Campaign Card -->
+      <div class="ig-card" style="background:linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%); color:#FFFFFF; border:none; box-shadow:0 12px 30px rgba(49, 46, 129, 0.25);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+          <div>
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); padding:0.35rem 0.85rem; border-radius:999px; font-size:0.8rem; font-weight:700; margin-bottom:0.75rem;">
+              <span>🤖 FULLY AUTONOMOUS LOOP</span>
+              <span>•</span>
+              <span>100 FOOD SPOTS</span>
+            </div>
+            <h2 style="font-size:1.75rem; font-weight:800; font-family:var(--font-display); color:#FFFFFF; margin-bottom:0.4rem;">
+              🚀 แคมเปญโพสต์อัตโนมัติ 100 ร้านในและรอบ มจธ.
+            </h2>
+            <p style="font-size:0.95rem; color:#E0E7FF; max-width:680px; line-height:1.6;">
+              ระบบสร้างภาพโปสเตอร์สไตล์ <strong>ปันโปร (@punpromotion)</strong> และเขียนแคปชั่นชวนชิมลง Instagram Feed โดยอัตโนมัติ 100 ร้านรอบมหาวิทยาลัย โดยไม่ต้องมีคนเฝ้า และหยุดการทำงานอัตโนมัติเมื่อครบ 100 โพสต์
+            </p>
+          </div>
+
+          <!-- Status Indicator Pill -->
+          <div>
+            ${isRunning ? `
+              <div style="background:#10B981; color:#FFFFFF; font-weight:800; padding:0.6rem 1.15rem; border-radius:999px; font-size:0.9rem; display:flex; align-items:center; gap:0.5rem; box-shadow:0 4px 14px rgba(16, 185, 129, 0.4);">
+                <span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#FFFFFF; animation:pulse 1.5s infinite;"></span>
+                บอทกำลังทำงานอัตโนมัติ (RUNNING)
+              </div>
+            ` : isPaused ? `
+              <div style="background:#F59E0B; color:#FFFFFF; font-weight:800; padding:0.6rem 1.15rem; border-radius:999px; font-size:0.9rem; display:flex; align-items:center; gap:0.5rem;">
+                ⏸️ หยุดพักชั่วคราว (PAUSED)
+              </div>
+            ` : isCompleted ? `
+              <div style="background:#8B5CF6; color:#FFFFFF; font-weight:800; padding:0.6rem 1.15rem; border-radius:999px; font-size:0.9rem; display:flex; align-items:center; gap:0.5rem;">
+                🎉 ครบ 100 โพสต์แล้ว! (COMPLETED)
+              </div>
+            ` : `
+              <div style="background:rgba(255,255,255,0.2); color:#FFFFFF; font-weight:800; padding:0.6rem 1.15rem; border-radius:999px; font-size:0.9rem; display:flex; align-items:center; gap:0.5rem;">
+                ⚪ พร้อมเริ่มทำงาน (READY)
+              </div>
+            `}
+          </div>
+        </div>
+
+        <!-- 4 Metric Counters -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-top:1.5rem; margin-bottom:1.5rem;">
+          <div style="background:rgba(255, 255, 255, 0.1); border-radius:14px; padding:1rem 1.25rem; border:1px solid rgba(255, 255, 255, 0.15);">
+            <div style="font-size:0.8rem; color:#C7D2FE; font-weight:600;">🎯 เป้าหมายแคมเปญ</div>
+            <div style="font-size:1.85rem; font-weight:800; color:#FFFFFF; margin-top:0.25rem;">100 ร้าน</div>
+            <div style="font-size:0.75rem; color:#A5B4FC; margin-top:0.2rem;">ใน มจธ. + รอบนอก 7 โซน</div>
+          </div>
+
+          <div style="background:rgba(255, 255, 255, 0.1); border-radius:14px; padding:1rem 1.25rem; border:1px solid rgba(255, 255, 255, 0.15);">
+            <div style="font-size:0.8rem; color:#C7D2FE; font-weight:600;">✅ โพสต์สำเร็จแล้ว</div>
+            <div style="font-size:1.85rem; font-weight:800; color:#FDE047; margin-top:0.25rem;">
+              ${completedCount} <span style="font-size:1rem; color:#E0E7FF; font-weight:500;">/ ${targetCount}</span>
+            </div>
+            <div style="font-size:0.75rem; color:#A5B4FC; margin-top:0.2rem;">ความคืบหน้า ${pct}%</div>
+          </div>
+
+          <div style="background:rgba(255, 255, 255, 0.1); border-radius:14px; padding:1rem 1.25rem; border:1px solid rgba(255, 255, 255, 0.15);">
+            <div style="font-size:0.8rem; color:#C7D2FE; font-weight:600;">⏱️ ความถี่การโพสต์</div>
+            <div style="font-size:1.85rem; font-weight:800; color:#FFFFFF; margin-top:0.25rem;">
+              ${intervalMin} <span style="font-size:1rem; color:#E0E7FF; font-weight:500;">นาที/โพสต์</span>
+            </div>
+            <div style="font-size:0.75rem; color:#A5B4FC; margin-top:0.2rem;">🛡️ Safe Delay ป้องกัน IG บล็อก</div>
+          </div>
+
+          <div style="background:rgba(255, 255, 255, 0.1); border-radius:14px; padding:1rem 1.25rem; border:1px solid rgba(255, 255, 255, 0.15);">
+            <div style="font-size:0.8rem; color:#C7D2FE; font-weight:600;">📍 ร้านถัดไปในคิว</div>
+            <div style="font-size:1.15rem; font-weight:700; color:#FFFFFF; margin-top:0.35rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              #${(camp.currentIndex || 0) + 1} ${nextSpot?.name || "-"}
+            </div>
+            <div style="font-size:0.75rem; color:#A5B4FC; margin-top:0.2rem;">${nextSpot?.dish || ""}</div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div style="margin-top:1rem;">
+          <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; margin-bottom:0.4rem; color:#E0E7FF;">
+            <span>ความคืบหน้าแคมเปญ 100 ร้าน</span>
+            <span>${completedCount} / ${targetCount} ร้าน (${pct}%)</span>
+          </div>
+          <div style="background:rgba(0, 0, 0, 0.3); border-radius:999px; height:20px; overflow:hidden; padding:3px; border:1px solid rgba(255, 255, 255, 0.15);">
+            <div style="width:${Math.max(pct, 2)}%; height:100%; border-radius:999px; background:linear-gradient(90deg, #FACC15 0%, #FA4616 100%); transition:width 0.4s ease; box-shadow:0 0 12px rgba(250, 70, 22, 0.5);"></div>
+          </div>
+        </div>
+
+        <!-- Controls Toolbar -->
+        <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255, 255, 255, 0.15); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+            ${isRunning ? `
+              <button
+                class="btn"
+                style="background:#F59E0B; color:#FFFFFF; font-weight:800; border:none; border-radius:12px; padding:0.65rem 1.35rem; cursor:pointer;"
+                onclick="window.igPauseCampaign()"
+              >
+                ⏸️ หยุดพักแคมเปญ (Pause)
+              </button>
+            ` : `
+              <button
+                class="btn"
+                style="background:linear-gradient(135deg, #FA4616, #FF6B3D); color:#FFFFFF; font-weight:800; border:none; border-radius:12px; padding:0.65rem 1.45rem; cursor:pointer; box-shadow:0 4px 14px rgba(250, 70, 22, 0.4);"
+                onclick="window.igStartCampaign()"
+                ${isCompleted ? "disabled" : ""}
+              >
+                ▶️ เริ่มแคมเปญ 100 ร้านอัตโนมัติ
+              </button>
+            `}
+
+            <button
+              class="btn"
+              style="background:rgba(255,255,255,0.15); color:#FFFFFF; font-weight:700; border:1px solid rgba(255,255,255,0.25); border-radius:12px; padding:0.65rem 1.25rem; cursor:pointer;"
+              onclick="window.igPostNextCampaign()"
+              ${isCompleted ? "disabled" : ""}
+            >
+              ⚡ โพสต์ร้านถัดไปทันที (Post Next)
+            </button>
+
+            <button
+              class="btn"
+              style="background:transparent; color:#FCA5A5; font-weight:600; border:1px solid rgba(239,68,68,0.4); border-radius:12px; padding:0.65rem 1rem; cursor:pointer;"
+              onclick="window.igResetCampaign()"
+            >
+              🔄 รีเซ็ตแคมเปญ
+            </button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <label style="font-size:0.85rem; color:#C7D2FE; font-weight:600;">ความถี่:</label>
+            <select
+              style="background:rgba(255,255,255,0.15); color:#FFFFFF; border:1px solid rgba(255,255,255,0.3); border-radius:10px; padding:0.45rem 0.85rem; font-size:0.85rem; font-weight:700; cursor:pointer; outline:none;"
+              onchange="window.igSetCampaignInterval(this.value)"
+            >
+              <option value="2" ${intervalMin === 2 ? "selected" : ""} style="color:#000;">⚡ ทุกๆ 2 นาที (ตามคำขอ)</option>
+              <option value="5" ${intervalMin === 5 ? "selected" : ""} style="color:#000;">ทุกๆ 5 นาที</option>
+              <option value="10" ${intervalMin === 10 ? "selected" : ""} style="color:#000;">ทุกๆ 10 นาที</option>
+              <option value="15" ${intervalMin === 15 ? "selected" : ""} style="color:#000;">ทุกๆ 15 นาที</option>
+              <option value="20" ${intervalMin === 20 ? "selected" : ""} style="color:#000;">ทุกๆ 20 นาที</option>
+              <option value="30" ${intervalMin === 30 ? "selected" : ""} style="color:#000;">ทุกๆ 30 นาที</option>
+            </select>
+            <button
+              class="btn btn-sm"
+              style="background:rgba(255,255,255,0.15); color:#FFFFFF; border:1px solid rgba(255,255,255,0.2); border-radius:10px; padding:0.45rem 0.75rem;"
+              onclick="window.igRefreshCampaign()"
+              title="รีเฟรชสถานะ"
+            >
+              🔄
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Punpro Guarantee & Info Banner -->
+      <div class="ig-card" style="background:#FFFBEB; border:1.5px solid #FDE68A;">
+        <div style="display:flex; gap:1rem; align-items:flex-start;">
+          <div style="font-size:2rem; line-height:1;">✨</div>
+          <div style="flex:1;">
+            <h3 style="font-size:1.05rem; font-weight:800; color:#92400E; margin-bottom:0.35rem;">
+              📸 มาตรฐานการโปรโมทสไตล์ "ปันโปรชวนชิม" (@punpromotion)
+            </h3>
+            <div style="font-size:0.88rem; color:#78350F; line-height:1.7;">
+              • <strong>ภาพถ่ายอาหารจริงเต็มเฟรม 1080x1350:</strong> รูปอาหารน่ากิน ไม่ใช้ภาพตัดแปะลอยๆ<br/>
+              • <strong>ป้ายหัวข้อสีเหลืองสดเด่นชัด:</strong> สไตล์ปันโปรสะดุดตาทุก Feed เลื่อนผ่านต้องหยุดดู<br/>
+              • <strong>สติกเกอร์ราคาเอียง -7°:</strong> ดีไซน์เอกลักษณ์บอกราคาชัดเจน เช่น <code>40.-</code>, <code>50.-</code> อิ่มคุ้มงบเด็ก มจธ.<br/>
+              • <strong>แคปชั่นนักรีวิวตัวจริง:</strong> บอก 3 เหตุผลป้ายยา แนะนำเมนูเด็ด ปักหมุดพิกัดอาคาร/ซอยอย่างแม่นยำ พร้อมแฮชแท็กครบชุด<br/>
+              • <strong>หยุดเองอัตโนมัติเมื่อครบ 100 ร้าน:</strong> ระบบนับจำนวนและตัดการทำงานอัตโนมัติทันทีเมื่อโพสต์ครบเป้าหมาย
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Directory of 100 Spots -->
+      <div class="ig-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+          <div>
+            <div class="ig-card-title" style="margin-bottom:0.25rem;">
+              <span>🍽️ รายชื่อร้านค้าในแคมเปญ 100 ร้าน (ครอบคลุมในและรอบ มจธ.)</span>
+            </div>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin:0;">
+              แสดง ${filteredSpots.length} จากทั้งหมด 100 ร้านค้า
+            </p>
+          </div>
+
+          <!-- Status Filter -->
+          <div style="display:flex; gap:0.5rem;">
+            <button
+              class="btn btn-sm ${selectedStatus === "ALL" ? "btn-primary" : "btn-outline"}"
+              style="border-radius:10px; font-size:0.8rem; font-weight:700;"
+              onclick="window.igSetCampaignFilterStatus('ALL')"
+            >
+              ทั้งหมด (100)
+            </button>
+            <button
+              class="btn btn-sm ${selectedStatus === "posted" ? "btn-primary" : "btn-outline"}"
+              style="border-radius:10px; font-size:0.8rem; font-weight:700;"
+              onclick="window.igSetCampaignFilterStatus('posted')"
+            >
+              ✅ โพสต์แล้ว (${completedCount})
+            </button>
+            <button
+              class="btn btn-sm ${selectedStatus === "queued" ? "btn-primary" : "btn-outline"}"
+              style="border-radius:10px; font-size:0.8rem; font-weight:700;"
+              onclick="window.igSetCampaignFilterStatus('queued')"
+            >
+              ⏳ ในคิว (${targetCount - completedCount})
+            </button>
+          </div>
+        </div>
+
+        <!-- Zone Filters -->
+        <div style="display:flex; gap:0.5rem; overflow-x:auto; padding-bottom:0.75rem; margin-bottom:1.25rem;">
+          ${zoneFilters.map((zf) => `
+            <button
+              class="btn btn-sm ${selectedZone === zf.id ? "btn-primary" : "btn-cream"}"
+              style="border-radius:999px; font-size:0.78rem; font-weight:700; white-space:nowrap;"
+              onclick="window.igSetCampaignFilterZone('${zf.id}')"
+            >
+              ${zf.label}
+            </button>
+          `).join("")}
+        </div>
+
+        <!-- Spots Grid / List -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:1rem;">
+          ${filteredSpots.map((spot) => {
+            const isPosted = spot.posted;
+            const spotNum = String(spot.index + 1).padStart(2, "0");
+            return `
+              <div style="border:1.5px solid ${isPosted ? "#86EFAC" : "var(--border)"}; background:${isPosted ? "#F0FDF4" : "#FFFFFF"}; border-radius:14px; padding:1rem; display:flex; gap:0.85rem; align-items:center; transition:all 0.2s ease;">
+                <div style="position:relative; width:68px; height:68px; border-radius:12px; overflow:hidden; flex-shrink:0; background:#F1F5F9;">
+                  <img src="${spot.image}" alt="${spot.name}" style="width:100%; height:100%; object-fit:cover;" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80'" />
+                  <span style="position:absolute; top:4px; left:4px; background:rgba(0,0,0,0.7); color:#FFFFFF; font-size:0.65rem; font-weight:800; padding:1px 5px; border-radius:4px;">
+                    #${spotNum}
+                  </span>
+                </div>
+
+                <div style="flex:1; min-width:0;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem; margin-bottom:0.2rem;">
+                    <span style="font-size:0.72rem; font-weight:700; padding:0.15rem 0.45rem; border-radius:6px; background:${isPosted ? "#DCFCE7" : "#F1F5F9"}; color:${isPosted ? "#15803D" : "#475569"};">
+                      ${spot.zone}
+                    </span>
+                    <span style="font-size:0.72rem; font-weight:800; padding:0.15rem 0.45rem; border-radius:6px; background:#FEF08A; color:#854D0E;">
+                      ${spot.price}
+                    </span>
+                  </div>
+
+                  <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-main); margin-bottom:0.15rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    ${spot.name}
+                  </h4>
+
+                  <p style="font-size:0.8rem; color:#64748B; margin-bottom:0.4rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                    🍽️ ${spot.dish}
+                  </p>
+
+                  <div style="display:flex; align-items:center; justify-content:space-between;">
+                    <span style="font-size:0.72rem; color:#94A3B8;">📍 ${spot.location}</span>
+                    <span style="font-size:0.72rem; font-weight:700; color:${isPosted ? "#15803D" : "#94A3B8"};">
+                      ${isPosted ? "✅ โพสต์สำเร็จ" : "⏳ ในคิว"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderIgHistoryTab() {
+  const ig = state.igStudio;
+  const history = ig.history || [];
+
+  return `
+    <div class="ig-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+        <div class="ig-card-title" style="margin-bottom:0;">
+          <span>📋 ประวัติการโพสต์ย้อนหลัง (${history.length} รายการ)</span>
+        </div>
+        <button
+          class="btn btn-sm btn-outline"
+          style="border-radius:10px; font-weight:600;"
+          onclick="window.igRefreshHistory()"
+        >
+          🔄 รีเฟรชรายการ
+        </button>
+      </div>
+
+      ${history.length === 0 ? `
+        <div style="text-align:center; padding:3rem 1rem; color:var(--text-muted);">
+          <div style="font-size:2.5rem; margin-bottom:0.5rem;">📭</div>
+          <div style="font-weight:600; font-size:1.1rem; color:var(--text-main);">ยังไม่มีประวัติการโพสต์</div>
+          <div style="font-size:0.88rem; margin-top:0.35rem;">ทดลองสร้างและโพสต์ภาพแรกได้ที่แท็บ "สตูดิโอสร้างโพสต์"</div>
+          <button class="btn btn-primary btn-sm" style="margin-top:1rem; border-radius:10px;" onclick="window.igSetTab('studio')">
+            ไปที่สตูดิโอสร้างโพสต์ →
+          </button>
+        </div>
+      ` : `
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          ${history.map((post) => {
+            const isLive = post.status === "published";
+            const dateStr = new Date(post.timestamp).toLocaleString("th-TH", { timeZone: "Asia/Bangkok" });
+            return `
+              <div style="display:flex; gap:1.25rem; padding:1.25rem; border:1.5px solid var(--border); border-radius:16px; background:#FFFFFF; align-items:flex-start; flex-wrap:wrap;">
+                <img
+                  src="${post.posterUrl}"
+                  alt="${post.title}"
+                  style="width:90px; height:112px; object-fit:cover; border-radius:10px; border:1px solid #E2E8F0; flex-shrink:0;"
+                />
+                <div style="flex:1; min-width:240px;">
+                  <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.35rem; flex-wrap:wrap;">
+                    <span style="font-size:0.75rem; font-weight:700; padding:0.2rem 0.55rem; border-radius:6px; background:${isLive ? "#DCFCE7" : "#EFF6FF"}; color:${isLive ? "#166534" : "#1D4ED8"};">
+                      ${isLive ? "✅ เผยแพร่แล้ว (LIVE)" : "🧪 จำลอง (SIMULATED)"}
+                    </span>
+                    <span style="font-size:0.78rem; color:var(--text-muted);">🕒 ${dateStr}</span>
+                  </div>
+
+                  <h3 style="font-size:1.05rem; font-weight:700; color:var(--text-main); margin-bottom:0.4rem;">
+                    ${post.title || "โพสต์โปรโมท มจธ."}
+                  </h3>
+
+                  <p style="font-size:0.85rem; color:#475569; max-height:4.2em; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; margin-bottom:0.75rem;">
+                    ${post.caption || ""}
+                  </p>
+
+                  <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+                    ${post.permalink ? `
+                      <a href="${post.permalink}" target="_blank" class="btn btn-sm btn-outline" style="border-radius:8px; font-size:0.78rem; font-weight:600; text-decoration:none;">
+                        🔗 เปิดดูบน Instagram ↗
+                      </a>
+                    ` : ""}
+                    <a href="${post.posterUrl}" download="kmutt-poster.png" class="btn btn-sm btn-cream" style="border-radius:8px; font-size:0.78rem; font-weight:600; text-decoration:none;">
+                      📥 ดาวน์โหลดภาพ
+                    </a>
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `}
+    </div>
+  `;
+}
+
+// Interactive Handlers for Instagram Studio
+window.igSetTab = (tab) => {
+  state.igStudio.activeTab = tab;
+  renderApp();
+};
+
+window.igSetTargetType = (type) => {
+  state.igStudio.targetType = type;
+  window.igRegenerateAll();
+};
+
+window.igSelectShop = (shopId) => {
+  state.igStudio.selectedShopId = shopId;
+  const products = (state.db?.products || []).filter((p) => p.shop_id === shopId);
+  const recProduct = products.find((p) => p.is_recommended) || products[0];
+  state.igStudio.selectedProductId = recProduct ? recProduct.id : "";
+  window.igRegenerateAll();
+};
+
+window.igSelectProduct = (productId) => {
+  state.igStudio.selectedProductId = productId;
+  window.igRegenerateAll();
+};
+
+window.igRandomShop = () => {
+  const shops = state.db?.shops || [];
+  if (shops.length === 0) return;
+  const randomShop = shops[Math.floor(Math.random() * shops.length)];
+  window.igSelectShop(randomShop.id);
+};
+
+window.igSelectEvent = (eventId) => {
+  state.igStudio.selectedEventId = eventId;
+  window.igRegenerateAll();
+};
+
+window.igSelectTheme = (themeKey) => {
+  state.igStudio.themeKey = themeKey;
+  window.igRegeneratePoster();
+};
+
+window.igSelectTone = (tone) => {
+  state.igStudio.tone = tone;
+  window.igRegenerateCaption();
+};
+
+window.igUpdateCustomHeadline = (val) => {
+  state.igStudio.customHeadline = val;
+};
+
+window.igUpdateCaption = (val) => {
+  state.igStudio.caption = val;
+  // Update live caption in preview without losing focus
+  const previewBox = document.querySelector(".ig-feed-caption-box span:nth-child(2)");
+  if (previewBox) {
+    previewBox.innerHTML = formatIgCaption(val, state.igStudio.isCaptionExpanded);
+  }
+};
+
+window.igToggleLike = () => {
+  state.igStudio.isLiked = !state.igStudio.isLiked;
+  renderApp();
+};
+
+window.igToggleCaptionExpand = () => {
+  state.igStudio.isCaptionExpanded = !state.igStudio.isCaptionExpanded;
+  renderApp();
+};
+
+window.igDismissStatus = () => {
+  state.igStudio.statusMessage = "";
+  renderApp();
+};
+
+window.igRegeneratePoster = async () => {
+  const ig = state.igStudio;
+  ig.isGenerating = true;
+  renderApp();
+  try {
+    const res = await fetch("/api/instagram/generate-poster", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        shopId: ig.targetType === "shop" ? ig.selectedShopId : null,
+        productId: ig.targetType === "shop" && ig.selectedProductId ? ig.selectedProductId : null,
+        marketEventId: ig.targetType === "event" ? ig.selectedEventId : null,
+        themeKey: ig.themeKey,
+        customHeadline: ig.customHeadline,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      ig.posterUrl = data.poster.url;
+    }
+  } catch (err) {
+    console.error("Poster generation error:", err);
+  } finally {
+    ig.isGenerating = false;
+    renderApp();
+  }
+};
+
+window.igRegenerateCaption = async () => {
+  const ig = state.igStudio;
+  ig.isGenerating = true;
+  renderApp();
+  try {
+    const res = await fetch("/api/instagram/generate-caption", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        shopId: ig.targetType === "shop" ? ig.selectedShopId : null,
+        productId: ig.targetType === "shop" && ig.selectedProductId ? ig.selectedProductId : null,
+        marketEventId: ig.targetType === "event" ? ig.selectedEventId : null,
+        tone: ig.tone,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      ig.caption = data.caption;
+    }
+  } catch (err) {
+    console.error("Caption generation error:", err);
+  } finally {
+    ig.isGenerating = false;
+    renderApp();
+  }
+};
+
+window.igRegenerateAll = async () => {
+  const ig = state.igStudio;
+  ig.isGenerating = true;
+  renderApp();
+  try {
+    const payload = {
+      shopId: ig.targetType === "shop" ? ig.selectedShopId : null,
+      productId: ig.targetType === "shop" && ig.selectedProductId ? ig.selectedProductId : null,
+      marketEventId: ig.targetType === "event" ? ig.selectedEventId : null,
+      themeKey: ig.themeKey,
+      tone: ig.tone,
+      customHeadline: ig.customHeadline,
+    };
+
+    const [pRes, cRes] = await Promise.all([
+      fetch("/api/instagram/generate-poster", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }),
+      fetch("/api/instagram/generate-caption", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }),
+    ]);
+
+    if (pRes.ok) {
+      const pData = await pRes.json();
+      ig.posterUrl = pData.poster.url;
+    }
+    if (cRes.ok) {
+      const cData = await cRes.json();
+      ig.caption = cData.caption;
+    }
+  } catch (err) {
+    console.error("Error regenerating all:", err);
+  } finally {
+    ig.isGenerating = false;
+    renderApp();
+  }
+};
+
+window.igDownloadPoster = () => {
+  const ig = state.igStudio;
+  if (!ig.posterUrl) return;
+  const a = document.createElement("a");
+  a.href = ig.posterUrl;
+  a.download = `kmutt-poster-${Date.now()}.png`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+
+window.igCopyCaption = () => {
+  const ig = state.igStudio;
+  if (!ig.caption) return;
+  navigator.clipboard.writeText(ig.caption).then(() => {
+    ig.statusMessage = "📋 คัดลอกแคปชั่นสำหรับโพสต์ Instagram ลงคลิปบอร์ดแล้ว!";
+    renderApp();
+    setTimeout(() => {
+      ig.statusMessage = "";
+      renderApp();
+    }, 4000);
+  }).catch(() => {
+    alert("ไม่สามารถคัดลอกลงคลิปบอร์ดได้อัตโนมัติ กรุณากดคัดลอกด้วยตนเอง");
+  });
+};
+
+window.igPublishNow = async (isSimulation = false) => {
+  const ig = state.igStudio;
+  if (!ig.posterUrl) {
+    alert("กรุณาสร้างภาพโปสเตอร์ก่อนดำเนินการโพสต์");
+    return;
+  }
+
+  ig.isPublishing = true;
+  renderApp();
+
+  try {
+    const selectedShop = (state.db?.shops || []).find((s) => s.id === ig.selectedShopId);
+    const selectedEvent = (state.db?.market_events || []).find((e) => e.id === ig.selectedEventId);
+    const title = ig.targetType === "event" ? selectedEvent?.name : selectedShop?.name;
+
+    const res = await fetch("/api/instagram/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        imageUrl: ig.posterUrl,
+        caption: ig.caption,
+        isSimulation,
+        title,
+        targetType: ig.targetType,
+        targetId: ig.targetType === "event" ? ig.selectedEventId : ig.selectedShopId,
+        theme: ig.themeKey,
+        tone: ig.tone,
+      }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      ig.statusMessage = isSimulation
+        ? "🧪 จำลองการโพสต์สำเร็จ! บันทึกประวัติและตรวจสอบเรียบร้อยแล้ว"
+        : `🎉 เผยแพร่โพสต์ลง Instagram สำเร็จแล้ว! (${data.publishResult?.id || ""})`;
+      
+      // Update history
+      const histRes = await fetch("/api/instagram/posts");
+      if (histRes.ok) {
+        const histData = await histRes.json();
+        ig.history = histData.posts || [];
+      }
+    } else {
+      alert(`ไม่สามารถเผยแพร่ได้: ${data.error || "เกิดข้อผิดพลาดในการเชื่อมต่อ"}`);
+    }
+  } catch (err) {
+    alert(`เกิดข้อผิดพลาด: ${err.message}`);
+  } finally {
+    ig.isPublishing = false;
+    renderApp();
+  }
+};
+
+window.igSaveSchedulerSettings = async (form) => {
+  const formData = new FormData(form);
+  const autoPilotEnabled = formData.get("autoPilotEnabled") === "on";
+  const scheduleTime = formData.get("scheduleTime");
+  const marketAlertTime = formData.get("marketAlertTime");
+
+  try {
+    const res = await fetch("/api/instagram/config", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        autoPilotEnabled,
+        scheduleTime,
+        marketAlertTime,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      state.igStudio.config = data.config;
+      state.igStudio.statusMessage = "💾 บันทึกการตั้งค่าตารางเวลาโพสต์อัตโนมัติเรียบร้อยแล้ว!";
+      renderApp();
+    }
+  } catch (err) {
+    alert(`บันทึกไม่สำเร็จ: ${err.message}`);
+  }
+};
+
+window.igSaveApiSettings = async (form) => {
+  const formData = new FormData(form);
+  const accountId = formData.get("accountId")?.trim();
+  const accessToken = formData.get("accessToken")?.trim();
+  const publicBaseUrl = formData.get("publicBaseUrl")?.trim();
+  const geminiApiKey = formData.get("geminiApiKey")?.trim();
+
+  try {
+    const res = await fetch("/api/instagram/config", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        accountId,
+        accessToken,
+        publicBaseUrl,
+        geminiApiKey,
+      }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      state.igStudio.config = data.config;
+      state.igStudio.statusMessage = "💾 บันทึกข้อมูลเชื่อมต่อ Meta API Credentials เรียบร้อยแล้ว!";
+      renderApp();
+    }
+  } catch (err) {
+    alert(`บันทึกไม่สำเร็จ: ${err.message}`);
+  }
+};
+
+window.igTestConnection = async () => {
+  const ig = state.igStudio;
+  const cfg = ig.config || {};
+  if (!cfg.accountId || !cfg.accessToken) {
+    alert("กรุณากรอก Instagram Account ID และ Access Token ก่อนทำการทดสอบ");
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/instagram/test-connection", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        accountId: cfg.accountId,
+        accessToken: cfg.accessToken,
+      }),
+    });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      alert(`✅ เชื่อมต่อ Instagram สำเร็จ!\nชื่อบัญชี: @${data.account.username}\nผู้ติดตาม: ${data.account.followersCount} คน\nจำนวนโพสต์: ${data.account.mediaCount} โพสต์`);
+    } else {
+      alert(`❌ การเชื่อมต่อล้มเหลว:\n${data.error || "ไม่สามารถติดต่อ Instagram API ได้"}`);
+    }
+  } catch (err) {
+    alert(`เกิดข้อผิดพลาดในการทดสอบ: ${err.message}`);
+  }
+};
+
+window.igRefreshHistory = async () => {
+  try {
+    const res = await fetch("/api/instagram/posts");
+    if (res.ok) {
+      const data = await res.json();
+      state.igStudio.history = data.posts || [];
+      renderApp();
+    }
+  } catch (err) {
+    console.error("Failed to refresh history:", err);
+  }
+};
+
+
 function renderFooter() {
   return `
     <footer class="site-footer">
@@ -1679,6 +3162,7 @@ function renderMainView() {
   if (p === "/market/schedule" || p === "/market") return renderMarketSchedulePage();
   if (p === "/favorites") return renderFavoritesPage();
   if (p === "/about" || p === "/contact") return renderAboutAndContactPage();
+  if (p === "/instagram" || p === "/admin/instagram" || p === "/marketing") return renderInstagramAutomationPage();
   return renderHomePage();
 }
 
@@ -1812,6 +3296,10 @@ function renderMobileDrawer() {
               <span>🏛️ เกี่ยวกับโครงการ & ติดต่อ BPUU</span>
               <span>→</span>
             </a>
+            <a class="drawer-nav-item ${p.startsWith("/instagram") ? "active" : ""}" style="color:var(--kmutt-orange); font-weight:700;" onclick="window.appNavigate('/instagram')">
+              <span>📸 IG Automation (สร้างโพสต์และโปรโมท)</span>
+              <span>→</span>
+            </a>
           </div>
 
           <div style="margin-top:1.1rem; padding:0.9rem; background:var(--kmutt-light-orange); border-radius:12px; border:1px solid var(--kmutt-warm-border);">
@@ -1888,22 +3376,61 @@ window.appSubmitHeroSearch = (customInputId) => {
 };
 
 window.appQuickFilterZone = (zone) => {
+  state.shopFilters = {
+    q: "",
+    category: "ALL",
+    zone: "ALL",
+    type: "ALL",
+    day: "ALL",
+    status: "ALL",
+    verifiedOnly: false,
+    sort: "recommended",
+  };
   if (zone === "CAFES") {
-    state.shopFilters.category = "CAT-CAFE";
-    state.shopFilters.zone = "ALL";
+    state.shopFilters.type = "cafe";
+  } else if (zone === "S2") {
+    state.shopFilters.zone = "S2";
+    state.shopFilters.type = "market_stall";
   } else {
     state.shopFilters.zone = zone;
-    state.shopFilters.category = "ALL";
   }
-  navigate("/shops");
+  if (state.route === "/shops") {
+    renderApp();
+  } else {
+    navigate("/shops");
+  }
+};
+
+window.appFilterS2Market = () => {
+  if (state.shopFilters.type === "market_stall") {
+    window.appResetShopFilters();
+  } else {
+    state.shopFilters = {
+      q: "",
+      category: "ALL",
+      zone: "S2",
+      type: "market_stall",
+      day: "ALL",
+      status: "ALL",
+      verifiedOnly: false,
+      sort: "recommended",
+    };
+    if (state.route === "/shops") {
+      renderApp();
+    } else {
+      navigate("/shops");
+    }
+  }
 };
 
 window.appQuickSearch = (keyword) => {
+  window.appResetShopFilters();
   state.shopFilters.q = keyword;
   navigate("/shops");
 };
 
 window.appFilterByCategory = (catId) => {
+  window.appResetShopFilters();
   state.shopFilters.category = catId;
   navigate("/shops");
 };
@@ -1976,3 +3503,225 @@ if (window.__INITIAL_DB__) {
 } else {
   fetchDatabase();
 }
+
+
+// Direct Browser Bot Handlers (Username & Password - No Token)
+window.igBrowserLogin = async (form) => {
+  const formData = new FormData(form);
+  const username = formData.get("username")?.trim();
+  const password = formData.get("password")?.trim();
+
+  if (!username || !password) {
+    alert("กรุณากรอก Username และ Password ของ Instagram");
+    return;
+  }
+
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "⏳ กำลังเปิดเบราว์เซอร์เข้าสู่ระบบ...";
+
+  try {
+    const res = await fetch("/api/instagram/browser-login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      state.igStudio.statusMessage = "🎉 เข้าสู่ระบบ Instagram และบันทึก Session เรียบร้อยแล้ว! สามารถสั่งโพสต์อัตโนมัติได้ทันที";
+      // Refresh config
+      const cfgRes = await fetch("/api/instagram/config");
+      if (cfgRes.ok) {
+        const cfgData = await cfgRes.json();
+        state.igStudio.config = cfgData.config;
+      }
+      renderApp();
+    } else {
+      alert(`เข้าสู่ระบบไม่สำเร็จ: ${data.error || "โปรดตรวจสอบ Username และ Password"}`);
+    }
+  } catch (err) {
+    alert(`เกิดข้อผิดพลาดในการเชื่อมต่อ: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalText;
+  }
+};
+
+window.igPublishWithBrowserBot = async () => {
+  const ig = state.igStudio;
+  if (!ig.posterUrl) {
+    alert("กรุณาสร้างภาพโปสเตอร์ก่อนทำการโพสต์");
+    return;
+  }
+
+  const cfg = ig.config || {};
+  if (!cfg.igUsername || !cfg.igPassword) {
+    const goToSettings = confirm("ยังไม่ได้ตั้งค่า Username/Password ของ Instagram!\nคุณต้องการไปที่หน้าตั้งค่าเพื่อกรอก Username & Password ตอนนี้เลยหรือไม่?");
+    if (goToSettings) {
+      window.igSetTab("scheduler");
+    }
+    return;
+  }
+
+  ig.isPublishing = true;
+  renderApp();
+
+  try {
+    const selectedShop = (state.db?.shops || []).find((s) => s.id === ig.selectedShopId);
+    const selectedEvent = (state.db?.market_events || []).find((e) => e.id === ig.selectedEventId);
+    const title = ig.targetType === "event" ? selectedEvent?.name : selectedShop?.name;
+
+    const res = await fetch("/api/instagram/browser-publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        posterUrl: ig.posterUrl,
+        caption: ig.caption,
+        title,
+        targetType: ig.targetType,
+        targetId: ig.targetType === "event" ? ig.selectedEventId : ig.selectedShopId,
+        theme: ig.themeKey,
+        tone: ig.tone,
+        headless: false, // Show Chrome so user can see the post happening live!
+      }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      ig.statusMessage = "🎉 บอทเปิด Chrome โพสต์ภาพและแคปชั่นลง Instagram สำเร็จเรียบร้อยแล้ว!";
+      // Update history
+      const histRes = await fetch("/api/instagram/posts");
+      if (histRes.ok) {
+        const histData = await histRes.json();
+        ig.history = histData.posts || [];
+      }
+    } else {
+      alert(`โพสต์ไม่สำเร็จ: ${data.error || "เกิดข้อผิดพลาดในการเปิดเบราว์เซอร์"}`);
+    }
+  } catch (err) {
+    alert(`เกิดข้อผิดพลาด: ${err.message}`);
+  } finally {
+    ig.isPublishing = false;
+    renderApp();
+  }
+};
+
+// --- Handlers for 100-Post Campaign ---
+window.igSetCampaignFilterZone = (zone) => {
+  state.igStudio.campaignFilterZone = zone;
+  renderApp();
+};
+
+window.igSetCampaignFilterStatus = (status) => {
+  state.igStudio.campaignFilterStatus = status;
+  renderApp();
+};
+
+window.igSetCampaignInterval = (val) => {
+  state.igStudio.campaignIntervalMinutes = Number(val);
+};
+
+window.igRefreshCampaign = async () => {
+  try {
+    const res = await fetch("/api/instagram/campaign");
+    if (res.ok) {
+      const data = await res.json();
+      state.igStudio.campaign = data.campaign || null;
+      state.igStudio.campaignSpots = data.spots || [];
+      renderApp();
+    }
+  } catch (e) {
+    console.error("Failed to refresh campaign:", e);
+  }
+};
+
+window.igStartCampaign = async () => {
+  const ig = state.igStudio;
+  const intervalMinutes = ig.campaignIntervalMinutes || 5;
+
+  const confirmed = confirm(
+    `🚀 ยืนยันการเริ่มแคมเปญโพสต์อัตโนมัติ 100 ร้าน?\n\n` +
+    `• ความถี่: ทุกๆ ${intervalMinutes} นาที (เพื่อความปลอดภัย ไม่โดน IG บล็อก)\n` +
+    `• สไตล์: ปันโปร (@punpromotion) รูปอาหารจริง + ป้ายเหลือง + แคปชั่นบล็อกเกอร์\n` +
+    `• หยุดอัตโนมัติ: เมื่อครบ 100 ร้านแล้วระบบจะหยุดทันที\n\n` +
+    `กด OK เพื่อเริ่มการทำงานทันที`
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch("/api/instagram/campaign/start", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ intervalMinutes }),
+    });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      ig.statusMessage = `🚀 แคมเปญโพสต์อัตโนมัติ 100 ร้านเริ่มทำงานแล้ว! กำลังโพสต์ร้านแรกและจะโพสต์ต่อเนื่องทุกๆ ${intervalMinutes} นาที`;
+      await window.igRefreshCampaign();
+    } else {
+      alert(`ไม่สามารถเริ่มแคมเปญได้: ${data.error || "เกิดข้อผิดพลาด"}`);
+    }
+  } catch (err) {
+    alert(`ข้อผิดพลาด: ${err.message}`);
+  }
+};
+
+window.igPauseCampaign = async () => {
+  try {
+    const res = await fetch("/api/instagram/campaign/pause", { method: "POST" });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      state.igStudio.statusMessage = "⏸️ หยุดการทำงานของแคมเปญชั่วคราวแล้ว";
+      await window.igRefreshCampaign();
+    }
+  } catch (err) {
+    alert(`ข้อผิดพลาด: ${err.message}`);
+  }
+};
+
+window.igPostNextCampaign = async () => {
+  const confirmed = confirm("⚡ ยืนยันการโพสต์ร้านถัดไปในคิวทันทีหรือไม่?");
+  if (!confirmed) return;
+
+  state.igStudio.statusMessage = "⏳ กำลังสร้างโปสเตอร์สไตล์ปันโปรและโพสต์ขึ้น Instagram กรุณารอสักครู่...";
+  renderApp();
+
+  try {
+    const res = await fetch("/api/instagram/campaign/post-next", { method: "POST" });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      state.igStudio.statusMessage = `🎉 โพสต์ร้านถัดไปสำเร็จเรียบร้อย! (ความคืบหน้า: ${data.postResult?.progress || ""})`;
+      await window.igRefreshCampaign();
+      // refresh post history
+      const histRes = await fetch("/api/instagram/posts");
+      if (histRes.ok) {
+        const histData = await histRes.json();
+        state.igStudio.history = histData.posts || [];
+      }
+      renderApp();
+    } else {
+      alert(`ไม่สามารถโพสต์ได้: ${data.error || "เกิดข้อผิดพลาด"}`);
+    }
+  } catch (err) {
+    alert(`ข้อผิดพลาด: ${err.message}`);
+  }
+};
+
+window.igResetCampaign = async () => {
+  const confirmed = confirm("⚠️ ยืนยันการรีเซ็ตแคมเปญกลับเป็น 0 หรือไม่?\n(ประวัติและตัวนับจะเริ่มใหม่ตั้งแต่ร้านที่ 1)");
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch("/api/instagram/campaign/reset", { method: "POST" });
+    const data = await res.json();
+    if (res.ok && data.ok) {
+      state.igStudio.statusMessage = "🔄 รีเซ็ตแคมเปญ 100 ร้านกลับเป็น 0 เรียบร้อยแล้ว";
+      await window.igRefreshCampaign();
+    }
+  } catch (err) {
+    alert(`ข้อผิดพลาด: ${err.message}`);
+  }
+};

@@ -3,6 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { INITIAL_DATABASE_STATE } from "./data/seed-data.mjs";
+import { handleInstagramApi } from "./services/instagram-api-handler.mjs";
+import { initScheduler } from "./services/instagram-scheduler.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -55,9 +57,15 @@ const MIME_TYPES = {
   ".ico": "image/x-icon",
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   const urlObj = new URL(req.url || "/", `http://localhost:${PORT}`);
   const pathname = decodeURIComponent(urlObj.pathname);
+
+  // Instagram Automation API Routes
+  if (pathname.startsWith("/api/instagram/")) {
+    const handled = await handleInstagramApi(req, res, pathname);
+    if (handled) return;
+  }
 
   // API Route: GET / POST /api/market-data
   if (pathname === "/api/market-data") {
@@ -151,4 +159,5 @@ server.on("error", (err) => {
 
 server.listen(currentPort, HOST, () => {
   console.log(`KMUTT MARKET Server running at http://${HOST}:${currentPort}`);
+  initScheduler();
 });
